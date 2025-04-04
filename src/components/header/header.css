@@ -1,0 +1,78 @@
+.Headerbody{
+    width: 100%;
+    height: 11.5vh;
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    background-color: #FFFFFF;
+}
+
+.Headermain{
+    width: 86%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Headerdiv1{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.Headerdiv2{
+    width: 32%;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #A1A1A1;
+
+     .Headerdiv2input{
+        width: 80%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
+    .Headerdiv2icon{
+        color: #828282;
+        font-size: 25px;
+    }
+}
+.Headerdiv3{
+    width: 36%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    .Headerdiv3XX{
+        font-size: 18px;
+        color: #1E398A;
+        font-weight: 450;
+    }
+    .Headerdiv3X{
+        color: #000000;
+        font-size: 18px;
+        font-weight: 300;
+    }
+}
+.Headerdiv3span{
+    width: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    border-radius: 50%;
+    /* background-color: green; */
+
+    .Headerdiv3spanicon{
+        width: 100%;
+       color: #1E398A;
+        height: 100%;
+    }
+}

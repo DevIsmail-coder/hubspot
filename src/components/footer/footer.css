@@ -1,0 +1,108 @@
+.Footerbody{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: sans-serif;
+    gap: 20px;
+    background-color: #1E3B8A;
+}
+
+.Footercontainer1{
+    width: 85%;
+    height: 270px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Footercontainer1span{
+    width: 20%;
+    display: flex;
+    margin-top: 75px;
+    flex-direction: column;
+    color: #FFFFFF;
+    gap: 23px;
+
+    & p{
+       font-weight: 100; 
+       color: #FFFFFF;
+    }
+
+    & h3{
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+}
+
+.Footercontainer2{
+    width: 88%;
+    height: 90px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+}
+
+.Footercontainer2span{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1E398A;
+    font-size: 20px;
+    background-color: #FFFFFF;
+}
+
+
+@media screen and (max-width: 800px) {
+    .Footerbody{
+        width: 100%;
+        display: flex;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        height: auto;
+        gap: 45px;
+        max-height: fit-content;
+
+        .Footercontainer1{
+            width: 100%;
+            height: 450px;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-direction: column;
+        }
+
+        .Footercontainer1span{
+            width: 50%;
+            gap: 10px;
+            margin-top: 0;
+
+
+            .Footercontainer1spanh3{
+                font-size: 18px;
+                font-weight: 400;
+            }
+            .Footercontainer1spanp{
+                font-size: 14px;
+            }
+        }
+
+        .Footercontainer2{
+            width: 100%;
+            justify-content: center;
+            gap: 15px;
+
+            .Footercontainer2span{
+                height: 78%;
+                width: 18%;
+                font-size: 27px;
+            }
+        }
+    }
+
+}
