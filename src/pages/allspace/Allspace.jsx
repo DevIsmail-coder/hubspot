@@ -13,7 +13,7 @@ import Footer from '../../components/footer/Footer';
 const Allspace = () => {
     return (
         <div className='Allspacebody'>
-            <Header />
+            {/* <Header /> */}
             <main className='Allspacemain'>
                 <article className='Allspacecontainer1'></article>
                 <article className='Allspacecontainer2'>
