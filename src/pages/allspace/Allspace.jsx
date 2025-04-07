@@ -9,11 +9,13 @@ import { IoStarSharp } from "react-icons/io5";
 import { getAll } from '../../components/hubdata';
 import { IoLocationOutline } from "react-icons/io5";
 import Footer from '../../components/footer/Footer';
-
+import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
+import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
+import { TextField, Box } from '@mui/material';
 const Allspace = () => {
     return (
         <div className='Allspacebody'>
-            <Header />
             <main className='Allspacemain'>
                 <article className='Allspacecontainer1'></article>
                 <article className='Allspacecontainer2'>
@@ -45,8 +47,30 @@ const Allspace = () => {
                                     </article>
                                     <article className='Allspacecontainer2wrapXXX2'>
                                         <div className='Allspacecontainer2wrapXXX2d1'>
-                                            <main className='Allspacecontainer2wrapXXX2d1main'>check in </main>
-                                            <main className='Allspacecontainer2wrapXXX2d1main'>check out</main>
+                                            <main className='Allspacecontainer2wrapXXX2d1main'>
+                                                {/* <p>check in</p> */}
+                                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                    <DateRangePicker 
+                                                    localeText={{ start: 'Check-in', end: 'check-out'}} 
+                                                    className='Allspacecontainer2wrapXXX2d1maindate' 
+                                                    disablePast
+                                                    slotProps={{
+                                                        textField: {
+                                                          variant: 'outlined',
+                                                          size: 'small',
+                                                          sx: {
+                                                            borderRadius: '4px',
+                                                            backgroundColor: '',
+                                                            fontSize: '10px',
+                                                            border: 'hidden'
+                                                          },
+                                                        },
+                                                      }}
+                                                    />
+                                                </LocalizationProvider>
+                                            </main>
+                                            {/* <main className='Allspacecontainer2wrapXXX2d1main'>check out
+                                            </main> */}
                                         </div>
                                         <div className='Allspacecontainer2wrapXXX2d2'>
                                             <main className='Allspacecontainer2wrapXXX2d2main1'><p>NGN 400/Hour</p></main>
@@ -84,7 +108,6 @@ const Allspace = () => {
                     }
                 </article>
             </main>
-            <Footer />
         </div>
     )
 }

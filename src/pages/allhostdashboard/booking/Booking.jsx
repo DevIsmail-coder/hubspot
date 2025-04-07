@@ -1,6 +1,7 @@
 import React from 'react'
+import './booking.css'
 
-const Hostdashboard = () => {
+const Booking = () => {
   return (
     <div>
       
@@ -8,4 +9,4 @@ const Hostdashboard = () => {
   )
 }
 
-export default Hostdashboard
+export default Booking

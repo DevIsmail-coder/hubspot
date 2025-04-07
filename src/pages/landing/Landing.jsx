@@ -1,19 +1,17 @@
 import React from 'react'
 import './landing.css'
-import Header from '../../components/header/Header'
 import { IoIosWifi } from "react-icons/io";
 import { GiCoffeeCup } from "react-icons/gi";
 import { MdSolarPower } from "react-icons/md";
 import { PiSecurityCameraFill } from "react-icons/pi";
 import userData from '../../components/hubdata';
 import Works from '../works/Works';
-import Footer from '../../components/footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Landing = () => {
-   
+   const navigate = useNavigate()
     return (
         <>
-            {/* <Header /> */}
             <div className='Landingbody'>
                 <div className='Landingcontainer1'>
                     <article className='Landingcontainer1XX'>
@@ -21,7 +19,7 @@ const Landing = () => {
                             <h1 className='Landingcontainer1XXh1'>Find The Perfect <span className='Landingcontainer1XXh1span'>Workspace</span> Anywhere in <span className='Landingcontainer1XXh1span'>Lagos</span></h1>
                             <p className='Landingcontainer1XXp'>Skip the long commutes and expensive offices. Discover affordable, verified
                                 coworking spaces and creative hubs built for productivity and collaboration near you.</p>
-                            <button className='Landingcontainer1XXcoverbut'>Find Your Space</button>
+                            <button className='Landingcontainer1XXcoverbut' onClick={() => navigate("/allspace")}>Find Your Space</button>
                         </main>
                     </article>
                     <article className='Landingcontainer1XXX'>
@@ -61,7 +59,6 @@ const Landing = () => {
                 </div>
                 <Works />
             </div>
-            <Footer />
         </>
     )
 }
