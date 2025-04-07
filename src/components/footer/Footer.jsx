@@ -10,7 +10,7 @@ const Footer = () => {
     <div className='Footerbody'>
       <div className='Footercontainer1'>
         <span className='Footercontainer1span'>
-        <img src='/public/Frame 2529 (1).png'/>
+        <img src='√/Frame 2529 (1).png'/>
         </span>
         <span className='Footercontainer1span'>
           <h3 className='Footercontainer1spanh3'>Terms & Conditions</h3>
