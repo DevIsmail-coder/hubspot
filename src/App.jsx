@@ -21,9 +21,10 @@ import Email from './pages/emailpage/email/Email'
 import Welcome from './pages/emailpage/welcome/Welcome'
 import DashboardLayout from './routes/DashboardLayout'
 import Psswordsecurity from './pages/allhostdashboard/psswordsecurity/Psswordsecurity'
-import Booking from './pages/allhostdashboard/booking/booking'
 import Managelist from './pages/allhostdashboard/managelist/Managelist'
 import Accountsetting from './pages/allhostdashboard/accountsetting/Accountsetting'
+import Bookspace from './pages/allhostdashboard/bookspace/Bookspace'
+
 
 function App() {
 const rountee = createBrowserRouter([
@@ -74,7 +75,7 @@ const rountee = createBrowserRouter([
       },
       {
         path: "password&booking",
-        element: <Booking />,
+        element: <Bookspace />,
       },
       {
         path: "managelist",
