@@ -39,6 +39,7 @@
                 .Allspacecontainer2wrapXXing{
                     width: 100%;
                     height: 100%;
+                    object-fit: cover;
                 }
             }
 
@@ -112,12 +113,19 @@
                         display: flex;
                         gap: 5px;
 
-                        .Allspacecontainer2wrapXXX2d1main {
-                            width: 50%;
+                        .Allspacecontainer2wrapXXX2d1main{
+                            width: 100%;
                             border: 1px solid #828282;
                             background-color: #FFFFFF;
                             height: 80px;
                             border-radius: 5px;
+
+                            .Allspacecontainer2wrapXXX2d1maindate{
+                                width: 100%;
+                                height: 40px !important;
+                                /* background-color: blue; */
+                                border: none;
+                            }
                         }
                     }
 
@@ -140,14 +148,12 @@
                         .Allspacecontainer2wrapXXX2d2main2 {
                             display: flex;
                             align-items: flex-end;
-                            /* background-color: blue; */
                             justify-content: space-between;
 
 
                             .Allspacecontainer2wrapXXX2d2main2div1 {
                                 display: flex;
                                 font-size: 20px;
-                                /* background-color: red; */
                                 font-weight: 250;
                                 align-items: center;
                                 justify-content: center;
@@ -200,6 +206,8 @@
                     width: 50%;
                     height: 300px;
                     object-fit: contain;
+
+
                 }
 
                 .Allspacecontainer2wrapXXX{
@@ -232,7 +240,6 @@
 
                         .Allspacecontainer2wrapXXX1d4 {
                             font-size: 10px;
-                            /* background-color: yellow; */
 
                             .Allspacecontainer2wrapXXX1d4ii {
                                 font-size: 14px;
@@ -273,7 +280,6 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    /* background-color: green; */
 
                     .Allspacecontainer2wrapXXX2d2main1xwrap{
                         width: 45%;

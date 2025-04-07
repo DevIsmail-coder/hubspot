@@ -7,30 +7,100 @@ import Resetpassword from './Auth/resetpassword/Resetpassword'
 import Login from './Auth/login/Login'
 import Usersignup from './Auth/usersignup/Usersignup'
 import Aboutus from './pages/aboutus/Aboutus'
-import Footer from './components/footer/Footer'
-import Header from './components/header/Header'
 import Hostpage from './pages/hostpage/Hostpage'
 import Details from './pages/details/Details'
 import Allspace from './pages/allspace/Allspace'
 import Admindashboard from './pages/admindashboard/Admindashboard'
-import Hostdashboard from './pages/hostdashboard/Hostdashboard'
+import Hostdashboard from './pages/allhostdashboard/hostdashboard/Hostdashboard'
 import Hostsignup from './Auth/hostsignup/Hostsignup'
 import Hostlogin from './Auth/hostlogin/Hostlogin'
 import Listhost from './pages/listhost/listhost'
+import HomeLayout from './routes/HomeLayout'
+import Password from './pages/emailpage/password/Password'
+import Email from './pages/emailpage/email/Email'
+import Welcome from './pages/emailpage/welcome/Welcome'
+import DashboardLayout from './routes/DashboardLayout'
+import Psswordsecurity from './pages/allhostdashboard/psswordsecurity/Psswordsecurity'
+import Booking from './pages/allhostdashboard/booking/booking'
+import Managelist from './pages/allhostdashboard/managelist/Managelist'
+import Accountsetting from './pages/allhostdashboard/accountsetting/Accountsetting'
 
 function App() {
 const rountee = createBrowserRouter([
   {
     path: "/",
-    element: <Landing />
+    element: <HomeLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Landing />
+      },
+      {
+        path: "/aboutus",
+        element: <Aboutus />
+      },
+      {
+        path: "/hostpage",
+        element: <Hostpage/>
+      },
+      {
+        path: "/detailpage",
+        element: <Details />
+      },
+      {
+        path: "/allspace",
+        element: <Allspace />
+      },
+      {
+        path: "/abouthost",
+        element: <Listhost />
+      },
+    ]
+  },
+
+
+
+  {
+    path: "/dashboardLayout",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "hostdashboard",
+        element: <Hostdashboard />,
+      },
+      {
+        path: "password&security",
+        element: <Psswordsecurity />,
+      },
+      {
+        path: "password&booking",
+        element: <Booking />,
+      },
+      {
+        path: "managelist",
+        element: <Managelist />,
+      },
+      {
+        path: "accountsetting",
+        element: <Accountsetting />,
+      },
+    ]
   },
   {
-    path: "/header",
-    element: <Header />
+    path: "/password",
+    element: <Password />
+  },
+  {
+    path: "/welcome",
+    element: <Welcome />
   },
   {
     path: "/forget",
     element: <Forgotpassword />
+  },
+  {
+    path: "/email",
+    element: <Email />
   },
   {
     path: "/login",
@@ -44,37 +114,10 @@ const rountee = createBrowserRouter([
     path: "/reset",
     element: <Resetpassword />
   },
-  {
-    path: "/aboutus",
-    element: <Aboutus />
-  },
-  {
-    path: "/footer",
-    element: <Footer />
-  },
-  {
-    path: "/hostpage",
-    element: <Hostpage/>
-  },
-  {
-    path: "/detailpage",
-    element: <Details />
-  },
-  {
-    path: "/allspace",
-    element: <Allspace />
-  },
+
   {
     path: "/admindashboard",
     element: <Admindashboard />
-  },
-  {
-    path: "/hostdashboard",
-    element: <Hostdashboard />
-  },
-  {
-    path: "/abouthost",
-    element: <Listhost />
   },
   {
     path: "/hostsignup",

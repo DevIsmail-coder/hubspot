@@ -106,10 +106,12 @@ const Works = () => {
                                         <p className='Workscontainer3wrapspanpp'>"{i.reply}"</p>
                                     </span>
                                     <span className='Workscontainer3wrapspan2'>
-                                        <HiUserCircle className='Workscontainer3wrapspan2icon' />
+                                        <HiUserCircle className='Workscontainer3wrapspan2icon'/>
                                     </span>
-                                    <h3 className='Workscontainer3wrapspan2h3'>{i.name}</h3>
-                                    <p className='Workscontainer3wrapspan2p'>{i.stack}</p>
+                                  <div className='Workscontainer3wraptitle'>
+                                  <h3 className='Workscontainer3wrapspan2h3'>{i.name}</h3>
+                                  <p className='Workscontainer3wrapspan2p'>{i.stack}</p>
+                                  </div>
                                 </div>
                             </SwiperSlide>
                         ))}

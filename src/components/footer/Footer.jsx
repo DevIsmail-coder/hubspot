@@ -10,7 +10,7 @@ const Footer = () => {
     <div className='Footerbody'>
       <div className='Footercontainer1'>
         <span className='Footercontainer1span'>
-          hello
+        <img src='/public/Frame 2529 (1).png'/>
         </span>
         <span className='Footercontainer1span'>
           <h3 className='Footercontainer1spanh3'>Terms & Conditions</h3>
@@ -34,10 +34,14 @@ const Footer = () => {
         </span>
       </div>
       <div className='Footercontainer2'>
+      <p className='Footercontainer2p'>© 2025 HubSpot. All rights reserved</p>
+        <main className='Footercontainer2main'>
         <span className='Footercontainer2span'><BiLogoFacebook /></span>
         <span className='Footercontainer2span'><IoLogoInstagram /></span>
         <span className='Footercontainer2span'><TiSocialTwitter /></span>
         <span className='Footercontainer2span'><IoLogoLinkedin /></span>
+        </main>
+      
       </div>
     </div>
   )

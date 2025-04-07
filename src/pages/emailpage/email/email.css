@@ -1,0 +1,67 @@
+.EmailBody{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  background-color:#FFFFFF;
+}
+.EmailContainer{
+width: 65%;
+height: 75%;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+
+}
+.Emailwrap{
+  width: 50%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aqua;
+
+
+  .Emailwrapimg{
+    width: 200px;
+  }
+}
+.iconDiv{
+
+  color: #1E3A8A;
+}
+.EmailContainerh3{
+font-size: 30px;
+}
+.EmailContainerp{
+font-size: 18px;
+font-weight: 180;
+}
+.EmailContainerbutton{
+width: 200px;
+border: none;
+border-radius: 5px;
+font-size: 15px;
+color: white;
+background-color: #1E3B8A;
+padding: 15px;
+}
+@media screen and (max-width: 800px) {
+  .EmailContainer{
+      width: 90%;
+  }
+
+  .EmailContainerbutton{
+      width: 80%;
+  }
+
+   .EmailContainerp{
+      width:80%;
+      text-align: center;
+   }
+
+}

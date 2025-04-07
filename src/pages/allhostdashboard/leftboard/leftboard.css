@@ -1,0 +1,41 @@
+.Leftboardbody{
+    width: 100%;
+    background-color: #DBE0EE;
+    font-family: sans-serif;
+
+    .Leftboardmain{
+        width: 100%;
+        padding-top: 10px;
+        background-color: #DBE0EE;
+
+        .Leftboardmainimg{
+            width: 215px;
+            padding: 25px;
+            /* background-color: blue; */
+        }
+
+        .Leftboardmainart{
+            display: flex;
+            gap: 35px;
+            flex-direction: column;
+
+            .Leftboardmainartspan{
+                width: 85%;
+                padding: 17px;
+                border-radius: 0 9px 9px 0;
+                color: #FFFFFF;
+                display: flex;
+                gap: 10px;
+                letter-spacing: 0.7px;
+                font-weight: 350;
+                font-size: 17px;
+                align-items: center;
+                background-color: #1E3B8A;
+            }
+
+            .Leftboardmainartspan:hover{
+                background-color: #b9c3de;
+            }
+        }
+    }
+}

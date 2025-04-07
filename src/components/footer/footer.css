@@ -22,27 +22,42 @@
     display: flex;
     margin-top: 75px;
     flex-direction: column;
+    
     color: #FFFFFF;
     gap: 23px;
 
-    & p{
+    .Footercontainer1spanp{
+        font-size: 14px;
        font-weight: 100; 
        color: #FFFFFF;
     }
 
-    & h3{
-        font-size: 20px;
+    .Footercontainer1spanh3{
+        font-size: 18px;
         letter-spacing: 1px;
     }
 }
 
 .Footercontainer2{
-    width: 88%;
+    width: 85%;
     height: 90px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    /* background-color: yellow; */
     align-items: center;
     gap: 30px;
+
+    .Footercontainer2p{
+        font-size: 13px;
+        font-weight: 300;
+        color: #F1F3F8;
+
+    }
+    .Footercontainer2main{
+
+       display: flex;
+       gap: 10px;
+     }
 }
 
 .Footercontainer2span{
@@ -55,6 +70,7 @@
     color: #1E398A;
     font-size: 20px;
     background-color: #FFFFFF;
+
 }
 
 
@@ -94,11 +110,18 @@
 
         .Footercontainer2{
             width: 100%;
+            display: flex;
+            flex-direction: column-reverse;
             justify-content: center;
             gap: 15px;
 
+            .Footercontainer2main{
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+            }
             .Footercontainer2span{
-                height: 78%;
+                height: 67px;
                 width: 18%;
                 font-size: 27px;
             }
