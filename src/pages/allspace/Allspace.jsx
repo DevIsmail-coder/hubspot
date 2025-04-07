@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../components/header/Header'
 import './allspace.css'
 import { IoIosWifi } from "react-icons/io";
 import { GiCoffeeCup } from "react-icons/gi";
@@ -8,12 +7,13 @@ import { PiSecurityCameraFill } from "react-icons/pi";
 import { IoStarSharp } from "react-icons/io5";
 import { getAll } from '../../components/hubdata';
 import { IoLocationOutline } from "react-icons/io5";
-import Footer from '../../components/footer/Footer';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 import { TextField, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 const Allspace = () => {
+    const navigate = useNavigate()
     return (
         <div className='Allspacebody'>
             <main className='Allspacemain'>
@@ -23,7 +23,7 @@ const Allspace = () => {
                         getAll.map((i, index) => (
                             <div className='Allspacecontainer2wrap' key={index}>
                                 <div className='Allspacecontainer2wrapXX'>
-                                    <img src={i.img} className='Allspacecontainer2wrapXXing' />
+                                    <img src={i.img} className='Allspacecontainer2wrapXXing' onClick={() => navigate("/detailpage")}/>
                                 </div>
                                 <div className='Allspacecontainer2wrapXXX'>
                                     <article className='Allspacecontainer2wrapXXX1'>
