@@ -1,9 +1,8 @@
 import React from 'react'
 import "./DashboardLayout.css"
 import Leftboard from '../pages/allhostdashboard/leftboard/Leftboard'
-import Dashboardheader from '../pages/allhostdashboard/dashboardheader/dashboardheader'
-import Hostdashboard from '../pages/allhostdashboard/hostdashboard/Hostdashboard'
 import { Outlet } from 'react-router-dom'
+import Dashboardheader from '../pages/allhostdashboard/dashboardhead/Dashboardhead'
 
 const DashboardLayout = () => {
   return (
