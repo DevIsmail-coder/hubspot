@@ -24,7 +24,7 @@ const Landing = () => {
                     </article>
                     <article className='Landingcontainer1XXX'>
                         <div className='Landingcontainer1XXXmain'>
-                            <img src='public/house.jpeg' className='Landingcontainer1XXXmainimg' />
+                            <img src='/house.jpeg' className='Landingcontainer1XXXmainimg' />
                         </div>
                     </article>
                 </div>
