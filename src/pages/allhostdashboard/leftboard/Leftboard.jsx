@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Leftboard.css'
+import './leftboard.css'
 import { MdOutlineDashboard } from "react-icons/md";
 import { SlNote } from "react-icons/sl";
 import { MdSecurity } from "react-icons/md";
@@ -13,7 +13,7 @@ const Leftboard = () => {
   const getActivediv = (path) => {
     return location.pathname === path ? "active" : "";
     }
-    
+
     return (
         <div className='Leftboardbody'>
             <main className='Leftboardmain'>
