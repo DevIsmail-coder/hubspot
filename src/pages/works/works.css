@@ -195,9 +195,9 @@
     .Workscontainer3main {
         width: 95%;
         display: flex;
-        /* background-color: green; */
+        background-color: green;
         align-items: center;
-        /* justify-content: space-between; */
+        justify-content: space-between;
 
         .Workscontainer3wrap{
             width: 31%;
