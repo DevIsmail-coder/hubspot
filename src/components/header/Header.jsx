@@ -46,9 +46,9 @@ const Header = () => {
 
        {dropDown && (
           <div className='Headerdiv1XXdropdown'>
-            <p>Home</p>
+            <p onClick={() => navigate("/")}>Home</p>
             <p>Become a host</p>
-            <p>About Us</p>
+            <p onClick={() => navigate("/aboutus")}>About Us</p>
             <span className='Headerdiv1XXdropdownspan'> 
               <button className='Headerdiv1XXdropdownspanbut'>Sign up</button>
               <button className='Headerdiv1XXdropdownspanbut'>Login</button>
