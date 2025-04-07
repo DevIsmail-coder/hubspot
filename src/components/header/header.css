@@ -4,6 +4,9 @@
     display: flex;
     justify-content: center;
     font-family: sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background-color: #FFFFFF;
 }
 
@@ -20,6 +23,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    .Headerdiv1img{
+        width: 150px;
+    }
 }
 
 .Headerdiv2{
@@ -74,5 +81,75 @@
         width: 100%;
        color: #1E398A;
         height: 100%;
+    }
+
+}
+
+.Headerdiv1XX{
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .Headerbody{
+        width: 100%;
+        height: auto;
+        z-index: 10;
+    }
+    .Headerdiv1XX{
+        width: 100%;
+        padding: 25px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+
+        .Headerdiv1XXmain{
+            width: 100%;
+            align-items: center;
+            font-size: 30px;
+            justify-content: space-between;
+            display: flex;
+            
+
+            .Headerdiv1XXmainimg{
+                width: 100px;
+            }
+        }
+
+        
+        .Headerdiv1XXdropdown{
+            display: flex;
+            width: 100%;
+            gap: 15px;
+            align-items: flex-end;
+            color: #1E3C8A;
+            font-size: 17px;
+            font-weight: 300;
+            flex-direction: column;
+            z-index: 1000;
+
+            .Headerdiv1XXdropdownspan{
+                width: 100%;
+                padding-top: 25px;
+                display: flex;
+                justify-content: flex-end;
+                gap: 10px;
+
+                .Headerdiv1XXdropdownspanbut{
+                    width: 30%;
+                    background-color: #1E3C8A;
+                    color: #E3E7F0;
+                    border: none;
+                    border-radius: 2px;
+                    padding: 6px;
+                }
+            }
+        }
+    }
+
+    .Headermain{
+        display: none;
     }
 }

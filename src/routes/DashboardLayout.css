@@ -1,0 +1,11 @@
+.DashboardLayoutbody{
+    width: 100%;
+    display: flex;
+
+    .DashboardLayoutbodymain1{
+        width: 28%;
+    }
+    .DashboardLayoutmain2{
+        width: 72%;
+    }
+}

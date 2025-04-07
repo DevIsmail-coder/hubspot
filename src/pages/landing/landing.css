@@ -45,14 +45,21 @@
                 font-weight: 300;
             }
 
-            .Landingcontainer1XXcoverbut {
+            .Landingcontainer1XXcoverbut{
                 width: 280px;
                 border: none;
                 background-color: #1E398A;
                 color: #FFFFFF;
                 font-size: 18px;
                 border-radius: 9px;
+                cursor: pointer;
                 padding: 18px;
+            }
+
+            .Landingcontainer1XXcoverbut:hover{
+                cursor: pointer;
+                transition: ease-in 1s;
+                background-color: #122353;
             }
         }
     }
@@ -164,6 +171,7 @@
                         width: 40%;
                         padding: 6px;
                         color: #1E398A;
+                        cursor: pointer;
                         border: 1.5px solid #1E398A;
                         background-color: #FFFFFF;
                         border-radius: 5px;
@@ -174,8 +182,20 @@
                         background-color: #1E398A;
                         border: none;
                         border-radius: 4px;
+                        cursor: pointer;
                         color: #FFFFFF;
+                    }
+                    .Landingcontainer2butwrap1:hover{
+                        cursor: pointer;
+                        color: #122353;
+                        border: 1.5px solid #122353;
+                        transition: ease-in 1s;
+                    }
 
+                    .Landingcontainer2butwrap2:hover{
+                        cursor: pointer;
+                        transition: ease-in 1s;
+                        background-color: #122353;
                     }
                 }
             }

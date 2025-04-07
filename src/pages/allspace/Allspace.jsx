@@ -9,11 +9,13 @@ import { IoStarSharp } from "react-icons/io5";
 import { getAll } from '../../components/hubdata';
 import { IoLocationOutline } from "react-icons/io5";
 import Footer from '../../components/footer/Footer';
-
+import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
+import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
+import { TextField, Box } from '@mui/material';
 const Allspace = () => {
     return (
         <div className='Allspacebody'>
-            {/* <Header /> */}
             <main className='Allspacemain'>
                 <article className='Allspacecontainer1'></article>
                 <article className='Allspacecontainer2'>
@@ -41,26 +43,63 @@ const Allspace = () => {
                                             <MdSolarPower />
                                             <PiSecurityCameraFill />
                                         </div>
-                                        <div className='Allspacecontainer2wrapXXX1d4'> <IoLocationOutline className='Allspacecontainer2wrapXXX1d4ii'/>  {i.location}</div>
+                                        <div className='Allspacecontainer2wrapXXX1d4'> <IoLocationOutline className='Allspacecontainer2wrapXXX1d4ii' />  {i.location}</div>
                                     </article>
                                     <article className='Allspacecontainer2wrapXXX2'>
                                         <div className='Allspacecontainer2wrapXXX2d1'>
-                                            <main className='Allspacecontainer2wrapXXX2d1main'>check in </main>
-                                            <main className='Allspacecontainer2wrapXXX2d1main'>check out</main>
+                                            <main className='Allspacecontainer2wrapXXX2d1main'>
+                                                {/* <p>check in</p> */}
+                                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                    <DateRangePicker 
+                                                    localeText={{ start: 'Check-in', end: 'check-out'}} 
+                                                    className='Allspacecontainer2wrapXXX2d1maindate' 
+                                                    disablePast
+                                                    slotProps={{
+                                                        textField: {
+                                                          variant: 'outlined',
+                                                          size: 'small',
+                                                          sx: {
+                                                            borderRadius: '4px',
+                                                            backgroundColor: '',
+                                                            fontSize: '10px',
+                                                            border: 'hidden'
+                                                          },
+                                                        },
+                                                      }}
+                                                    />
+                                                </LocalizationProvider>
+                                            </main>
+                                            {/* <main className='Allspacecontainer2wrapXXX2d1main'>check out
+                                            </main> */}
                                         </div>
                                         <div className='Allspacecontainer2wrapXXX2d2'>
                                             <main className='Allspacecontainer2wrapXXX2d2main1'><p>NGN 400/Hour</p></main>
                                             <main className='Allspacecontainer2wrapXXX2d2main2'>
                                                 <div>
-                                                   <span className='Allspacecontainer2wrapXXX2d2main2div1'>
-                                                   <p>-</p>
-                                                    <p>1</p>
-                                                    <p>+</p>
-                                                   </span>
-                                                   <span className='Allspacecontainer2wrapXXX2d2main2div2'>Add more days</span>
+                                                    <span className='Allspacecontainer2wrapXXX2d2main2div1'>
+                                                        <p>-</p>
+                                                        <p>1</p>
+                                                        <p>+</p>
+                                                    </span>
+                                                    <span className='Allspacecontainer2wrapXXX2d2main2div2'>Add more days</span>
                                                 </div>
                                                 <button className='Allspacecontainer2wrapXXX2d2mainbut'>Book 1 day</button>
                                             </main>
+                                        </div>
+
+                                        <div className='Allspacecontainer2wrapXXX2d2XX'>
+                                            <main className='Allspacecontainer2wrapXXX2d2main1x'>
+                                                <div className='Allspacecontainer2wrapXXX2d2main1xwrap'>
+                                                    <span className='Allspacecontainer2wrapXXX2d2main1xwrapdiv1'>
+                                                        <p>-</p>
+                                                        <p>1</p>
+                                                        <p>+</p>
+                                                    </span>
+                                                    <span className='Allspacecontainer2wrapXXX2d2main1xwrapdiv2'>Add more days</span>
+                                                </div>
+                                                <p className='Allspacecontainer2wrapXXX2d2main1xwrappp'>NGN 400/Hour</p>
+                                            </main>
+                                            <button className='Allspacecontainer2wrapXXX2d2mainbut'>Book 1 day</button>
                                         </div>
                                     </article>
                                 </div>
@@ -69,7 +108,6 @@ const Allspace = () => {
                     }
                 </article>
             </main>
-            <Footer />
         </div>
     )
 }
