@@ -1,5 +1,5 @@
 import React from 'react'
-import './dashboardheader.css'
+import './dashboardhead.css'
 import { HiMiniUserCircle } from "react-icons/hi2";
 
 const Dashboardheader = () => {
