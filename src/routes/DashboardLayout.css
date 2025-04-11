@@ -4,6 +4,8 @@
 
     .DashboardLayoutbodymain1{
         width: 28%;
+        /* position: fixed; */
+        height: 100vh;
     }
     .DashboardLayoutmain2{
         width: 72%;

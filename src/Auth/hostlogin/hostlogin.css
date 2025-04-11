@@ -1,0 +1,142 @@
+.Hostloginbody {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: intel, sans-serif;
+    background-color: #FFFFFF;
+}
+
+.Hostloginmain {
+    width: 40%;
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Hostlogincontainer1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    .Hostlogincontainer1p {
+        font-size: 15px;
+        font-weight: 300;
+        text-align: center;
+    }
+}
+
+.Hostlogincontainer2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.Hostlogincontainer2span {
+    width: 100%;
+    display: flex;
+    background-color: #FFFFFF;
+    border: 1px solid #929292;
+    color: #1E398A;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 12px;
+}
+
+.Hostlogincontainerinput {
+    border: none;
+    outline: none;
+}
+
+.Signupbutton1 {
+    width: 100%;
+    padding: 15px;
+    background-color: #1E398A;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+    .Hostlogincontainer3wrap {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        font-size: 15px;
+        flex-direction:column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        font-weight: 350;
+        color: #1E398A;
+    }
+
+.Hostlogincontainer4wrap{
+    font-size: 15px;
+    font-weight: 350;
+    color: #1E398A;
+}
+.Hostlogincontainer4 {
+    width: 90%;
+    gap: 70px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    font-size: 13px;
+    justify-content: center;
+}
+
+.Hostlogincontainer3span {
+    width: 30%;
+    flex: 1;
+    height: 1px;
+    background-color: #E0E0E0;
+}
+
+.Hostloginbutton2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 100;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    border: 1px solid #A1A1A1;
+    padding: 12px;
+
+    .Hostloginbutton2icon {
+        font-size: 19px;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .Hostloginmain {
+        width: 90%;
+    }
+
+    .Hostlogincontainer3 {
+        display: flex;
+        font-size: 10px;
+
+        .Hostlogincontainer3wrap{
+            font-size: 11.5px;
+        }
+
+
+    }
+
+    .Hostlogincontainer3{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+}

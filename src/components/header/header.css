@@ -31,8 +31,8 @@
 
 .Headerdiv2{
     width: 32%;
-    padding-top: 9px;
-    padding-bottom: 9px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-radius: 35px;
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@
     }
 }
 .Headerdiv3{
-    width: 36%;
+    /* width: 36%; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -75,7 +75,6 @@
     justify-content: center;
     height: 44px;
     border-radius: 50%;
-    /* background-color: green; */
 
     .Headerdiv3spanicon{
         width: 100%;
@@ -84,12 +83,82 @@
     }
 
 }
+.Headerdiv3spanX{
+    display: flex;
+
+
+    .Headerdiv3spanXbut1{
+        width: 90px;
+        border: none;
+        font-size: 15px;
+        /* position: relative; */
+        background-color: transparent;
+    }
+
+    .Headerdiv1XXdropdownspanbutdrop{
+        border-top: 1.5px solid #1E3C8A;
+        border-radius: 4px 0 4px 0px;
+        position: absolute;
+        display: flex;
+        width: 115px;
+        font-weight: 300;
+        flex-direction: column;
+        background-color: #FFFFFF;
+        bottom: -75px;
+        top: 82px;
+        z-index: 100;
+        /* gap: 2px; */
+        font-size: 14px;
+    }
+
+    .Headerdiv1XXdropdownspanbutdroptag{
+        /* background-color: yellow; */
+        
+        padding: 2.5px;
+        height: 43px;
+        display: flex;
+        align-items: center;
+    }
+
+    .Headerdiv1XXdropdownspanbutdroptag:hover{
+        background-color: #1E3C8A;
+        color: #DCE1EC;
+        cursor: pointer;
+        border-radius: 3px 0 3px 0;
+    }
+    
+    .Headerdiv3spanXbut2{
+        width: 90px;
+        padding: 9px;
+        border: none;
+        border-radius: 5px;
+        color: #FFFFFF;
+        position: relative;
+        background-color: #1E3B8A;
+    }
+    .Headerdiv1XXdropdownspanbutdrop1{
+        border-top: 1.5px solid #1E3C8A;
+        border-radius: 4px 0 4px 0px;
+        position: absolute;
+        display: flex;
+        width: 115px;
+        font-weight: 300;
+        flex-direction: column;
+        background-color: #FFFFFF;
+        right: 75px;
+        bottom: -75px;
+        top: 82px;
+        /* z-index: 100; */
+        /* gap: 2px; */
+        font-size: 14px;
+    }
+}
 
 .Headerdiv1XX{
     display: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px){
     .Headerbody{
         width: 100%;
         height: auto;

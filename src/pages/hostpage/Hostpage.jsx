@@ -1,5 +1,4 @@
 import React from 'react'
-import './hostpage.css'
 
 const Hostpage = () => {
   return (
@@ -10,3 +9,4 @@ const Hostpage = () => {
 }
 
 export default Hostpage
+
