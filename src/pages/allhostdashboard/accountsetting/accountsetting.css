@@ -1,0 +1,163 @@
+.Accountsettingbody {
+    width: 100%;
+    font-family: sans-serif;
+
+    .Accountsettinmain {
+        width: 100%;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .Accountsettingcontainer1 {
+            /* width: 100%; */
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+
+            .Accountsettingcontainer1p {
+                font-size: 22px;
+            }
+
+            .Accountsettingcontainer1span {
+                width: 80px;
+                height: 78px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                object-fit: contain;
+            }
+
+            .Accountsettingcontainer1spanlabal {
+                width: 100%;
+                height: 100%;
+
+
+                .Accountsettingcontainer1spanicon {
+                    width: 100%;
+                    height: 100%;
+                    color: #1E398A;
+                }
+
+                .Accountsettingcontainer1spanimg {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50px;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .Accountsettingcontainer2 {
+            width: 67%;
+            display: flex;
+            gap: 13px;
+
+            flex-direction: column;
+
+            .Accountsettingcontainer2input {
+                width: 100%;
+                padding: 18px;
+                display: flex;
+                gap: 13px;
+                border-radius: 3px;
+                border: 1px solid #A1A1A1;
+
+                .Accountsettingcontainer2inputicon {
+                    font-size: 24px;
+                    color: #1E398A;
+                }
+
+                .Accountsettingcontainer2inputinX {
+                    border: none;
+                    outline: none;
+                    width: 70%;
+                }
+
+                .Accountsettingcontainer2inputin {
+                    width: 70%;
+                    height: 100px;
+                    display: flex;
+
+                }
+            }
+        }
+
+        .Accountsettingcontainer3 {
+            width: 67%;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+
+            .Accountsettingcontainer3h3{
+                font-size: 20px;
+                letter-spacing: 0.6px;
+            }
+            .Accountsettingcontainer3div {
+                display: flex;
+                align-items: center;
+                border-radius: 3px;
+                justify-content: space-between;
+                font-size: 19px;
+                letter-spacing: 0.6px;
+
+                .Accountsettingcontainer3divspan {
+                    border: 1px solid #828282;
+                    width: 60%;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 3px;
+                    font-size: 17px;
+                    font-weight: 300;
+                    justify-content: space-between;
+                    padding: 12px;
+
+                    .Accountsettingcontainer3divicon {
+                        font-size: 21px;
+                        color: #1E398A;
+                    }
+                }
+            }
+
+            .Accountsettingcontainer3input{
+                width: 100%;
+                padding: 18px;
+                display: flex;
+                gap: 13px;
+                border-radius: 3px;
+                border: 1px solid #A1A1A1;
+
+                .Accountsettingcontainer3inputin{
+                    border: none;
+                    outline: none;
+                    width: 70%;
+                }
+
+                .Accountsettingcontainer3inputicon {
+                    font-size: 24px;
+                    color: #1E398A;
+                }
+            }
+
+            .Accountsettingcontainer3but {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+
+                .Accountsettingcontainer3butx{
+                    width: 22%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 3px;
+                    font-size: 14px;
+                    letter-spacing: 0.4px;
+                    background-color: #1E398A;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+
+}

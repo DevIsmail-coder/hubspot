@@ -22,9 +22,12 @@
     display: flex;
     margin-top: 75px;
     flex-direction: column;
-    
     color: #FFFFFF;
     gap: 23px;
+
+    .Footercontainer1spanimg{
+        width: 150px;
+    }
 
     .Footercontainer1spanp{
         font-size: 14px;

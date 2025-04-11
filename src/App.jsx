@@ -66,7 +66,7 @@ const rountee = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "hostdashboard",
+        path: "",
         element: <Hostdashboard />,
       },
       {
@@ -74,7 +74,7 @@ const rountee = createBrowserRouter([
         element: <Psswordsecurity />,
       },
       {
-        path: "password&booking",
+        path: "booking",
         element: <Bookspace />,
       },
       {

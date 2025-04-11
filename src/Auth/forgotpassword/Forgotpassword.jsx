@@ -7,7 +7,7 @@ const Forgetpassordpassword = () => {
  <div className='Forgetpasswordbody'>
              <main className='Forgetpasswordmain'>
                  <div className='Forgetpasswordcontainer1'>
-                     <h1>Reset Password </h1>
+                     <h1>Forget Password </h1>
                      <p className='Forgetpasswordcontainer1p'>Create your account and unlock the perfect space for your needs.</p>
                  </div>
                  <div className='Forgwtpasswordcontainer2'>

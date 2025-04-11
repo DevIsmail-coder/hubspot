@@ -82,7 +82,6 @@
         .Workscontainerwrap2 {
             width: 38%;
             height: 100%;
-            background-color: green;
             object-fit: contain;
 
             .Workscontainerwrap2img {
@@ -184,7 +183,7 @@
     justify-content: center;
     gap: 25px;
     background-color: #D2D8E9;
-    padding: 40px;
+    padding: 50px;
 
     .Workscontainer3h {
         font-size: 30px;

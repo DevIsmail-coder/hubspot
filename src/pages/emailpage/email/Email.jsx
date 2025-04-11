@@ -10,7 +10,8 @@ const Email = () => {
     </div>
     <h3 className='EmailContainerh3'>Check your email</h3>
     <p className='EmailContainerp'>Please check your inbox and follow the link to verify your account</p>
-    <button className='EmailContainerbutton'>Resend email verification</button>
+    <button className='EmailContainerbutton'>Done</button>
+    <p className='EmailContainerp'>If you didn’t receive any mail,<span className='EmailContainerpspan'>Resend Verfifcation</span></p>
     </main>
     </div>
   )
