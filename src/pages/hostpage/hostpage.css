@@ -1,0 +1,477 @@
+.becomeBody {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.becomeHead {
+    width: 100%;
+    height: 75vh;
+    background-color: rgb(166, 153, 153);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.becomeHeadbox {
+    width: 55%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+}
+
+.becomeHeadbox1 {
+    width: 100%;
+    margin: 60px 0px 60px 60px;
+}
+
+.headBoxFont {
+    font-family: sans-serif;
+    font-size: 35px;
+    color: orange;
+    margin: 0;
+}
+
+.headBoxpara {
+    font-family: sans-serif;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.headFontbutton {
+    font-family: sans-serif;
+    font-size: large;
+    font-weight: 600;
+    height: 60px;
+    width: 35%;
+    border-radius: 10px;
+    background-color: navy;
+    color: white;
+    margin-top: 15px;
+    border: none;
+}
+
+
+.becomeMiddle {
+    width: 100%;
+    height: 70vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.becomeMiddle1 {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.middleMiddle{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.middleMiddle1{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+}
+
+
+.middleMiddle2{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.becomemiddleIcon{
+ width: 70%;
+  display: flex;
+  justify-content: space-around;
+  
+
+}
+
+
+
+
+.becomemiddleFonts{
+    font-family: sans-serif;
+    font-size: 20px;
+    color: orange;
+    text-align: center;
+    margin: 15px;
+
+}
+
+.becomemiddlePara{
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  margin: 0;
+
+}
+
+
+
+
+.middleHeading {
+    font-family: sans-serif;
+}
+
+
+.becomeThirdbody {
+    width: 100%;
+    height: 65vh;
+    background-color: rgb(215, 215, 241);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.becomeThirdbody1 {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+
+
+.becomeThirdbodydiv{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.becomeThirdbodydivA{
+    width: 32%;
+    display: flex;
+    
+}
+
+.becomeThirdbodydiv1{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white; 
+  border: 2px solid rgb(168, 161, 161);
+  border-radius: 5px 0px 0px 5px;
+
+}
+
+
+/* .arrow {
+    position: absolute;
+    bottom: -10px; 
+    right: 10px;   
+    width: 0;
+    height: 0;background-color: blue;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #f1f1f1; /
+  } */
+  
+
+.becomeThirdbodydiv2{
+    width: 40%;
+    background-color: white;
+    border-radius: 0px 5px 5px 0px;
+
+}
+
+
+.hostSayimage{
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 5px 5px 0px;
+
+}
+
+
+
+.becomeThirdbodypara{
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.becomeThirdbodyfontA{
+    width: 75%;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: navy;
+    border-top: 1px solid orange;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0;
+}
+
+.becomeThirdbodypara2{
+    font-family: sans-serif;
+    color: navy;  
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+
+
+
+.becomeFourthbody {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.becomeFourthbody1 {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.fourthbuttonDiv{
+    width: 100%;
+    height: 20% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.fourthButton{
+  width:12% ;
+  height:40%;
+  border: none;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: larger;
+  color: navy;
+  background-color:rgb(215, 215, 241);
+
+}
+
+.fourthButton:first-child{
+    background-color: navy;
+    color: white;
+}
+
+.fourthButton:hover{
+    background-color: navy;
+    color: white;  
+}
+
+
+.becomeFourthbody1A{
+  width: 70%;
+  height: 70vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.becomeFourthbodyLeft{
+    width: 40%;
+    display: flex; 
+    justify-content: center;
+    border-radius: 12px;
+    border: 2px solid rgb(172, 169, 169);
+
+}
+
+.FourthbodyLeftdiv{
+   width: 85%;
+   display: flex;
+   flex-direction: column;
+
+}
+
+.FourthbodyLeftdivfont{
+    font-family: sans-serif;
+}
+
+.priceDiv{
+    font-family: sans-serif;
+    font-size:35px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.priceDiv2{
+    font-family: sans-serif;
+    font-size: 20px;
+    margin: 0;
+}
+
+
+.FourthbodyLeftdivfeat{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    
+}
+
+.FourthbodyLeftdivA{
+    display: flex;
+    align-items: center;
+    font-family: sans-serif; 
+    font-size: 18px;
+    gap: 15px;
+}
+
+
+.FourthbodyLeftdivbtnhold{
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.FourthbodyLeftdivbutton{
+    width:85%;
+    height:50px;
+    font-family: sans-serif;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(34, 34, 132);
+    color: white;
+  
+
+}
+
+.FourthbodyLeftdivbutton:hover{
+    background-color: rgb(15, 15, 94);
+}
+
+.becomeFourthbodylast{
+    width: 100%;
+    height: 65vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.becomeFourthbodylast1{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif ;
+
+}
+
+.fourthbodylastFull{
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.becomeFourthbodylastleft{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+
+.becomeFourthbodylastleftA{
+    width: 90%;
+    height: 25%;
+    border: 1px solid black;
+    border-left: 5px solid orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px; 
+    padding-right: 20px;
+
+
+}
+
+
+.becomeFourthbodylastpara{
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: navy;
+
+}
+
+
+.becomeLastdiv{
+width: 95%;
+height: 25vh;
+background-color: white ;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding-bottom: 30px;
+
+}
+
+.lastdivFont{
+    font-family: sans-serif;
+    font-size: 50px;
+    color: orange;
+}
+
+
+.lastdivButton{
+  width:20%;
+  height:60px;
+  font-family: sans-serif;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: navy;
+  color: white;
+  
+}
+
+.lastdivButton:hover{
+    background-color: rgb(33, 33, 68);
+}
+
+
+
+@media screen and (max-width: 768px){ 
+
+
+    
+}
