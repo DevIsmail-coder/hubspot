@@ -1,11 +1,12 @@
 .Signupbody {
     width: 100%;
-    height: 100vh;
     display: flex;
+    min-height: 100vh;
     align-items: center;
     justify-content: center;
-    font-family: intel, sans-serif;
+    font-family: Inter, sans-serif;
     background-color: #FFFFFF;
+
 }
 
 .Signupmain {
@@ -13,6 +14,7 @@
     display: flex;
     gap: 20px;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -50,8 +52,17 @@
 }
 
 .Signupcontainerinput {
+    background-color: transparent;
+    width: 80%;
     border: none;
     outline: none;
+}
+
+.Signupcontainer2spanerror {
+    color: red;
+    width: 100%;
+    padding-left: 12px;
+    font-size: 12px;
 }
 
 .Signupbutton1 {
@@ -119,14 +130,25 @@
         width: 90%;
     }
 
+    .Signupcontainer1h1 {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+    .Signupcontainer1p {
+        line-height: 18px;
+    }
+
     .Signupcontainer3 {
         display: flex;
         font-size: 10px;
 
-        .Signupcontainer3wrap{
+        .Signupcontainer3wrap {
             font-size: 11.5px;
         }
     }
 
-  
+
 }

@@ -5,6 +5,8 @@
 
     .Leftboardmain{
         width: 100%;
+        height: 100vh;
+        /* position: fixed; */
         padding-top: 10px;
         background-color: #DBE0EE;
 
@@ -18,22 +20,38 @@
             gap: 35px;
             flex-direction: column;
 
+
             .Leftboardmainartspan{
                 width: 85%;
                 padding: 17px;
                 border-radius: 0 9px 9px 0;
-                color: #FFFFFF;
                 display: flex;
                 gap: 10px;
                 letter-spacing: 0.7px;
                 font-weight: 350;
                 font-size: 17px;
                 align-items: center;
-                background-color: #1E3B8A;
+                color: #1E398A;
+                
             }
 
+
+            .active{
+                background-color: #1E3B8A;
+                color: #FFFFFF;
+            }
+
+            .Leftboardmainartspan.active:hover{
+                /* background-color: #162c6b; */
+                background-color: #1E3B8A;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+
+   
             .Leftboardmainartspan:hover{
                 background-color: #b9c3de;
+                cursor: pointer;
             }
         }
     }
