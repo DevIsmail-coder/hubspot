@@ -8,12 +8,28 @@ export const userSignup = async (userData, handleloading, handleResponse) => {
         handleloading(true)
         const res = await axios.post(`${HUBSPOTAPI}/users/register`, userData)
         handleResponse({res})
-        console.log(res);
         handleloading(false)
     }
     catch (err) {
         handleloading(false)
         handleResponse({err})
-        console.log(err);
+    }
+}
+
+
+export const verifiyEmail = async () => {
+    try {
+        handleloading(true)
+        const res = await axios.post(`${HUBSPOTAPI}/users/register`, userData)
+        console.log(res);
+        
+        // handleResponse({res})
+        // handleloading(false)
+    }
+    catch (err) {
+        console.log(res);
+        
+        // handleloading(false)
+        // handleResponse({err})
     }
 }
