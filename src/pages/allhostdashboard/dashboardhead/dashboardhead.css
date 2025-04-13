@@ -1,8 +1,11 @@
-.dashboardheaderbody{
-width: 100%;
-font-family: sans-serif;
+.dashboardheaderbody {
+    width: 100%;
+    font-family: sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
-    .dashboardheaderbodycontainer2head{
+    .dashboardheaderbodycontainer2head {
         width: 100%;
         background-color: #F4F4F4;
         display: flex;
@@ -11,11 +14,12 @@ font-family: sans-serif;
         justify-content: space-between;
         height: 11.3vh;
 
-        .dashboardheaderbodycontainer2headh3{
-           font-size: 20px;
-           color: #1E398A;
+        .dashboardheaderbodycontainer2headh3 {
+            font-size: 20px;
+            color: #1E398A;
         }
-        .dashboardheaderbodycontainer2headh3span{
+
+        .dashboardheaderbodycontainer2headh3span {
             width: 50px;
             height: 50px;
             display: flex;
@@ -23,11 +27,54 @@ font-family: sans-serif;
             align-items: center;
             justify-content: center;
 
-            .dashboardheaderbodycontainer2headh3spanicon{
+            .dashboardheaderbodycontainer2headh3spanicon {
                 width: 100%;
                 height: 100%;
                 color: #1E398A;
             }
         }
     }
+
+    .dashboardheaderbodycontainer2head1 {
+        display: none !important;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .dashboardheaderbody {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .dashboardheaderbodycontainer2head{
+            display: none !important;
+        }
+
+        .dashboardheaderbodycontainer2head1 {
+            width: 100%;
+            display: flex !important;
+            background-color: blue;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding: 14px;
+
+
+            .dashboardheaderbodycontainer2head1img {
+                width: 120px;
+            }
+        }
+    }
+
+    .dashboardheaderbodycontainer2head1left{
+        top: 63px;
+        position: absolute;
+        width: 90%;
+        height: 90vh;
+        /* border-radius: 5px 5px 0 0; */
+        /* background-color: yellow; */
+    }
+
 }

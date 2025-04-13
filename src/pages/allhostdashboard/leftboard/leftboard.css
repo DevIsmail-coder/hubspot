@@ -1,11 +1,16 @@
 .Leftboardbody{
     width: 100%;
+    height: 100vh;
     background-color: #DBE0EE;
     font-family: sans-serif;
+    position: absolute;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
     .Leftboardmain{
         width: 100%;
-        height: 100vh;
+        height: 100%;
         /* position: fixed; */
         padding-top: 10px;
         background-color: #DBE0EE;
@@ -52,6 +57,70 @@
             .Leftboardmainartspan:hover{
                 background-color: #b9c3de;
                 cursor: pointer;
+            }
+        }
+    }
+
+    .LeftboardmainXX{
+        display: none !important;
+    }
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .Leftboardbody{
+        display: flex;
+
+        .Leftboardmain{
+            display: none !important;
+            flex-direction: column;
+        }
+
+        .LeftboardmainXX{
+            width: 100%;
+            padding-top: 20px;
+            display: flex !important;
+
+            .LeftboardmainXXart{
+                display: flex;
+                width: 80%;
+                gap: 35px;
+                flex-direction: column;
+    
+    
+                .LeftboardmainXXartspan{
+                    width: 100%;
+                    padding: 17px;
+                    border-radius: 0 9px 9px 0;
+                    display: flex;
+                    gap: 10px;
+                    letter-spacing: 0.7px;
+                    font-weight: 350;
+                    font-size: 17px;
+                    align-items: center;
+                    color: #1E398A;
+                    
+                }
+    
+    
+                .active{
+                    background-color: #1E3B8A;
+                    color: #FFFFFF;
+                }
+    
+                .LeftboardmainXXartspan.active:hover{
+                    /* background-color: #162c6b; */
+                    background-color: #1E3B8A;
+                    color: #FFFFFF;
+                    cursor: pointer;
+                }
+    
+       
+                .LeftboardmainXXartspan:hover{
+                    background-color: #b9c3de;
+                    cursor: pointer;
+                }
             }
         }
     }

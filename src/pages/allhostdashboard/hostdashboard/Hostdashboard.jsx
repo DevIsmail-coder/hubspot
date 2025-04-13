@@ -85,6 +85,23 @@ const navigate = useNavigate()
                <div className='Managelistmainart2mainview'onClick={() => navigate("/dashboardLayout/managelist")}>View more</div>
                </main>
              </article>
+
+
+             <div className='Hostdashboardbodycontainer1X'>
+             <div className='Hostdashboardbodycontainer1XX'>
+          <h3 className='Hostdashboardbodycontainer1h3'>Manage Bookings</h3>
+          <div className='Hostdashboardbodycontainer1wrap'>
+            {
+              Dashboardperformance.map((i, index) => (
+                <article key={index} className='Hostdashboardbodycontainer1art' style={{borderTop: `6px solid ${i.color}`}}> 
+                <h1 className='Hostdashboardbodycontainer1arth1'>{i.number}</h1>
+                <h3 className='Hostdashboardbodycontainer1arth3'>{i.work}</h3>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+             </div>
       </main>
 
     </div>

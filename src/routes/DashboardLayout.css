@@ -1,13 +1,29 @@
 .DashboardLayoutbody{
     width: 100%;
     display: flex;
+    /* position: relative; */
 
     .DashboardLayoutbodymain1{
         width: 28%;
-        /* position: fixed; */
         height: 100vh;
     }
     .DashboardLayoutmain2{
         width: 72%;
+        height: 100vh;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .DashboardLayoutbody{
+        display: flex;
+
+        .DashboardLayoutbodymain1{
+            display: none !important;
+        }
+
+        .DashboardLayoutmain2{
+            width: 100%;
+        }
     }
 }
