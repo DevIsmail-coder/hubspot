@@ -5,8 +5,11 @@ import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../pages/Hubspotapi';
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [userError, setUserError] = useState({})
     const [loading, setLoading] = useState(false)
@@ -37,14 +40,13 @@ const Login = () => {
         return passwordRegex.test(password);
     }
 
-    const handleError = (e) => {
-        e.preventDefault()
+    const handleError = () => {
         let errors = {}
         if (userInfo.email.trim() === "" || !validation(userInfo.email)) {
             errors.email = "please enter a correct email"
         }
         if (userInfo.password.trim() === "" || !password(userInfo.password)) {
-            errors.password = "please enter a valid email"
+            errors.password = "password must include uppercase, lowercase, and a special character."
         }
 
         if (Object.keys(errors).length > 0) {
@@ -61,13 +63,10 @@ const Login = () => {
     const handleResponse = (mess) => {
         if (mess.res?.data?.message) {
             toast.success(mess.res?.data?.message);
-            // if (mess.res?.data?.data) {
-            //     dispatch(isVerified({ verified: mess.res?.data?.data?.isVerified }))
-            // }
             setUserInfo({
                 email: "",
                 password: ""
-            })
+        })
 
         } else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
@@ -82,7 +81,8 @@ const Login = () => {
     }
 
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         if (!handleError()) return;
         loginUser(userInfo, handleloading, handleResponse)
     }
@@ -122,7 +122,7 @@ const Login = () => {
 
                 </div>
                 <span className='Logincontainer3wrap' onClick={() => navigate("/forget")}>Forget Password?</span>
-                <button className='Signupbutton1' type='submit'>Create Account</button>
+                <button className='Signupbutton1' type='submit'>{loading ? "loading..." : "Create Account"}</button>
                 <div className='Logincontainer4'>
                     <span className='Logincontainer3span'></span>
                     <p>OR</p>
