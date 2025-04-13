@@ -17,7 +17,7 @@ export const userSignup = async (userData, handleloading, handleResponse) => {
 }
 
 
-export const verifiyEmail = async (token, handleloading, handleResponse) => {
+export const verifyEmail = async (token, handleloading, handleResponse) => {
     try {
         handleloading(true)
         const res = await axios.get(`${HUBSPOTAPI}/users/verify/${token}`)
@@ -27,7 +27,23 @@ export const verifiyEmail = async (token, handleloading, handleResponse) => {
     }
     catch (err){
         handleloading(false)
-        handleResponse(res)
-        console.log({err})
+        handleResponse({err})
+        console.log(err)
+    }
+}
+
+
+export const loginUser = async (userInfo,  handleloading, handleResponse) => {
+    try {
+        handleloading(true)
+        const res = await axios.post(`${HUBSPOTAPI}/users/login`, userInfo)
+        handleloading(false)
+        handleResponse({res})
+        console.log(res);
+    }
+    catch (err){
+        handleloading(false)
+        handleResponse({err})
+        console.log(err)
     }
 }
