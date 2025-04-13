@@ -17,19 +17,17 @@ export const userSignup = async (userData, handleloading, handleResponse) => {
 }
 
 
-export const verifiyEmail = async () => {
+export const verifiyEmail = async (token, handleloading, handleResponse) => {
     try {
         handleloading(true)
-        const res = await axios.post(`${HUBSPOTAPI}/users/register`, userData)
+        const res = await axios.get(`${HUBSPOTAPI}/users/verify/${token}`)
+        handleResponse({res})
+        handleloading(false)
         console.log(res);
-        
-        // handleResponse({res})
-        // handleloading(false)
     }
-    catch (err) {
-        console.log(res);
-        
-        // handleloading(false)
-        // handleResponse({err})
+    catch (err){
+        handleloading(false)
+        handleResponse(res)
+        console.log({err})
     }
 }
