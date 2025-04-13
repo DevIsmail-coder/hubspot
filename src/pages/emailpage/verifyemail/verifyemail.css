@@ -1,0 +1,29 @@
+.Verifyemailbody{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+
+.Verifyemailmain{
+    font-family: sans-serif;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 40%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+
+    .Verifyemailmainp1{
+        color: rgb(20, 234, 20);
+    }
+    .Verifyemailmainp2{
+        color: rgb(246, 37, 37);
+    }
+    .Verifyemailmainp111{
+        color: rgb(239, 170, 41);
+    }
+}

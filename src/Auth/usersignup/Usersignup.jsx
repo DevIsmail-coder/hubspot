@@ -93,9 +93,7 @@ const Usersignup = () => {
                 company: "",
                 confirmPassword: "",
             })
-            setTimeout(() => {
-                navigate("/email")
-            }, 3000)
+
         } else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
         } else{
@@ -104,8 +102,8 @@ const Usersignup = () => {
     }
 
       
-    const handleloading = (params) => {
-        setLoading(params)
+    const handleloading = (parameter) => {
+        setLoading(parameter)
      }
  
      const handleSubmit = (e) => {
