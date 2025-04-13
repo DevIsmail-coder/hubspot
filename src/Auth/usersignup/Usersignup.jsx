@@ -7,9 +7,18 @@ import { BsBriefcaseFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import { userSignup } from '../../pages/Hubspotapi';
+import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { isVerified, userdata,  } from '../../global/features';
 
+
+
+
+const url = "https://hubspot-k95r.onrender.com/api/v1"
 const Usersignup = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
     const [userError, setUserError] = useState({})
     const [userData, setUserData] = useState({
         fullName: "",
@@ -50,7 +59,7 @@ const Usersignup = () => {
             errors.company = "please enter your company name"
         }
         if (userData.password.trim() === "" || !password(userData.password)) {
-            errors.password = "please enter a valid password"
+            errors.password = "password must include uppercase, lowercase, and a special character."
         }
         if (userData.confirmPassword.trim() === "" || userData.confirmPassword !== userData.password) {
             errors.confirmPassword = "please enter a correct confirm password"
@@ -63,24 +72,50 @@ const Usersignup = () => {
         }
 
         else {
-            // setUserData({
-            //     fullName: "",
-            //     email: "",
-            //     password: "",
-            //     company: "",
-            //     confirmPassword: "",
-            // })
             setUserError({})
             return true
         }
     }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!handleError())
-            return;
-        const { company, ...updatedUserData } = userData
-        userSignup(updatedUserData)
+
+
+    const handleResponse = (mess) => {
+        if (mess.res?.data?.message) {
+            toast.success("Please check your email to verify your account");
+            console.log(mess.res?.data?.data);
+            dispatch(userdata({user: userData}))
+            if(mess.res?.data?.data){
+                dispatch(isVerified({verified: mess.res?.data?.data?.isVerified}))
+            }
+                 setUserData({
+                fullName: "",
+                email: "",
+                password: "",
+                company: "",
+                confirmPassword: "",
+            })
+            setTimeout(() => {
+                navigate("/email")
+            }, 3000)
+        } else if (mess.err?.response?.data?.message) {
+            toast.error(mess.err.response.data?.message);
+        } else{
+            toast.error("An error occurred. Please try again.");
+        }
     }
+
+      
+    const handleloading = (params) => {
+        setLoading(params)
+     }
+ 
+     const handleSubmit = (e) => {
+         e.preventDefault()
+         if (!handleError())
+             return;
+         const { company, ...updatedUserData } = userData
+         userSignup(updatedUserData, handleloading, handleResponse)
+     }
+
 
     return (
         <div className='Signupbody'>
@@ -148,7 +183,7 @@ const Usersignup = () => {
                     <p className='Signupcontainer2spanerror'>{userError.confirmPassword}</p>
                 </div>
                 <p className='Signupcontainer3'>By signing up, you agree to the <span className='Signupcontainer3wrap'>Terms of Use</span> and <span className='Signupcontainer3wrap'>Privacy Policy.</span></p>
-                <button className='Signupbutton1' type='submit'>Create Account</button>
+                <button className='Signupbutton1' type='submit'>{loading ? "loading..." : "Create Account"}</button>
                 <div className='Signupcontainer4'>
                     <span className='Signupcontainer3span'></span>
                     <p>OR</p>

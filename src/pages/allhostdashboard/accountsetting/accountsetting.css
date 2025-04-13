@@ -161,3 +161,13 @@
     }
 
 }
+
+
+@media screen and (max-width: 800px) {
+    .Accountsettingcontainer2{
+        width: 100% !important;
+    }
+    .Accountsettingcontainer3{
+        width: 100% !important;
+    }
+}

@@ -42,3 +42,16 @@
         }
     }
 }
+
+@media screen and (max-width: 800px) {
+
+        .Psswordsecurityspan{
+            width: 100% !important;
+            /* background-color: yellow; */
+        }
+
+        .Psswordsecuritybut{
+            width: 30% !important;
+        }
+
+}

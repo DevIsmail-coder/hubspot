@@ -24,6 +24,7 @@ import Psswordsecurity from './pages/allhostdashboard/psswordsecurity/Psswordsec
 import Managelist from './pages/allhostdashboard/managelist/Managelist'
 import Accountsetting from './pages/allhostdashboard/accountsetting/Accountsetting'
 import Bookspace from './pages/allhostdashboard/bookspace/Bookspace'
+import Verifyemail from './pages/emailpage/verifyemail/Verifyemail'
 
 
 function App() {
@@ -41,7 +42,7 @@ const rountee = createBrowserRouter([
         element: <Aboutus />
       },
       {
-        path: "/hostpage",
+        path: "/becomeahost",
         element: <Hostpage/>
       },
       {
@@ -66,7 +67,7 @@ const rountee = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "",
+        path: "hostdashboard",
         element: <Hostdashboard />,
       },
       {
@@ -92,7 +93,7 @@ const rountee = createBrowserRouter([
     element: <Password />
   },
   {
-    path: "/welcome",
+    path: "/verifysuccess",
     element: <Welcome />
   },
   {
@@ -127,6 +128,10 @@ const rountee = createBrowserRouter([
   {
     path: "/hostlogin",
     element: <Hostlogin />
+  }
+  {
+    path: "/verifyemail",
+    element: <Verifyemail />
   }
   
 ])
