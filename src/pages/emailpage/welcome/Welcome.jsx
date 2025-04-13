@@ -9,7 +9,7 @@ const Welcome = () => {
     <main className='SetContainer'>
         <h3 className='HeaderSet'>You’re all SET!</h3>
     <div className='Setwrap'>
-    <img src='public/Approved 5 1 (1).png' className='Setwrapimg'/>
+    <img src='/Approved 5 1 (1).png' className='Setwrapimg'/>
     </div>
     <p className='SetContainerp'>Your account has been successfully verified. Start exploring 
       and discover inspiring workspaces tailored just for you.</p>
