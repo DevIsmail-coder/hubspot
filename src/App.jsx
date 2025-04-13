@@ -128,7 +128,7 @@ const rountee = createBrowserRouter([
   {
     path: "/hostlogin",
     element: <Hostlogin />
-  }
+  },
   {
     path: "/verifyemail",
     element: <Verifyemail />
