@@ -94,7 +94,7 @@ const Usersignup = () => {
                 confirmPassword: "",
             })
 
-        } else if (mess.err?.response?.data?.message) {
+        } else if(mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
         } else{
             toast.error("An error occurred. Please try again.");
