@@ -25,6 +25,7 @@ import Managelist from './pages/allhostdashboard/managelist/Managelist'
 import Accountsetting from './pages/allhostdashboard/accountsetting/Accountsetting'
 import Bookspace from './pages/allhostdashboard/bookspace/Bookspace'
 import Verifyemail from './pages/emailpage/verifyemail/Verifyemail'
+import Listingspace from './pages/listingspace/Listingspace'
 
 
 function App() {
@@ -132,8 +133,11 @@ const rountee = createBrowserRouter([
   {
     path: "/verifyemail/:token",
     element: <Verifyemail />
-  }
-  
+  },
+  {
+    path: "/listspace",
+    element: <Listingspace />
+  },
 ])
   return (
     <RouterProvider router={rountee}/>

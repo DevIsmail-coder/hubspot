@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../pages/Hubspotapi';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
+import { isVerified, token } from '../../global/features';
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -67,7 +68,8 @@ const Login = () => {
                 email: "",
                 password: ""
         })
-
+   dispatch(isVerified({verified: true}))
+   dispatch(token({userToken: mess.res?.data?.token}))
         } else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
         } else {
