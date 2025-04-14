@@ -97,7 +97,7 @@
   .Browser {
     position: absolute;
     right: 0;
-    background-color: #284eac;
+    background-color: #1E398A;
     color: white;
     padding: 8px 16px;
     border: none;
@@ -117,14 +117,14 @@
   }
   
   .Hostsignupcontainer3wrap, .Signupcontainer3wrap {
-    color: #284eac;
+    color: #1E398A;
     cursor: pointer;
     text-decoration: none;
     font-weight: 500;
   }
   
   .Hostsignupbutton1 {
-    background-color: #284eac;
+    background-color: #1E398A;
     color: white;
     border: none;
     border-radius: 4px;
@@ -137,7 +137,7 @@
   }
   
   .Hostsignupbutton1:hover {
-    background-color: #1c3a8c;
+    background-color: #1E398A;
   }
   
   .Hostsignupcontainer2span .eye-icon {

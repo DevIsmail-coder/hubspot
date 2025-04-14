@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './hostsignup.css'
 import { HiUser } from "react-icons/hi2";
 import { MdEmail } from "react-icons/md";
@@ -9,6 +9,17 @@ import { FaRegIdCard } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5"; 
 
 const Hostsignup = () => {
+      const [userData, setUserData] = useState({
+        fullName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        companyName: "",
+        companyAddress: "",
+        meansOfIdentification: "",
+        idCardNumber: "",
+        ninImage: "",
+      })
     return (
         <div className='Hostsignupbody'>
             <main className='Hostsignupmain'>
@@ -24,6 +35,7 @@ const Hostsignup = () => {
                             className='Hostsignupcontainerinput'
                         />
                     </span>
+                    <p className='Hostsignupcontainer2spanerror'>error</p>
                     <span className='Hostsignupcontainer2span'>
                         <MdEmail />
                         <input type="text"
@@ -34,7 +46,7 @@ const Hostsignup = () => {
                     <span className='Hostsignupcontainer2span'>
                         <BsBriefcaseFill />
                         <input type="text"
-                            placeholder='Company name (Optional)'
+                            placeholder='Company name'
                             className='Hostsignupcontainerinput'
                         />
                     </span>
