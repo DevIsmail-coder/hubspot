@@ -1,0 +1,346 @@
+.Listingspacebody {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f5f5f8;
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+  
+  .Listingspaceheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    background-color: #fff;
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .Listingspacelogo img {
+    height: 30px;
+  }
+  
+  .Listingspacedashboard {
+    display: flex;
+    align-items: center;
+  }
+  
+  .Listingspacedashboard p {
+    color: #33475b;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .Listingspaceprofileicon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #33475b;
+  }
+  
+  .Listingspacemain {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .Listingspaceimages {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px;
+    gap: 20px;
+    /* background-color: blue; */
+  }
+  
+  .Listingspacemainimage{
+    width: 50%;
+    background-color: orange;
+    /* flex: 0 0 40%; */
+    margin-right: 20px;
+  }
+  
+  .Listingspacethumbnails {
+    width: 50%;
+    /* background-color: yellow; */
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+     justify-content: space-between;
+  }
+  
+  .Listingspaceimageplaceholder{
+    background-color: #EBE8FB;
+    /* border-radius: 4px; */
+    position: relative;
+   width: 100%;
+   height: 100%;
+
+  }
+
+  .Listingspacemainimagein{
+    position: absolute;
+    width: 37%;
+    display: flex;
+   padding: 15px;
+    align-items: center;
+    background-color: #FFFFFF;
+    bottom: 100px;
+
+    .Listingspacemainimageininput{
+        width: 95%;
+        padding: 15px;
+        outline: none;
+
+    }
+  }
+
+  .Listingspacethumbnail{
+    background-color: #EBE8FB;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 4px;
+   width: 48%;
+   height: 240px;
+  }
+  
+
+  .Listingspaceform {
+    width: 90%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  
+  .Listingspaceleft {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+  }
+  
+  .Listingspaceright {
+    width: 45%;
+  }
+  
+  .Listingspaceformgroup {
+    width: 100%;
+    /* background-color: yellow; */
+  }
+  
+  .Listingspacelabel {
+    display: block;
+    color:  #1E398A;
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .Listingspaceinput{
+    width: 100%;
+    padding: 15px 12px;
+    border: 1px solid #cbd6e2;
+    border-radius: 3px;
+    font-size: 14px;
+    outline: none;
+  }
+
+  .Listingspacetextareadd{
+       width: 100%;
+       height: 250px;
+  }
+  
+  .Listingspaceinputselect{
+    width: 50%;
+    padding: 12px 12px;
+  }
+  .Listingspaceinput.Listingspacesmall {
+    width: 150px;
+  }
+  
+  .Listingspacetextarea {
+    height: 120px;
+    resize: vertical;
+  }
+  
+  .Listingspacesubmitbtn {
+    background-color: #1E398A;
+    color: white;
+    border: none;
+    width: 120px;
+    border-radius: 3px;
+
+    padding: 15px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .Listingspaceaddbtn {
+    background-color: #33475b;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .Listingspacecapacity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .Listingspacecapacity span {
+    color: #33475b;
+    font-size: 14px;
+  }
+  
+  .Listingspaceamenities {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .Listingspaceamenitiesrow {
+    display: flex;
+  }
+  
+  .Listingspaceamenity {
+    display: flex;
+    align-items: center;
+    width: 33.3%;
+    padding: 5px 0;
+  }
+  
+  .Listingspaceamenity input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  .Listingspaceamenity label {
+    font-size: 14px;
+    color: #33475b;
+  }
+  
+  .Listingspaceprices {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .Listingspaceprice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .Listingspaceprice label {
+    font-size: 14px;
+    color: #33475b;
+  }
+  
+  .Listingspaceavailability {
+    border: 1px solid #cbd6e2;
+    border-radius: 3px;
+    background-color: white;
+  }
+  
+  .Listingspaceavailabilityheader {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #eef1f7;
+    font-weight: 600;
+    color: #33475b;
+    background-color: #f8f9fa;
+  }
+  
+  .Listingspaceavailabilityrow {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #eef1f7;
+  }
+  
+  .Listingspaceavailabilityrow:last-child {
+    border-bottom: none;
+  }
+  
+  .Listingspacedays {
+    flex: 0 0 20%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .Listingspacehours {
+    flex: 0 0 30%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .Listingspacehours input[type="time"] {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #cbd6e2;
+    border-radius: 3px;
+  }
+  
+  .Listingspaceactions {
+    flex: 0 0 20%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .Listingspaceaddhours, .Listingspaceremovehours {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .Listingspaceaddhours {
+    background-color: #00a4bd;
+    color: white;
+  }
+  
+  .Listingspaceremovehours {
+    background-color: #ff7a59;
+    color: white;
+  }
+
+  .Listingspacebuttom{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .Listingspaceformgroup1{
+    width: 30%;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    /* background-color: blue; */
+  }
+
+  .Listingspaceaddbtn1{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background-color: #1E3B8A;
+    color: #FFFFFF;
+    font-size: 25px;
+    border: none;
+    border-radius: 3px;
+  }

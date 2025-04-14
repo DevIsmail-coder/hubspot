@@ -24,8 +24,11 @@ const features = createSlice({
         isVerified: (state, {payload}) => {
             state.verified = payload
         },
+        token: (state, {payload}) => {
+            state.userToken = payload
+        },
     }
 })
 
-export const {userdata, hostdata, isAdmin, isVerified} = features.actions
+export const {userdata, hostdata, isAdmin, isVerified, token} = features.actions
 export default features.reducer
