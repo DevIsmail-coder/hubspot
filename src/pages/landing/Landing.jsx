@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './landing.css'
 import { IoIosWifi } from "react-icons/io";
 import { GiCoffeeCup } from "react-icons/gi";
@@ -7,9 +7,21 @@ import { PiSecurityCameraFill } from "react-icons/pi";
 import userData from '../../components/hubdata';
 import Works from '../works/Works';
 import { useNavigate } from 'react-router-dom';
+import { getAllspace } from '../Hubspotapi';
 
 const Landing = () => {
    const navigate = useNavigate()
+   const [allSpace, setAllSpace] = useState([])
+
+const handleResponse = (mess) => {
+    if(mess.data?.data){
+        setAllSpace(mess.data?.data)
+    }
+}
+
+useEffect(() => {
+    getAllspace(handleResponse)
+}, [])
     return (
         <>
             <div className='Landingbody'>

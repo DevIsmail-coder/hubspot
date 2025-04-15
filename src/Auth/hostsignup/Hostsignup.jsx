@@ -260,7 +260,7 @@ const Hostsignup = () => {
                     <p className='Hostsignupcontainer2spanerror'>{userError.ninImage}</p>
                 </div>
                 <p className='Hostsignupcontainer3'>By signing up, you agree to the <span className='Hostsignupcontainer3wrap'>Terms of Use</span> and <span className='Signupcontainer3wrap'>Privacy Policy</span>.</p>
-                <button className='Hostsignupbutton1' type='submit'>Create Account</button>
+                <button className='Hostsignupbutton1' type='submit'>{loading ? "Loading..." : "Create Account"}</button>
                 <p className='Hostsignupcontainer3'>Already have an account? <span className='Hostsignupcontainer3wrap' onClick={() => navigate("/hostlogin")}>Log in</span></p>
             </form>
         </div> 
