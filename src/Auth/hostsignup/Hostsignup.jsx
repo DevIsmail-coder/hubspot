@@ -7,10 +7,17 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaRegIdCard } from "react-icons/fa";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
-import { userdata } from '../../global/features';
+import { hostdata } from '../../global/features';
+import { useDispatch } from 'react-redux';
+import { hostSignup } from '../../pages/Hubspotapi';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Hostsignup = () => {
+  const navigate = useNavigate()
   const [show, setShow] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch()
   const [userError, setUserError]  = useState({})
       const [userData, setUserData] = useState({
         fullName: "",
@@ -21,7 +28,6 @@ const Hostsignup = () => {
         companyAddress: "",
         meansOfIdentification: "",
         idCardNumber: "",
-        ninImage: "",
       })
 
       console.log(userData);
@@ -39,12 +45,14 @@ const Hostsignup = () => {
     }
 
     const handleImage = (e) => {
-      const file = e.target.files[0]
-      const ImageUrl = URL.createObjectURL(file)
-      setUserData({...userData, ninImage:ImageUrl})
-
-      if(userError[file]){
-        setUserError({...userError, [file]: ""})
+      const file = e.target.files[0];
+      const userImage = (URL.createObjectURL(file))
+      if (file) {
+        setUserData({ ...userData, ninImage: userImage }); 
+  
+        if (userError.ninImage) {
+          setUserError({ ...userError, ninImage: "" });
+        }
       }
     }
 
@@ -58,8 +66,7 @@ const Hostsignup = () => {
       return passwordRegex.test(password);
   }
 
-  const handleError = (e) => {
-    e.preventDefault()
+  const handleError = () => {
       let errors = {}
       if (userData.fullName.trim() === "") {
           errors.fullName = "please enter your fullName"
@@ -85,9 +92,9 @@ const Hostsignup = () => {
       if (userData.idCardNumber.trim() === "") {
         errors.idCardNumber = "please enter your idCardNumber"
     }
-    if (!userData.ninImage) {
-      errors.ninImage = "Please upload your ID image";
-    }
+    // if (!userData.ninImage) {
+    //   errors.ninImage = "Please upload your ID image";
+    // }
 
 
       if (Object.keys(errors).length > 0) {
@@ -101,9 +108,44 @@ const Hostsignup = () => {
       }
   }
 
+  const handleResponse = (mess) => {
+    if (mess.res?.data?.message) {
+        toast.success("account created successfully, please check your email to verify your account");
+        dispatch(hostdata({ host: userData }))
+        setUserData({
+          fullName: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+          companyName: "",
+          companyAddress: "",
+          meansOfIdentification: "",
+          idCardNumber: "",
+          ninImage: "",
+        })
+        navigate("/email")
+    } else if (mess.err?.response?.data?.message) {
+        toast.error(mess.err.response.data?.message);
+    } else {
+        toast.error("An error occurred. Please try again.");
+    }
+}
+
+    const handleloading = (parameter) => {
+        setLoading(parameter)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (!handleError())
+            return;
+        hostSignup(userData, handleloading, handleResponse)
+    }
+
+
     return (
         <div className='Hostsignupbody'>
-            <form className='Hostsignupmain' onSubmit={handleError}>
+            <form className='Hostsignupmain' onSubmit={handleSubmit}>
                 <div className='Hostsignupcontainer1'>
                     <h1>Welcome To Hubspot</h1>
                     <p className='Hostsignupcontainer1p'>Create your account and share your space.</p>
@@ -187,7 +229,7 @@ const Hostsignup = () => {
                             <option value= "" disabled>Select ID Type</option>
                             <option value= "passport">Passport</option>
                             <option value= "Driver's License" >Driver's License</option>
-                            <option value= "National ID">National ID</option>
+                            <option value= "NIN">National ID</option>
                         </select>
                     </span>
                     <p className='Hostsignupcontainer2spanerror'>{userError.meansOfIdentification}</p>
@@ -203,7 +245,7 @@ const Hostsignup = () => {
                     </span>
                     <p className='Hostsignupcontainer2spanerror'>{userError.idCardNumber}</p>
                     <span className='Hostsignupcontainer2span'>
-                      <img src={userData.ninImage} alt="" className='Hostsignupcontainer2span1img'/>
+                      {/* <img src={userData.ninImage} alt="" className='Hostsignupcontainer2span1img'/> */}
                         <input type="file"
                         id='ismail'
                         onChange={handleImage}
@@ -219,7 +261,7 @@ const Hostsignup = () => {
                 </div>
                 <p className='Hostsignupcontainer3'>By signing up, you agree to the <span className='Hostsignupcontainer3wrap'>Terms of Use</span> and <span className='Signupcontainer3wrap'>Privacy Policy</span>.</p>
                 <button className='Hostsignupbutton1' type='submit'>Create Account</button>
-                <p className='Hostsignupcontainer3'>Already have an account? <span className='Hostsignupcontainer3wrap'>Log in</span></p>
+                <p className='Hostsignupcontainer3'>Already have an account? <span className='Hostsignupcontainer3wrap' onClick={() => navigate("/hostlogin")}>Log in</span></p>
             </form>
         </div> 
     )
