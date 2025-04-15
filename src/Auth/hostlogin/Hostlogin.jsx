@@ -132,12 +132,6 @@ const Hostlogin = () => {
                 </div>
                 <span className='Hostlogincontainer3wrap' onClick={() => navigate("/forget")}>Forget Password?</span>
                 <button className='Signupbutton1' type='submit'>{loading ? "Loading..." : "login"}</button>
-                <div className='Hostlogincontainer4'>
-                    <span className='Hostlogincontainer3span'></span>
-                    <p>OR</p>
-                    <span className='Hostlogincontainer3span'></span>
-                </div>
-                <button className='Hostloginbutton2'><FcGoogle className='Hostloginbutton2icon' /> Continue with Google</button>
                 <p className='Hostlogincontainer3'>Don't have an account? <span className='Hostlogincontainer4wrap' onClick={() => navigate("/hostsignup")}>Create an account</span></p>
             </form>
         </div>

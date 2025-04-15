@@ -45,6 +45,9 @@ const Leftboard = () => {
                     <span className={`Leftboardmainartspan ${getActivediv("/dashboardLayout/password&security")}`}
                         onClick={() => {navigate("/dashboardLayout/password&security")}}>
                         <MdSecurity className='Leftboardmainartspanicon' /> Password & Security </span>
+                        <div className={`Leftboardmainartspan ${getActivediv("/dashboardLayout/password&security")}`}
+                        onClick={() => navigate("/")}>
+                        <MdSecurity className='Leftboardmainartspanicon' /> Log out </div>
                 </article>
             </main>
 

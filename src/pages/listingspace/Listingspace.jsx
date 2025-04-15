@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import './listingspace.css'
+import { useNavigate } from 'react-router-dom';
 
 const Listingspace = () => {
+    const navigate = useNavigate()
   const [availability, setAvailability] = useState({
     Sun: { checked: false, openingHours: "00:00", closingHours: "00:00" },
     Mon: { checked: false, openingHours: "00:00", closingHours: "00:00" },
@@ -25,7 +27,7 @@ const Listingspace = () => {
         <div className='Listingspacelogo'>
           <img src="/hubspot-logo.png" alt="HubSpot" />
         </div>
-        <div className='Listingspacedashboard'>
+        <div className='Listingspacedashboard' onClick={() => navigate("/dashboardLayout/hostdashboard")}>
           <p>Go back to Dashboard</p>
           <div className='Listingspaceprofile'>
             <div className='Listingspaceprofileicon'></div>
