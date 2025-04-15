@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './details.css'
 import { Around, coldImg, Review} from '../../components/hubdata'
 import { IoStarSharp } from "react-icons/io5";
@@ -11,10 +11,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
+import { getDetails } from '../Hubspotapi';
 
 const Details = () => {
+            const [allSpace, setAllSpace] = useState([])
+         
+         const handleResponse = (mess) => {
+             if(mess.data?.data){
+                 setAllSpace(mess.data?.data)
+             }
+         }
+         
+         useEffect(() => {
+             getDetails(handleResponse)
+         }, [])
   return (
     <>
       <div className='Detailsbody'>

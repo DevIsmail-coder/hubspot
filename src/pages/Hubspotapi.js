@@ -95,3 +95,14 @@ export const getAllspace = async (handleResponse) => {
         console.log(err)
     }
 }
+
+export const getDetails = async (handleResponse) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/space/getOne`)
+        handleResponse(res)
+        console.log(res);
+    }
+    catch (err){
+        console.log(err)
+    }
+}
