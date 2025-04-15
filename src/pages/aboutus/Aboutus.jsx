@@ -1,5 +1,5 @@
 import React from 'react'
-import '../components/Aboutus.css'
+import './aboutus.css'
 import { LuMapPinned } from "react-icons/lu";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineStars } from "react-icons/md";

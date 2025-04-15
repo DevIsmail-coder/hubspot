@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Becomeahost.css';
+import './hostpage.css';
 import { RiCheckboxCircleLine } from "react-icons/ri";
 import { GrAdd } from "react-icons/gr";
 import { PiNumberCircleOneFill, PiNumberCircleTwoFill, PiNumberCircleThreeFill, PiNumberCircleFourFill, PiNotePencil } from "react-icons/pi";
@@ -8,7 +8,7 @@ import { LuBadgeCheck } from "react-icons/lu";
 import { FaCalendarDays } from "react-icons/fa6";
 import { VscChromeMinimize } from "react-icons/vsc";
 
-const Becomeahost = () => {
+const Hostpage = () => {
     const [openFAQIndexes, setOpenFAQIndexes] = useState([]);
 
     const toggleFAQ = (index) => {
@@ -238,4 +238,4 @@ const Becomeahost = () => {
     );
 };
 
-export default Becomeahost;
+export default Hostpage;
