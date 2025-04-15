@@ -9,13 +9,12 @@ import { useNavigate } from 'react-router-dom';
 import { userSignup } from '../../pages/Hubspotapi';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
-import { isVerified, userdata,  } from '../../global/features';
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import { isVerified, userdata, } from '../../global/features';
 
 
-
-
-const url = "https://hubspot-k95r.onrender.com/api/v1"
 const Usersignup = () => {
+    const [show, setShow] = useState(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
@@ -27,6 +26,10 @@ const Usersignup = () => {
         company: "",
         confirmPassword: "",
     })
+
+    const toggle = () => {
+        setShow(!show)
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -80,39 +83,35 @@ const Usersignup = () => {
 
     const handleResponse = (mess) => {
         if (mess.res?.data?.message) {
-            toast.success("Please check your email to verify your account");
-            console.log(mess.res?.data?.data);
-            dispatch(userdata({user: userData}))
-            if(mess.res?.data?.data){
-                dispatch(isVerified({verified: mess.res?.data?.data?.isVerified}))
-            }
-                 setUserData({
+            toast.success("account created successfully, please check your email to verify your account");
+            dispatch(userdata({ user: userData }))
+            setUserData({
                 fullName: "",
                 email: "",
                 password: "",
                 company: "",
                 confirmPassword: "",
             })
-
-        } else if(mess.err?.response?.data?.message) {
+            navigate("/email")
+        } else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
-        } else{
+        } else {
             toast.error("An error occurred. Please try again.");
         }
     }
 
-      
+
     const handleloading = (parameter) => {
         setLoading(parameter)
-     }
- 
-     const handleSubmit = (e) => {
-         e.preventDefault()
-         if (!handleError())
-             return;
-         const { company, ...updatedUserData } = userData
-         userSignup(updatedUserData, handleloading, handleResponse)
-     }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (!handleError())
+            return;
+        const { company, ...updatedUserData } = userData
+        userSignup(updatedUserData, handleloading, handleResponse)
+    }
 
 
     return (
@@ -157,31 +156,33 @@ const Usersignup = () => {
                         />
                     </span>
                     <p className='Signupcontainer2spanerror'>{userError.company}</p>
-                    <span className='Signupcontainer2span' >
+                    <span className='Signupcontainer2span1' >
                         <RiLockPasswordFill />
-                        <input type="password"
+                        <input type={show ? "text" : "password"}
                             placeholder='Password'
                             className='Signupcontainerinput'
                             onChange={handleChange}
                             name='password'
                             value={userData.password}
                         />
+                        <p onClick={toggle} className='Hostsignupcontainer2spantoggle1'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline className="eye-icon" />}</p>
                     </span>
                     <p className='Signupcontainer2spanerror'>{userError.password}</p>
-                    <span className='Signupcontainer2span'>
+                    <span className='Signupcontainer2span1'>
                         <RiLockPasswordFill />
-                        <input type="password"
+                        <input type={show ? "text" : "password"}
                             placeholder='Confirm Password'
                             className='Signupcontainerinput'
                             onChange={handleChange}
                             name='confirmPassword'
                             value={userData.confirmPassword}
                         />
+                        <p onClick={toggle} className='Hostsignupcontainer2spantoggle1'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline className="eye-icon" />}</p>
                     </span>
                     <p className='Signupcontainer2spanerror'>{userError.confirmPassword}</p>
                 </div>
                 <p className='Signupcontainer3'>By signing up, you agree to the <span className='Signupcontainer3wrap'>Terms of Use</span> and <span className='Signupcontainer3wrap'>Privacy Policy.</span></p>
-                <button className='Signupbutton1' type='submit'>{loading ? "loading..." : "Create Account"}</button>
+                <button className='Signupbutton1' type='submit'>{loading ? "Loading..." : "Create Account"}</button>
                 <div className='Signupcontainer4'>
                     <span className='Signupcontainer3span'></span>
                     <p>OR</p>

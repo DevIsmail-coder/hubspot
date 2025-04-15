@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import ismailReducer from './features'
+import hubspotReducer from './features'
 
 const store = configureStore({
     reducer: {
-        user: ismailReducer
+        hubspot: hubspotReducer
     }
 })
 

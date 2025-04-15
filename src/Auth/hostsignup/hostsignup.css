@@ -52,8 +52,20 @@
     overflow: hidden;
     position: relative;
     height: 48px;
+    object-fit: contain;
+  }
+  .Hostsignupcontainer2spanerror{
+    font-size: 10px;
+    color: red;
+    padding-left: 10px;
   }
   
+  .Hostsignupcontainer2span1img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .Hostsignupcontainer2span svg {
     margin-left: 12px;
     font-size: 20px;
@@ -139,10 +151,13 @@
   .Hostsignupbutton1:hover {
     background-color: #1E398A;
   }
+
+  .Hostsignupcontainer2spantoggle{
+    display: flex;
+    padding: 13px;
+    cursor: pointer;
+  }
   
   .Hostsignupcontainer2span .eye-icon {
-    position: absolute;
-    right: 12px;
     cursor: pointer;
-    color: #555;
   }
