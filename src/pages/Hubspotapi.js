@@ -81,3 +81,17 @@ export const hostLogin = async (userInfo,  handleloading, handleResponse) => {
         console.log(err)
     }
 }
+
+
+
+//  space
+export const getAllspace = async (handleResponse) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/space/getAll`)
+        handleResponse(res)
+        console.log(res);
+    }
+    catch (err){
+        console.log(err)
+    }
+}

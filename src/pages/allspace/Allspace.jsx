@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './allspace.css'
 import { IoIosWifi } from "react-icons/io";
 import { GiCoffeeCup } from "react-icons/gi";
@@ -10,10 +10,10 @@ import { IoLocationOutline } from "react-icons/io5";
 import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
-import { TextField, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 const Allspace = () => {
     const navigate = useNavigate()
+       const [allSpace, setAllSpace] = useState([])
     return (
         <div className='Allspacebody'>
             <main className='Allspacemain'>
