@@ -7,10 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../pages/Hubspotapi';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
-import { isVerified, token } from '../../global/features';
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
+import { token } from '../../global/features';
 
 const Login = () => {
     const dispatch = useDispatch()
+      const [show, setShow] = useState(false)
     const navigate = useNavigate()
     const [userError, setUserError] = useState({})
     const [loading, setLoading] = useState(false)
@@ -19,8 +21,9 @@ const Login = () => {
         password: ""
     })
 
-
-
+    const toggle = () => {
+        setShow(!show)
+      }
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -67,10 +70,13 @@ const Login = () => {
             setUserInfo({
                 email: "",
                 password: ""
-        })
-   dispatch(isVerified({verified: true}))
-   dispatch(token({userToken: mess.res?.data?.token}))
-        } else if (mess.err?.response?.data?.message) {
+            })
+            dispatch(token({ userToken: mess.res?.data?.token }))
+            setTimeout(() => {
+                navigate("/")
+            }, 3000)
+        }
+        else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
         } else {
             toast.error("An error occurred. Please try again.");
@@ -110,21 +116,22 @@ const Login = () => {
 
                     <p className='Logincontainer2spanerror'>{userError.email}</p>
 
-                    <span className='Logincontainer2span'>
+                    <span className='Logincontainer2span1'>
                         <RiLockPasswordFill />
-                        <input type="password"
+                        <input type={show ? "text" : "password"}
                             placeholder='Password'
                             className='Logincontainerinput'
                             onChange={handleChange}
                             name='password'
                             value={userInfo.password}
                         />
+                         <p onClick={toggle} className='Hostsignupcontainer2spantoggle1'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline  className="eye-icon"/>}</p>
                     </span>
                     <p className='Logincontainer2spanerror'>{userError.password}</p>
 
                 </div>
                 <span className='Logincontainer3wrap' onClick={() => navigate("/forget")}>Forget Password?</span>
-                <button className='Signupbutton1' type='submit'>{loading ? "loading..." : "Create Account"}</button>
+                <button className='Signupbutton1' type='submit'>{loading ? "Loading..." : "Login"}</button>
                 <div className='Logincontainer4'>
                     <span className='Logincontainer3span'></span>
                     <p>OR</p>

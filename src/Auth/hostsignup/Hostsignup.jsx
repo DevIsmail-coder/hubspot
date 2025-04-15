@@ -6,9 +6,12 @@ import { BsBriefcaseFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaRegIdCard } from "react-icons/fa";
-import { IoEyeOutline } from "react-icons/io5"; 
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
+import { userdata } from '../../global/features';
 
 const Hostsignup = () => {
+  const [show, setShow] = useState(false)
+  const [userError, setUserError]  = useState({})
       const [userData, setUserData] = useState({
         fullName: "",
         email: "",
@@ -20,9 +23,87 @@ const Hostsignup = () => {
         idCardNumber: "",
         ninImage: "",
       })
+
+      console.log(userData);
+      const toggle = () => {
+        setShow(!show)
+      }
+
+      const handleChange = (e) => {
+        const { name, value } = e.target
+        setUserData({ ...userData, [name]: value })
+
+        if (userError[name]) {
+            setUserError({ ...userError, [name]: "" })
+        }
+    }
+
+    const handleImage = (e) => {
+      const file = e.target.files[0]
+      const ImageUrl = URL.createObjectURL(file)
+      setUserData({...userData, ninImage:ImageUrl})
+
+      if(userError[file]){
+        setUserError({...userError, [file]: ""})
+      }
+    }
+
+    const validation = (email) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email)
+  }
+
+  const password = (password) => {
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).+$/;
+      return passwordRegex.test(password);
+  }
+
+  const handleError = (e) => {
+    e.preventDefault()
+      let errors = {}
+      if (userData.fullName.trim() === "") {
+          errors.fullName = "please enter your fullName"
+      }
+      if (userData.meansOfIdentification.trim() === "") {
+        errors.meansOfIdentification = "please select a correct meansOfIdentification"
+    }
+      if (userData.email.trim() === "" || !validation(userData.email)) {
+          errors.email = "please enter a correct email"
+      }
+      if (userData.companyName.trim() === "") {
+          errors.companyName = "please enter your company name"
+      }
+      if (userData.companyAddress.trim() === "") {
+        errors.companyAddress = "please enter your company address"
+    }
+      if (userData.password.trim() === "" || !password(userData.password)) {
+          errors.password = "password must include uppercase, lowercase, and a special character."
+      }
+      if (userData.confirmPassword.trim() === "" || userData.confirmPassword !== userData.password) {
+          errors.confirmPassword = "please enter a correct confirm password"
+      }
+      if (userData.idCardNumber.trim() === "") {
+        errors.idCardNumber = "please enter your idCardNumber"
+    }
+    if (!userData.ninImage) {
+      errors.ninImage = "Please upload your ID image";
+    }
+
+
+      if (Object.keys(errors).length > 0) {
+          setUserError(errors)
+          return false
+      }
+
+      else {
+          setUserError({})
+          return true
+      }
+  }
+
     return (
         <div className='Hostsignupbody'>
-            <main className='Hostsignupmain'>
+            <form className='Hostsignupmain' onSubmit={handleError}>
                 <div className='Hostsignupcontainer1'>
                     <h1>Welcome To Hubspot</h1>
                     <p className='Hostsignupcontainer1p'>Create your account and share your space.</p>
@@ -33,75 +114,113 @@ const Hostsignup = () => {
                         <input type="text"
                             placeholder='Full Name'
                             className='Hostsignupcontainerinput'
+                            onChange={handleChange}
+                            name='fullName'
+                            value={userData.fullName}
                         />
                     </span>
-                    <p className='Hostsignupcontainer2spanerror'>error</p>
+                    <p className='Hostsignupcontainer2spanerror'>{userError.fullName}</p>
                     <span className='Hostsignupcontainer2span'>
                         <MdEmail />
                         <input type="text"
                             placeholder='Email address'
                             className='Hostsignupcontainerinput'
+                            onChange={handleChange}
+                            name='email'
+                            value={userData.email}
                         />
                     </span>
+                    <p className='Hostsignupcontainer2spanerror'>{userError.email}</p>
                     <span className='Hostsignupcontainer2span'>
                         <BsBriefcaseFill />
                         <input type="text"
                             placeholder='Company name'
                             className='Hostsignupcontainerinput'
+                            onChange={handleChange}
+                            name='companyName'
+                            value={userData.companyName}
                         />
                     </span>
+                    <p className='Hostsignupcontainer2spanerror'>{userError.companyName}</p>
                     <span className='Hostsignupcontainer2span'>
                         <FaLocationDot />
                         <input type="text"
                             placeholder='Company Address'
                             className='Hostsignupcontainerinput'
+                            onChange={handleChange}
+                            name='companyAddress'
+                            value={userData.companyAddress}
                         />
                     </span>
+                    <p className='Hostsignupcontainer2spanerror'>{userError.companyAddress}</p>
                     <span className='Hostsignupcontainer2span'>
                         <RiLockPasswordFill />
-                        <input type="password"
+                        <input type={show ? "text" : "password"}
                             placeholder='Password'
                             className='Hostsignupcontainerinput'
+                            onChange={handleChange}
+                            name='password'
+                            value={userData.password}
                         />
-                        <IoEyeOutline className="eye-icon" />
+                       <p onClick={toggle} className='Hostsignupcontainer2spantoggle'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline  className="eye-icon"/>}</p>
                     </span>
+                    <p className='Hostsignupcontainer2spanerror'>{userError.password}</p>
                     <span className='Hostsignupcontainer2span'>
                         <RiLockPasswordFill />
-                        <input type="password"
+                        <input type={show ? "text" : "password"}
                             placeholder='Confirm Password'
                             className='Hostsignupcontainerinput'
+                            onChange={handleChange}
+                            name='confirmPassword'
+                            value={userData.confirmPassword}
                         />
-                        <IoEyeOutline className="eye-icon" />
+                        <p onClick={toggle} className='Hostsignupcontainer2spantoggle'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline  className="eye-icon"/>}</p>
                     </span> 
+                    <p className='Hostsignupcontainer2spanerror'>{userError.confirmPassword}</p>
                     <span className='Hostsignupcontainer3span'>
                         <p className='TextDiv'>Means of Identification:</p>
-                        <select className='Hostsignupcontainerinput2'>
-                            <option value="" disabled selected>Select ID Type</option>
-                            <option value="passport">Passport</option>
-                            <option value="drivers">Driver's License</option>
-                            <option value="national">National ID</option>
+                        <select className='Hostsignupcontainerinput2'
+                          onChange={handleChange}
+                          name='meansOfIdentification'
+                          value={userData.meansOfIdentification}
+                        >
+                            <option value= "" disabled>Select ID Type</option>
+                            <option value= "passport">Passport</option>
+                            <option value= "Driver's License" >Driver's License</option>
+                            <option value= "National ID">National ID</option>
                         </select>
                     </span>
+                    <p className='Hostsignupcontainer2spanerror'>{userError.meansOfIdentification}</p>
                     <span className='Hostsignupcontainer2span'>
                         <FaRegIdCard />
-                        <input type="text"
+                        <input type="number"
                             placeholder='Enter ID Number'
                             className='Hostsignupcontainerinput'
+                            onChange={handleChange}
+                            name='idCardNumber'
+                            value={userData.idCardNumber}
                         />
                     </span>
+                    <p className='Hostsignupcontainer2spanerror'>{userError.idCardNumber}</p>
                     <span className='Hostsignupcontainer2span'>
-                        <input type="text"
+                      <img src={userData.ninImage} alt="" className='Hostsignupcontainer2span1img'/>
+                        <input type="file"
+                        id='ismail'
+                        onChange={handleImage}
+                        name='ninImage'
+                        hidden
                             placeholder='Upload ID'
                             className='Hostsignupcontainerinput'
                             readOnly
                         />
-                        <button className='Browser'>Browse</button>
+                        <label className='Browser' htmlFor='ismail'>Browse</label>
                     </span> 
+                    <p className='Hostsignupcontainer2spanerror'>{userError.ninImage}</p>
                 </div>
                 <p className='Hostsignupcontainer3'>By signing up, you agree to the <span className='Hostsignupcontainer3wrap'>Terms of Use</span> and <span className='Signupcontainer3wrap'>Privacy Policy</span>.</p>
-                <button className='Hostsignupbutton1'>Create Account</button>
+                <button className='Hostsignupbutton1' type='submit'>Create Account</button>
                 <p className='Hostsignupcontainer3'>Already have an account? <span className='Hostsignupcontainer3wrap'>Log in</span></p>
-            </main>
+            </form>
         </div> 
     )
 }
