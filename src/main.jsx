@@ -5,12 +5,14 @@ import App from './App.jsx'
 import { Provider } from 'react-redux'
 import store from './global/store.js'
 import Context from './global/context.jsx'
+import { Toaster } from 'react-hot-toast'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
       <Context>
         <App />
+        <Toaster />
       </Context>
     </Provider>
   </StrictMode>,

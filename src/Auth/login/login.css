@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: intel, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #FFFFFF;
 }
 
@@ -48,6 +48,17 @@
     border-radius: 5px;
     padding: 12px;
 }
+.Logincontainer2span1{
+    width: 100%;
+    display: flex;
+    background-color: #FFFFFF;
+    border: 1px solid #929292;
+    color: #1E398A;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 12px;
+    justify-content: space-between;
+}
 .Logincontainer2spanerror{
     color: red;
     width: 100%;
@@ -55,6 +66,7 @@
     font-size: 12px;
 }
 .Logincontainerinput {
+    width: 90%;
     border: none;
     outline: none;
 }

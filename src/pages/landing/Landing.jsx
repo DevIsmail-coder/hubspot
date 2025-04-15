@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './landing.css'
 import { IoIosWifi } from "react-icons/io";
 import { GiCoffeeCup } from "react-icons/gi";
@@ -7,9 +7,22 @@ import { PiSecurityCameraFill } from "react-icons/pi";
 import userData from '../../components/hubdata';
 import Works from '../works/Works';
 import { useNavigate } from 'react-router-dom';
+import { getAllspace } from '../Hubspotapi';
 
 const Landing = () => {
    const navigate = useNavigate()
+   const [allSpace, setAllSpace] = useState([])
+
+const handleResponse = (mess) => {
+    if(mess.data?.data){
+        setAllSpace(mess.data?.data)
+    }
+}
+console.log(allSpace);
+
+useEffect(() => {
+    getAllspace(handleResponse)
+}, [])
     return (
         <>
             <div className='Landingbody'>
@@ -32,14 +45,16 @@ const Landing = () => {
                     <h3 className='Landingcontainer2h1'>Discover Flexible Spaces for Work or Creativity</h3>
                     <main className='Landingcontainer2main'>
                         {
-                            userData.map((i, index) => (
-                                <div className='Landingcontainer2wrap' key={index}>
+                            allSpace.map((i, id) => (
+                                <div className='Landingcontainer2wrap' key={id}>
                                 <article className='Landingcontainer2wrapart1'>
-                                    <img src= {i.img} className='Landingcontainer2wrapart1img' />
+                                {i.images && i.images.length > 0 && (
+                                            <img src={i.images[0].imageUrl} className='Landingcontainer2wrapart1img' />
+                                        )}
                                 </article>
                                 <article className='Landingcontainer2wrapart2'>
-                                    <h3 className='Landingcontainer2wrapart2h3'>{i.title}</h3>
-                                    <p className='Landingcontainer2wrapart2hp'>{i.about}</p>
+                                    <h3 className='Landingcontainer2wrapart2h3'>{i.name}</h3>
+                                    <p className='Landingcontainer2wrapart2hp'>{i.overview}</p>
                                         <div className='Landingcontainer2iconwrap'>
                                             <IoIosWifi /> 
                                             <GiCoffeeCup />
