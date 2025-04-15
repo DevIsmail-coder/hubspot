@@ -17,7 +17,7 @@ import { useParams } from 'react-router-dom';
 const Details = () => {
   const { id } = useParams()
   const [changeImg, setChangeImg] = useState(0)
-  const [allSpace, setAllSpace] = useState([])
+  const [allSpace, setAllSpace] = useState({})
 
   console.log(allSpace);
 
@@ -36,24 +36,20 @@ const Details = () => {
         <main className='Detailscontainer1'>
           <article className='Detailscontainer1XX'>
             <div className='Detailscontainer1XX1'>
-              {
-                coldImg.slice(0, 1).map((i, index) => (
-                  <img src={i.img} className='Detailscontainer1XX1img' key={index} />
-                ))
-              }
+                  <img src={allSpace?.images?.[changeImg]?.imageUrl} className='Detailscontainer1XX1img' key={id} />
             </div>
             <div className='Detailscontainer1XX2'>
               {
-                coldImg.map((i, index) => (
-                  <span key={index} className='Detailscontainer1XX2span'>
-                    <img src={i.img} className='Detailscontainer1XX2spanimg' />
+                allSpace?.images && allSpace.images.map((i, id) => (
+                  <span key={id} className='Detailscontainer1XX2span' onClick={() => setChangeImg(id)}>
+                    <img src={i.imageUrl} className='Detailscontainer1XX2spanimg'   />
                   </span>
                 ))
               }
             </div>
             <div className='Detailscontainer1XX2I'>
               <div className='Detailscontainer1XX2I1'>
-                <h1 className='Detailscontainer1XX2h3'>Flexispace</h1>
+                <h1 className='Detailscontainer1XX2h3'>{allSpace?.name}</h1>
                 <span className='Detailscontainer1XX2span'>
                   <IoStarSharp />
                   <IoStarSharp />
@@ -76,9 +72,9 @@ const Details = () => {
 
               >
 
-                {coldImg.map((i, index) => (
-                  <SwiperSlide key={index} className='Detailscontainer1XX22span'>
-                    <img src={i.img} className='Detailscontainer1XX22spanimg' />
+                {allSpace?.images && allSpace.images.map((image, id) => (
+                  <SwiperSlide key={id} className='Detailscontainer1XX22span'>
+                    <img src={image.imageUrl} className='Detailscontainer1XX22spanimg' />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -87,7 +83,7 @@ const Details = () => {
           </article>
           <article className='Detailscontainer1XXX'>
             <div className='Detailscontainer1XXX1'>
-              <h1 className='Detailscontainer1XXX1h3'>Flexispace</h1>
+              <h1 className='Detailscontainer1XXX1h3'>{allSpace.name}</h1>
               <span className='Detailscontainer1XXX1span'>
                 <IoStarSharp />
                 <IoStarSharp />
@@ -96,19 +92,17 @@ const Details = () => {
               </span>
             </div>
             <div className='Detailscontainer1XXX2'>
-              <span className='Detailscontainer1XXX2span'><IoLocationOutline className='Detailscontainer1XXX2spanicon' /> 18 Oba Akran Avenue, Alausa Central Business District, 3rd Floor</span>
-              <p className='Detailscontainer1XXX2p'>Cowork Space</p>
+              <span className='Detailscontainer1XXX2span'><IoLocationOutline className='Detailscontainer1XXX2spanicon' />{allSpace?.location}</span>
+              <p className='Detailscontainer1XXX2p'>{allSpace?.spaceType}</p>
             </div>
             <div className='Detailscontainer1XXX3'>
               <h3 className='Detailscontainer1XXX3h3'>Space Overview</h3>
-              <p className='Detailscontainer1XXXp'>A modern coworking space offering flexible desks, high-speed internet, private
-                meeting rooms, and a vibrant community of professionals designed to boost
-                productivity.</p>
+              <p className='Detailscontainer1XXXp'>{allSpace?.overview}</p>
             </div>
             <div className='Detailscontainer1XXX4'>
               <h3 className='Detailscontainer1XXX4h3'>Space Amenities</h3>
               <main className='Detailscontainer1XXX4main'>
-                <span className='Detailscontainer1XXX4mainspan'><IoIosWifi className='Detailscontainer1XXX4mainspanicon' />  Free Wifi</span>
+               
                 <span className='Detailscontainer1XXX4mainspan'><GiCoffeeCup className='Detailscontainer1XXX4mainspanicon' /> Free Coffe</span>
                 <span className='Detailscontainer1XXX4mainspan'><MdSolarPower className='Detailscontainer1XXX4mainspanicon' /> 24 hours light</span>
                 <span className='Detailscontainer1XXX4mainspan'><PiSecurityCameraFill className='Detailscontainer1XXX4mainspanicon' /> Camera</span>
