@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './details.css'
-import { Around, coldImg, Review} from '../../components/hubdata'
+import { Around, coldImg, Review } from '../../components/hubdata'
 import { IoStarSharp } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoIosWifi } from "react-icons/io";
@@ -12,19 +12,24 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { getDetails } from '../Hubspotapi';
+import { useParams } from 'react-router-dom';
 
 const Details = () => {
-            const [allSpace, setAllSpace] = useState([])
-         
-         const handleResponse = (mess) => {
-             if(mess.data?.data){
-                 setAllSpace(mess.data?.data)
-             }
-         }
-         
-         useEffect(() => {
-             getDetails(handleResponse)
-         }, [])
+  const { id } = useParams()
+  const [changeImg, setChangeImg] = useState(0)
+  const [allSpace, setAllSpace] = useState([])
+
+  console.log(allSpace);
+
+  const handleResponse = (mess) => {
+    if (mess.data?.data) {
+      setAllSpace(mess.data?.data)
+    }
+  }
+
+  useEffect(() => {
+    getDetails(handleResponse, id)
+  }, [])
   return (
     <>
       <div className='Detailsbody'>
@@ -47,15 +52,15 @@ const Details = () => {
               }
             </div>
             <div className='Detailscontainer1XX2I'>
-            <div className='Detailscontainer1XX2I1'>
-              <h1 className='Detailscontainer1XX2h3'>Flexispace</h1>
-              <span className='Detailscontainer1XX2span'>
-                <IoStarSharp />
-                <IoStarSharp />
-                <IoStarSharp />
-                <IoStarSharp />
-              </span>
-            </div>
+              <div className='Detailscontainer1XX2I1'>
+                <h1 className='Detailscontainer1XX2h3'>Flexispace</h1>
+                <span className='Detailscontainer1XX2span'>
+                  <IoStarSharp />
+                  <IoStarSharp />
+                  <IoStarSharp />
+                  <IoStarSharp />
+                </span>
+              </div>
               <Swiper
                 modules={[Pagination, Autoplay]}
                 pagination={{ clickable: true }}
@@ -137,28 +142,28 @@ const Details = () => {
           </article>
           <article className='Detailscontainer2XXX'>
             <h3 className='Detailscontainer2XXXh3'>Reviews & Ratings</h3>
-              {
-                Review.map((i, index) => (
-                  <div key={index}>
-                    <p className='Detailscontainer2XXXptag'>{i.reply}</p>
+            {
+              Review.map((i, index) => (
+                <div key={index}>
+                  <p className='Detailscontainer2XXXptag'>{i.reply}</p>
                   <main className='Detailscontainer2XXXmain'>
-                  <div className='Detailscontainer2XXXmain1'>
-                  <span className='Detailscontainer2XXXmain1span'>
-                      <IoStarSharp />
-                      <IoStarSharp />
-                      <IoStarSharp />
-                      <IoStarSharp />
-                      <IoStarSharp />
+                    <div className='Detailscontainer2XXXmain1'>
+                      <span className='Detailscontainer2XXXmain1span'>
+                        <IoStarSharp />
+                        <IoStarSharp />
+                        <IoStarSharp />
+                        <IoStarSharp />
+                        <IoStarSharp />
+                      </span>
+                      <h3>{i.name}</h3>
+                    </div>
+                    <span className='Detailscontainer2XXXmain1span2'>
+                      <img src={i.img} className='Detailscontainer2XXXmain1span2img' />
                     </span>
-                    <h3>{i.name}</h3>
-                  </div>
-                  <span className='Detailscontainer2XXXmain1span2'>
-                    <img src={i.img}  className='Detailscontainer2XXXmain1span2img'/>
-                  </span>
                   </main>
-                  </div>
-                ))
-              }
+                </div>
+              ))
+            }
           </article>
         </main>
         <main className='Detailscontainer3'>
@@ -168,10 +173,10 @@ const Details = () => {
               Around.map((i, index) => (
                 <div key={index} className='Detailscontainer3artwrap'>
                   <main className='Detailscontainer3artwrapspan'>
-                    <img src= {i.showImg}  className='Detailscontainer3artwrapspanimg'/>
+                    <img src={i.showImg} className='Detailscontainer3artwrapspanimg' />
                   </main>
                   <h3 className='Detailscontainer3artwraph3'>{i.name}</h3>
-                  <span className='Detailscontainer3artwraplocation'><IoLocationOutline/> {i.location}</span>
+                  <span className='Detailscontainer3artwraplocation'><IoLocationOutline /> {i.location}</span>
                 </div>
               ))
             }

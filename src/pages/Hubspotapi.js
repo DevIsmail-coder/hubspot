@@ -96,9 +96,11 @@ export const getAllspace = async (handleResponse) => {
     }
 }
 
-export const getDetails = async (handleResponse) => {
+export const getDetails = async (handleResponse, id) => {
+    console.log(id);
+    
     try {
-        const res = await axios.get(`${HUBSPOTAPI}/space/getOne`)
+        const res = await axios.get(`${HUBSPOTAPI}/space/getOne/${id}`)
         handleResponse(res)
         console.log(res);
     }
