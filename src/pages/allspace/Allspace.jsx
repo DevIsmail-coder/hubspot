@@ -33,10 +33,10 @@ const Allspace = () => {
                     {
                         allSpace.map((i, id) => (
                             <div className='Allspacecontainer2wrap' key={id}>
-                                <div className='Allspacecontainer2wrapXX'>
+                                <div className='Allspacecontainer2wrapXX' onClick={() => navigate(`/detailpage/${i.id}`)}>
                                     {
                                         i.images && i.images.length > 0 && (
-                                            <img src={i.images[0].imageUrl} className='Allspacecontainer2wrapXXing'  onClick={() => navigate("/detailpage")}/>
+                                            <img src={i.images[0].imageUrl} className='Allspacecontainer2wrapXXing'  />
                                         )
                                     }
                                 </div>

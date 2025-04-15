@@ -47,7 +47,7 @@ const rountee = createBrowserRouter([
         element: <Hostpage/>
       },
       {
-        path: "/detailpage",
+        path: "/detailpage/:id",
         element: <Details />
       },
       {
