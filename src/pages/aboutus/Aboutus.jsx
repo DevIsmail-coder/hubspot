@@ -1,5 +1,5 @@
 import React from 'react'
-import "./aboutus.css"
+import './aboutus.css'
 import { LuMapPinned } from "react-icons/lu";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineStars } from "react-icons/md";
@@ -121,7 +121,7 @@ const Aboutus = () => {
 
                             <div className='teampicDiv1'> 
                                 <div className='teamPic'> <img className='teamImage' src="" alt="" /></div> 
-                                <span  className='nameDesignated'>Sudais Diko</span>
+                                <span  className='nameDesignated'>Sudais Dikko</span>
                                  <p className='nameSpecs'> Front-End Developer</p>
                             </div>
                             <div className='teampicDiv1'>
