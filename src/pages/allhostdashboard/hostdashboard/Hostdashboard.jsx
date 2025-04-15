@@ -39,7 +39,7 @@ const Hostdashboard = () => {
               <div className='Hostdashboardbodycontainer2mainart2div'>
                 <h3 className='Hostdashboardbodycontainer2mainart2divh3'>5 Spaces</h3>
                 <p className='Hostdashboardbodycontainer2mainart2divp'>Total Spaces Currently Live</p>
-                <button className='Hostdashboardbodycontainer2mainart2divbut'>Add Space</button>
+                <button className='Hostdashboardbodycontainer2mainart2divbut' onClick={() => navigate("/listspace")}>Add Space</button>
               </div>
             </article>
           </main>
