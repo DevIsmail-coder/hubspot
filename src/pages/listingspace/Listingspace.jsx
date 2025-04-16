@@ -88,6 +88,7 @@ const Listingspace = () => {
     }));
   };
 
+  
   // Handler for amenities checkboxes
   const handleAmenityChange = (e) => {
     const amenity = e.target.id;
@@ -134,9 +135,7 @@ const Listingspace = () => {
   
 
   const handleResponse = (mess) => {
-    console.log(mess.res);
-    console.log(mess.err);
-    
+
     if (mess.res?.data?.message) {
         toast.success(mess.res?.data?.message);
         setListData({

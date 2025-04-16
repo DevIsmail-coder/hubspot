@@ -95,7 +95,7 @@ const Hostdashboard = () => {
           <div className='Hostdashboardbodycontainer1XX'>
             <h3 className='Hostdashboardbodycontainer1h3'>Manage Bookings</h3>
             <div className='Hostdashboardbodycontainer1wrap'>
-              {
+              { 
                 Dashboardperformance.map((i, index) => (
                   <article key={index} className='Hostdashboardbodycontainer1art' style={{
                     borderTop: `6px solid ${i.color}`,

@@ -128,3 +128,14 @@ export const createSpace = async (formData, spaceToken, handleResponse, handlelo
         
     }
 }
+
+export const topSpace = async (handleResponse) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/space/toprated`)
+        handleResponse(res)
+        console.log(res);
+    }
+    catch (err){
+        console.log(err)
+    }
+}
