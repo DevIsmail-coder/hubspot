@@ -46,7 +46,7 @@ const Hostlogin = () => {
 
     const handleError = () => {
         let errors = {}
-        if (userInfo.email.trim() === "" || !validation(userInfo.email)) {
+        if (userInfo.email.trim() === "" || !validation(userInfo.email.trim())) {
             errors.email = "please enter a correct email"
         }
         if (userInfo.password.trim() === "" || !password(userInfo.password)) {
