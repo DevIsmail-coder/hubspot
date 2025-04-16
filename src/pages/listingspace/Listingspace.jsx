@@ -599,7 +599,7 @@ const handleloading = (parameter) => {
           </div>
 
           <div className='Listingspaceformgroup1'>
-            <button type="submit" className='Listingspaceaddbtn1'>{loading ? "Loading..." : "ADD SPACE"}</button>
+            <button type="submit" className='Listingspaceaddbtn1'>{loading ? "Creating space..." : "ADD SPACE"}</button>
           </div>
         </div>
       </form>

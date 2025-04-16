@@ -69,31 +69,31 @@ const Hostsignup = () => {
   const handleError = () => {
       let errors = {}
       if (userData.fullName.trim() === "") {
-          errors.fullName = "please enter your fullName"
+          errors.fullName = "please enter  full name"
       }
       if (userData.meansOfIdentification.trim() === "") {
-        errors.meansOfIdentification = "please select a correct meansOfIdentification"
+        errors.meansOfIdentification = "please select a means of identification"
     }
       if (userData.email.trim() === "" || !validation(userData.email.trim())) {
           errors.email = "please enter a correct email"
       }
       if (userData.companyName.trim() === "") {
-          errors.companyName = "please enter your company name"
+          errors.companyName = "please enter company name"
       }
       if (userData.companyAddress.trim() === "") {
-        errors.companyAddress = "please enter your company address"
+        errors.companyAddress = "please enter company address"
     }
       if (userData.password.trim() === "" || !password(userData.password.trim())) {
           errors.password = "password must include uppercase, lowercase, and a special character."
       }
       if (userData.confirmPassword.trim() === "" || userData.confirmPassword.trim() !== userData.password) {
-          errors.confirmPassword = "password those not match"
+          errors.confirmPassword = "password does not match"
       }
       if (userData.idCardNumber.trim() === "") {
-        errors.idCardNumber = "please enter your idCardNumber"
+        errors.idCardNumber = "please enter ID number"
     }
     // if (!userData.ninImage) {
-    //   errors.ninImage = "Please upload your ID image";
+    //   errors.ninImage = "Please upload ID image";
     // }
 
 
@@ -110,7 +110,7 @@ const Hostsignup = () => {
 
   const handleResponse = (mess) => {
     if (mess.res?.data?.message) {
-        toast.success("account created successfully, please check your email to verify your account");
+        toast.success("account created successfully, please check email to verify your account");
         dispatch(hostdata({ host: userData }))
         setUserData({
           fullName: "",
@@ -126,9 +126,10 @@ const Hostsignup = () => {
         navigate("/email")
     } else if (mess.err?.response?.data?.message) {
         toast.error(mess.err.response.data?.message);
-    } else {
-        toast.error("An error occurred. Please try again.");
-    }
+    } 
+    // else {
+    //     toast.error("An error occurred. Please try again.");
+    // }
 }
 
     const handleloading = (parameter) => {

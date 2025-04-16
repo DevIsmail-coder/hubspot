@@ -53,19 +53,19 @@ const Usersignup = () => {
     const handleError = () => {
         let errors = {}
         if (userData.fullName.trim() === "") {
-            errors.fullName = "please enter your fullName"
+            errors.fullName = "please enter your full name"
         }
         if (userData.email.trim() === "" || !validation(userData.email.trim())) {
             errors.email = "please enter a correct email"
         }
         if (userData.company.trim() === "") {
-            errors.company = "please enter your company name"
+            errors.company = "please enter company name"
         }
         if (userData.password.trim() === "" || !password(userData.password.trim())) {
             errors.password = "password must include uppercase, lowercase, and a special character."
         }
         if (userData.confirmPassword.trim() === "" || userData.confirmPassword.trim() !== userData.password) {
-            errors.confirmPassword = "password those not match"
+            errors.confirmPassword = "password does not match"
         }
 
 
@@ -83,7 +83,7 @@ const Usersignup = () => {
 
     const handleResponse = (mess) => {
         if (mess.res?.data?.message) {
-            toast.success("account created successfully, please check your email to verify your account");
+            toast.success("account created successfully, please check email to verify your account");
             dispatch(userdata({ user: userData }))
             setUserData({
                 fullName: "",
@@ -95,9 +95,10 @@ const Usersignup = () => {
             navigate("/email")
         } else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
-        } else {
-            toast.error("An error occurred. Please try again.");
-        }
+        } 
+        // else {
+        //     toast.error("An error occurred. Please try again.");
+        // }
     }
 
 

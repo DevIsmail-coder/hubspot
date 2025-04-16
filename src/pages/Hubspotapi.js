@@ -139,3 +139,34 @@ export const topSpace = async (handleResponse) => {
         console.log(err)
     }
 }
+
+
+export const getSpace = async (handleResponse, spaceToken) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/host/getspaces`, {
+            headers: {
+                'Authorization': `Bearer ${spaceToken}`
+            }
+        })
+        handleResponse(res)
+        console.log(res);
+    }
+    catch (err){
+        console.log(err)
+    }
+}
+
+export const listing = async (handleResponselist, spaceToken) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/host/listings`, {
+            headers: {
+                'Authorization': `Bearer ${spaceToken}`
+            }
+        })
+        handleResponselist(res)
+        console.log(res);
+    }
+    catch (err){
+        console.log(err)
+    }
+}

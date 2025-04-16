@@ -28,7 +28,7 @@ const Leftboard = () => {
     return (
         <div className='Leftboardbody'>
             <main className='Leftboardmain'>
-                <img src='/Frame 2382 (5).png' className='Leftboardmainimg' />
+                <img src='/Frame 2382 (5).png' className='Leftboardmainimg'  onClick={() => navigate("/")} />
                 <article className='Leftboardmainart'>
                     <span className={`Leftboardmainartspan ${getActivediv("/dashboardLayout/hostdashboard")}`}
                         onClick={() => {navigate("/dashboardLayout/hostdashboard")}}>

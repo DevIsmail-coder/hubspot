@@ -4,7 +4,6 @@ import { IoIosWifi } from "react-icons/io";
 import { GiCoffeeCup } from "react-icons/gi";
 import { MdSolarPower } from "react-icons/md";
 import { PiSecurityCameraFill } from "react-icons/pi";
-import userData from '../../components/hubdata';
 import Works from '../works/Works';
 import { useNavigate } from 'react-router-dom';
 import { getAllspace } from '../Hubspotapi';
@@ -45,11 +44,11 @@ useEffect(() => {
                     <h3 className='Landingcontainer2h1'>Discover Flexible Spaces for Work or Creativity</h3>
                     <main className='Landingcontainer2main'>
                         {
-                            allSpace.map((i, id) => (
+                            allSpace.slice(0, 6).map((i, id) => (
                                 <div className='Landingcontainer2wrap' key={id}>
                                 <article className='Landingcontainer2wrapart1'>
                                 {i.images && i.images.length > 0 && (
-                                            <img src={i.images[0].imageUrl} className='Landingcontainer2wrapart1img' />
+                                            <img src={i.images[0].imageUrl} className='Landingcontainer2wrapart1img'  onClick={() => navigate(`/detailpage/${i.id}`)}/>
                                         )}
                                 </article>
                                 <article className='Landingcontainer2wrapart2'>

@@ -9,8 +9,10 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { topSpace } from '../Hubspotapi';
+import { useNavigate } from 'react-router-dom';
 const Works = () => {
     const [topRated, setTopRated] = useState([])
+    const navigate = useNavigate()
 
     const handleResponse = (mess) => {
         if (mess.data?.data) {
@@ -85,11 +87,11 @@ const Works = () => {
                 </main>
                 <main className='Workscontainer2YYY2'>
                     {
-                        topRated.map((i, id) => (
+                        topRated.slice(0, 3).map((i, id) => (
                             <div className='Workscontainer2wrap' key={id}>
                                 {
                                     i.images?.map((e, index) => (
-                                        <img src={e.imageUrl} className='Workscontainer2img' key={index}/>
+                                        <img src={e.imageUrl} className='Workscontainer2img' key={index}  onClick={() => navigate(`/detailpage/${i.id}`)}/>
                                     ))
                                 }
 
