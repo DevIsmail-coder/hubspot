@@ -74,7 +74,7 @@ const Hostsignup = () => {
       if (userData.meansOfIdentification.trim() === "") {
         errors.meansOfIdentification = "please select a correct meansOfIdentification"
     }
-      if (userData.email.trim() === "" || !validation(userData.email)) {
+      if (userData.email.trim() === "" || !validation(userData.email.trim())) {
           errors.email = "please enter a correct email"
       }
       if (userData.companyName.trim() === "") {
@@ -83,11 +83,11 @@ const Hostsignup = () => {
       if (userData.companyAddress.trim() === "") {
         errors.companyAddress = "please enter your company address"
     }
-      if (userData.password.trim() === "" || !password(userData.password)) {
+      if (userData.password.trim() === "" || !password(userData.password.trim())) {
           errors.password = "password must include uppercase, lowercase, and a special character."
       }
-      if (userData.confirmPassword.trim() === "" || userData.confirmPassword !== userData.password) {
-          errors.confirmPassword = "please enter a correct confirm password"
+      if (userData.confirmPassword.trim() === "" || userData.confirmPassword.trim() !== userData.password) {
+          errors.confirmPassword = "password those not match"
       }
       if (userData.idCardNumber.trim() === "") {
         errors.idCardNumber = "please enter your idCardNumber"
