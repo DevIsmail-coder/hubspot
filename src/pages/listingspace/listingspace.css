@@ -344,3 +344,112 @@
     border: none;
     border-radius: 3px;
   }
+
+
+  .availability-container {
+    padding: 20px;
+    width: 495px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+   
+  }
+  
+  .availability-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a3b7b;
+
+  }
+  
+  .availability-header {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    gap: 15px;
+  }
+  
+  .day-header {
+    display: flex;
+    justify-content: center;
+    width: 70px;
+  }
+  
+  .time-header {
+    width: 120px;
+    text-align: center;
+    /* background-color: green; */
+  }
+  
+  .dash {
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .availability-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .availability-checkbox {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .day-name {
+    width: 40px;
+  }
+  
+  .time-input {
+    display: flex;
+    align-items: center;
+    background-color: #E5E5E5;
+    padding: 4px 4px;
+    border-radius: 4px;
+    width: 100px;
+    margin: 0 10px;
+  }
+  
+  .clock-icon {
+    margin-right: 5px;
+    font-size: 12px;
+    color: #333;
+  }
+  
+  .time-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .icon {
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .plus-icon {
+    color: green;
+  }
+  
+  .minus-icon {
+    color: red;
+    margin-left: 10px;
+  }
+  
+
+  .time-picker {
+    width: 87%;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    /* font-weight: bold; */
+    color: #333;
+    outline: none;
+  }

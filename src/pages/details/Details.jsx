@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './details.css'
-import { Around, coldImg, Review } from '../../components/hubdata'
+import { Around, Review } from '../../components/hubdata'
 import { IoStarSharp } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoIosWifi } from "react-icons/io";
@@ -83,7 +83,7 @@ const Details = () => {
           </article>
           <article className='Detailscontainer1XXX'>
             <div className='Detailscontainer1XXX1'>
-              <h1 className='Detailscontainer1XXX1h3'>{allSpace.name}</h1>
+              <h1 className='Detailscontainer1XXX1h3'>{allSpace?.name}</h1>
               <span className='Detailscontainer1XXX1span'>
                 <IoStarSharp />
                 <IoStarSharp />
