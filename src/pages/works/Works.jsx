@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './works.css'
 import { Ismail, User } from '../../components/hubdata';
 import { BiSolidQuoteLeft } from "react-icons/bi";
@@ -7,8 +7,26 @@ import { IoIosArrowRoundForward, IoIosArrowRoundBack, IoIosArrowDown } from "rea
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination , Autoplay} from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { topSpace } from '../Hubspotapi';
 const Works = () => {
+    const [topRated, setTopRated] = useState([])
+
+    const handleResponse = (mess) => {
+        if (mess.data?.data) {
+            setTopRated(mess.data?.data)
+
+        }
+    }
+    console.log(topRated);
+
+    useEffect(() => {
+        topSpace(handleResponse)
+    }, [])
+
+
+
+
     const [currentImage, setCurrentImage] = useState(0)
     const images = Ismail.map((i, index) => (
         <div className='Workscontainer2wrap' key={index}>
@@ -67,12 +85,17 @@ const Works = () => {
                 </main>
                 <main className='Workscontainer2YYY2'>
                     {
-                        Ismail.map((i, index) => (
-                            <div className='Workscontainer2wrap' key={index}>
-                                <img src={i.showImg} className='Workscontainer2img' />
+                        topRated.map((i, id) => (
+                            <div className='Workscontainer2wrap' key={id}>
+                                {
+                                    i.images?.map((e, index) => (
+                                        <img src={e.imageUrl} className='Workscontainer2img' key={index}/>
+                                    ))
+                                }
+
                                 <h3 className='Workscontainer2wraphh'>{i.name}</h3>
                             </div>
-                    
+
                         ))
                     }
                 </main>
@@ -85,7 +108,7 @@ const Works = () => {
                 <h3 className='Workscontainer3h'>Our Impact in Our Users' Words</h3>
                 <main className='Workscontainer3main'>
                     <Swiper
-                        modules={[Pagination , Autoplay]}
+                        modules={[Pagination, Autoplay]}
                         pagination={{ clickable: true }}
                         spaceBetween={30}
                         slidesPerView={1}
@@ -96,7 +119,7 @@ const Works = () => {
                         autoplay={{
                             delay: 3000,
                             disableOnInteraction: false,
-                          }}
+                        }}
                     >
                         {User.map((i, index) => (
                             <SwiperSlide key={index} className='Workscontainer3wrap'>
@@ -106,12 +129,12 @@ const Works = () => {
                                         <p className='Workscontainer3wrapspanpp'>"{i.reply}"</p>
                                     </span>
                                     <span className='Workscontainer3wrapspan2'>
-                                        <HiUserCircle className='Workscontainer3wrapspan2icon'/>
+                                        <HiUserCircle className='Workscontainer3wrapspan2icon' />
                                     </span>
-                                  <div className='Workscontainer3wraptitle'>
-                                  <h3 className='Workscontainer3wrapspan2h3'>{i.name}</h3>
-                                  <p className='Workscontainer3wrapspan2p'>{i.stack}</p>
-                                  </div>
+                                    <div className='Workscontainer3wraptitle'>
+                                        <h3 className='Workscontainer3wrapspan2h3'>{i.name}</h3>
+                                        <p className='Workscontainer3wrapspan2p'>{i.stack}</p>
+                                    </div>
                                 </div>
                             </SwiperSlide>
                         ))}
