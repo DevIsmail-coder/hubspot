@@ -50,7 +50,7 @@ const Hostlogin = () => {
             errors.email = "please enter a correct email"
         }
         if (userInfo.password.trim() === "" || !password(userInfo.password)) {
-            errors.password = "password must include uppercase, lowercase, and a special character."
+            errors.password = "password does not match"
         }
 
         if (Object.keys(errors).length > 0) {
@@ -78,9 +78,10 @@ const Hostlogin = () => {
         }
         else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
-        } else {
-            toast.error("An error occurred. Please try again.");
         }
+        //  else {
+        //     toast.error("An error occurred. Please try again.");
+        // }
     }
 
 
@@ -131,7 +132,7 @@ const Hostlogin = () => {
 
                 </div>
                 <span className='Hostlogincontainer3wrap' onClick={() => navigate("/forget")}>Forget Password?</span>
-                <button className='Signupbutton1' type='submit'>{loading ? "Loading..." : "login"}</button>
+                <button className='Signupbutton1' type='submit'>{loading ? "Logging in..." : "login"}</button>
                 <p className='Hostlogincontainer3'>Don't have an account? <span className='Hostlogincontainer4wrap' onClick={() => navigate("/hostsignup")}>Create an account</span></p>
             </form>
         </div>

@@ -103,7 +103,7 @@ const Details = () => {
               <h3 className='Detailscontainer1XXX4h3'>Space Amenities</h3>
               <main className='Detailscontainer1XXX4main'>
                
-                <span className='Detailscontainer1XXX4mainspan'><GiCoffeeCup className='Detailscontainer1XXX4mainspanicon' /> Free Coffe</span>
+                <span className='Detailscontainer1XXX4mainspan'><GiCoffeeCup className='Detailscontainer1XXX4mainspanicon' /> Free Coffee</span>
                 <span className='Detailscontainer1XXX4mainspan'><MdSolarPower className='Detailscontainer1XXX4mainspanicon' /> 24 hours light</span>
                 <span className='Detailscontainer1XXX4mainspan'><PiSecurityCameraFill className='Detailscontainer1XXX4mainspanicon' /> Camera</span>
               </main>

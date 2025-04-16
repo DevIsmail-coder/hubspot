@@ -31,7 +31,7 @@ const Header = () => {
     <div className='Headerbody'>
       <main className='Headermain'>
         <div className='Headerdiv1'>
-          <img src='/Frame 2382 (5).png' className='Headerdiv1img' />
+          <img src='/Frame 2382 (5).png' className='Headerdiv1img' onClick={() => navigate("/")}/>
         </div>
         <div className='Headerdiv2'>
           <input type="text" placeholder='Search' className='Headerdiv2input' />

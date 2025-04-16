@@ -7,8 +7,10 @@ import { BsBuildingCheck } from "react-icons/bs";
 import { LuBadgeCheck } from "react-icons/lu";
 import { FaCalendarDays } from "react-icons/fa6";
 import { VscChromeMinimize } from "react-icons/vsc";
+import { useNavigate } from 'react-router-dom';
 
 const Hostpage = () => {
+    const navigate = useNavigate()
     const [openFAQIndexes, setOpenFAQIndexes] = useState([]);
 
     const toggleFAQ = (index) => {
@@ -58,7 +60,7 @@ const Hostpage = () => {
                             environments. Showcase your space effortlessly, fill your schedule, and <br />
                             turn idle areas into thriving hubs of productivity and creativity.
                         </p>
-                        <button className='headFontbutton'>List Your Space</button>
+                        <button className='headFontbutton'  onClick={() => navigate("/allspace")}>List Your Space</button>
                     </div>
                 </div>
             </div>
@@ -232,7 +234,7 @@ const Hostpage = () => {
 
             <div className='becomeLastdiv'>
                 <h1 className='lastdivFont'>Unlock the Actual Value of Your Space</h1>
-                <button className='lastdivButton'>List Your Space</button>
+                <button className='lastdivButton'  onClick={() => navigate("/allspace")}>List Your Space</button>
             </div>
         </div>
     );

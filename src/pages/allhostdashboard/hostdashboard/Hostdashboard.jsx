@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './hostdashboard.css'
 import { Dashboardperformance, coworkSpaces } from '../../../components/hubdata'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { getSpace } from '../../Hubspotapi'
 
 const Hostdashboard = () => {
   const navigate = useNavigate()
+ const [current, setCurrent] = useState(0)
+  const hostShowToken = useSelector((state) => state.hubspot.hostToken);
+  const spaceToken = hostShowToken.hostToken
+
+
+  const handleResponse = (mess) => {
+    if(mess.data?.data){
+      setCurrent(mess.data?.data)
+    }
+    console.log(mess.data?.data);
+    
+}
+
+  useEffect(() => {
+      getSpace(handleResponse, spaceToken)
+  }, [])
 
   return (
     <div className='Hostdashboardbody'>
@@ -37,7 +55,7 @@ const Hostdashboard = () => {
                 <button className='Hostdashboardbodycontainer2mainart2divbut'>Withdraw</button>
               </div>
               <div className='Hostdashboardbodycontainer2mainart2div'>
-                <h3 className='Hostdashboardbodycontainer2mainart2divh3'>5 Spaces</h3>
+                <h3 className='Hostdashboardbodycontainer2mainart2divh3'>{current} Spaces</h3>
                 <p className='Hostdashboardbodycontainer2mainart2divp'>Total Spaces Currently Live</p>
                 <button className='Hostdashboardbodycontainer2mainart2divbut' onClick={() => navigate("/listspace")}>Add Space</button>
               </div>
