@@ -1,4 +1,5 @@
 import axios from "axios"
+import { FaListCheck } from "react-icons/fa6"
 
 const  HUBSPOTAPI  = import.meta.env.VITE_HUBSPOT
 
@@ -97,8 +98,6 @@ export const getAllspace = async (handleResponse) => {
 }
 
 export const getDetails = async (handleResponse, id) => {
-    console.log(id);
-    
     try {
         const res = await axios.get(`${HUBSPOTAPI}/space/getOne/${id}`)
         handleResponse(res)
@@ -106,5 +105,26 @@ export const getDetails = async (handleResponse, id) => {
     }
     catch (err){
         console.log(err)
+    }
+}
+
+export const createSpace = async (formData, spaceToken, handleResponse, handleloading) => {
+    try {
+        handleloading(true)
+        const res = await axios.post(`${HUBSPOTAPI}/space/create`, formData, {
+            headers: {
+                'Authorization': `Bearer ${spaceToken}`
+            }
+        })
+        handleloading(false)
+        handleResponse({res});
+        console.log(res);
+        
+    }
+    catch (err){
+        handleloading(false)
+        handleResponse({err})
+        console.log(err);
+        
     }
 }
