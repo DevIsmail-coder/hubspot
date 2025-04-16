@@ -10,6 +10,7 @@ import { userSignup } from '../../pages/Hubspotapi';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import { BsArrowLeftCircle } from "react-icons/bs";
 import { isVerified, userdata, } from '../../global/features';
 
 
@@ -116,6 +117,9 @@ const Usersignup = () => {
 
     return (
         <div className='Signupbody'>
+            <div className='Backbutton'>
+            <BsArrowLeftCircle  className='IconButton' onClick={() => navigate("//login")}/>
+            </div>
             <form className='Signupmain' onSubmit={handleSubmit}>
                 <div className='Signupcontainer1'>
                     <h1 className='Signupcontainer1h1'>Welcome To Hubspot </h1>

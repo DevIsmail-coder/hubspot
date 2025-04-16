@@ -6,7 +6,8 @@ import { BsBriefcaseFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaRegIdCard } from "react-icons/fa";
-import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import { BsArrowLeftCircle } from "react-icons/bs";
 import { userdata } from '../../global/features';
 
 const Hostsignup = () => {
@@ -103,9 +104,12 @@ const Hostsignup = () => {
 
     return (
         <div className='Hostsignupbody'>
+              <div className='HostsignupBackbutton'>
+             <BsArrowLeftCircle  className='HostsignupIconButton'/>
+            </div>
             <form className='Hostsignupmain' onSubmit={handleError}>
                 <div className='Hostsignupcontainer1'>
-                    <h1>Welcome To Hubspot</h1>
+                    <h1 className='Hostheader'>Welcome To Hubspot</h1>
                     <p className='Hostsignupcontainer1p'>Create your account and share your space.</p>
                 </div>
                 <div className='Hostsignupcontainer2'>

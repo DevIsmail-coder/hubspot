@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../pages/Hubspotapi';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
-import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import { BsArrowLeftCircle } from "react-icons/bs"; 
 import { token } from '../../global/features';
 
 const Login = () => {
@@ -96,9 +97,12 @@ const Login = () => {
     }
     return (
         <div className='Loginbody'>
+               <div className='LoginBackbutton'>
+               <BsArrowLeftCircle  className='LoginIconButton'  onClick={() => navigate("/usersignup")}/>
+              </div>
             <form className='Loginmain' onSubmit={handleSubmit}>
                 <div className='Logincontainer1'>
-                    <h1>Welcome Back </h1>
+                    <h1 className='LoginText'>Welcome Back </h1>
                     <p className='Logincontainer1p'>login and discover the space that fits you</p>
                 </div>
                 <div className='Logincontainer2'>

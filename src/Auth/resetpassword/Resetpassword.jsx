@@ -1,13 +1,17 @@
 import React from 'react'
 import './resetpassword.css'
 import { RiLockPasswordFill } from "react-icons/ri";
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 const Resetpassword = () => {
   return (
  <div className='Resetbody'>
+        <div className='resetBackbutton'>
+            <BsArrowLeftCircle  className='resetIconButton'  onClick={() => navigate("/login")}/>
+             </div>
              <main className='Resetmain'>
                  <div className='Resetcontainer1'>
-                     <h1>Reset Password </h1>
+                     <h1 className='resetHeader'>Reset Password </h1>
                      <p className='Resetcontainer1p'>Create your account and unlock the perfect space for your needs.</p>
                  </div>
                  <div className='Logincontainer2'>

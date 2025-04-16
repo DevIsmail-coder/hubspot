@@ -4,14 +4,18 @@ import { FcGoogle } from "react-icons/fc";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 const Hostlogin = () => {
   const navigate = useNavigate()
   return (
        <div className='Hostloginbody'>
                <main className='Hostloginmain'>
+               <div className='HostloginBackbutton'>
+              <BsArrowLeftCircle  className='HostloginIconButton'  onClick={() => navigate("/hostsignup")}/>
+              </div>
                    <div className='Hostlogincontainer1'>
-                       <h1>Welcome Back </h1>
+                       <h1 className='HostloginHeader'>Welcome Back </h1>
                        {/* <p className='Hostlogincontainer1p'>login and discover the space that fits you</p> */}
                    </div>
                    <div className='Hostlogincontainer2'>

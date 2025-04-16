@@ -116,9 +116,31 @@
         font-size: 19px;
     }
 }
+.HostloginHeader{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+.HostloginBackbutton{
+    position: absolute;
+    border-radius: 35px;
+    left: 5%;
+    top: 10%;
+}
+.HostloginIconButton{
+    width: 100%;
+    height: 100%;
+    font-size: 50px;
+}
 
 
 @media screen and (max-width: 800px) {
+    .Hostloginbody{
+        position: relative;
+    }
     .Hostloginmain {
         width: 90%;
     }
@@ -138,5 +160,25 @@
         display: flex;
         gap: 5px;
         align-items: center;
+    }
+    .HostloginBackbutton{
+        position: absolute;
+        border-radius: 35px;
+        left: 1%;
+        top: 7%;
+    }
+    
+    .HostloginIconButton{
+        width: 100%;
+        height: 100%;
+        font-size: 30px;
+    }
+    .HostloginHeader{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
     }
 }
