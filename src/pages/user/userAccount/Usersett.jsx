@@ -1,11 +1,11 @@
 import React from 'react'
-import './useraccount.css'
+import './usersett.css'
 import { IoIosCall } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa";
 import { LiaUserEditSolid } from "react-icons/lia";
 
-const Useraccount = () => {
+const Usersett = () => {
   return (
     <div className='AccountBody'>
       <div className='Accountmain'>
@@ -47,4 +47,4 @@ const Useraccount = () => {
   )
 }
 
-export default Useraccount
+export default Usersett
