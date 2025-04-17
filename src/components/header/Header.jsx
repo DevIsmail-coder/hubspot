@@ -6,7 +6,6 @@ import { PiListLight } from "react-icons/pi";
 import { MdOutlineClear } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import { token } from '../../global/features';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -77,13 +76,29 @@ const Header = () => {
 
         {dropDown && (
           <div className='Headerdiv1XXdropdown'>
+               <div className='Headerdiv1XXdropdownspan'>
+              <span className='Headerdiv1XXdropdownspanshow'>
+              <button className='Headerdiv1XXdropdownspanbut' onClick={() => showing("signup")}>Sign up</button>
+              {show === "signup" && (
+                <div className='Headerdiv1XXdropdownspanbutdropis'>
+                  <p className='Headerdiv1XXdropdownspanbutdroptag' onClick={() => navigate("/hostsignup")}>Sign up as a host</p>
+                  <p className='Headerdiv1XXdropdownspanbutdroptag' onClick={() => navigate("/usersignup")}>Sign up as a user</p>
+                </div>
+              )}
+              </span>
+              <span className='Headerdiv1XXdropdownspanshow'>
+              <button className='Headerdiv1XXdropdownspanbut' onClick={() => showing("login")}>Login</button>
+              {show === "login" && (
+                <div className='Headerdiv1XXdropdownspanbutdropis'>
+                  <p className='Headerdiv1XXdropdownspanbutdroptag' onClick={() => navigate("/hostlogin")}>Login as a host</p>
+                  <p className='Headerdiv1XXdropdownspanbutdroptag' onClick={() => navigate("/login")}>Login as a user</p>
+                </div>
+              )}
+              </span>
+            </div>
             <p onClick={() => navigate("/")}>Home</p>
             <p onClick={() => navigate("/hostpage")}>Become a host</p>
             <p onClick={() => navigate("/aboutus")}>About Us</p>
-            <span className='Headerdiv1XXdropdownspan'>
-              <button className='Headerdiv1XXdropdownspanbut'>Sign up</button>
-              <button className='Headerdiv1XXdropdownspanbut'>Login</button>
-            </span>
           </div>
         )}
       </div>

@@ -7,8 +7,12 @@ import { TbSettings } from "react-icons/tb";
 import { PiNotebook } from "react-icons/pi";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useUser } from '../../../global/context';
+import { useDispatch } from 'react-redux';
+import { hostlogout } from '../../../global/features';
+
 
 const Leftboard = () => {
+    const dispatch = useDispatch()
     const {dropDown} = useUser()
     const location = useLocation()
     const navigate = useNavigate()
@@ -24,6 +28,11 @@ const Leftboard = () => {
     }
 
 
+const handleLogOut = () => {
+    navigate("/")
+    dispatch(hostlogout())
+}
+ 
 
     return (
         <div className='Leftboardbody'>
@@ -46,7 +55,7 @@ const Leftboard = () => {
                         onClick={() => {navigate("/dashboardLayout/password&security")}}>
                         <MdSecurity className='Leftboardmainartspanicon' /> Password & Security </span>
                         <div className={`Leftboardmainartspan ${getActivediv("/dashboardLayout/password&security")}`}
-                        onClick={() => navigate("/")}>
+                        onClick={handleLogOut}>
                         <MdSecurity className='Leftboardmainartspanicon' /> Log out </div>
                 </article>
             </main>

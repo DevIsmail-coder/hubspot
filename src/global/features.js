@@ -36,11 +36,14 @@ const features = createSlice({
             state.hostToken = payload
         },
         logout: (state) => {
-            state.user = {};
             state.userToken = "";
           },
+          hostlogout: (state) => {
+            state.hostToken = "";
+          },
+
     }
 })
 
-export const {userdata, hostdata, isAdmin, isVerified, token, logout, hostTok, hostName} = features.actions
+export const {userdata, hostdata, isAdmin, isVerified, token, logout, hostTok, hostName, hostlogout} = features.actions
 export default features.reducer
