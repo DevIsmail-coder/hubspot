@@ -6,7 +6,7 @@ import { FaPlus, FaMinus } from 'react-icons/fa';
 import { TfiGallery } from "react-icons/tfi";
 import { createSpace } from '../Hubspotapi';
 import { useSelector } from 'react-redux';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 const Listingspace = () => {
   const navigate = useNavigate()
