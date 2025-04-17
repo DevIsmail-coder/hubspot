@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { HiUserCircle } from "react-icons/hi";
 import './bookspace.css'
 // import { bookings } from '../../../components/hubdata'
 import { useSelector } from 'react-redux';
@@ -11,22 +12,20 @@ const Bookspace = () => {
   const spaceToken = hostShowToken.hostToken
 
   const handleResponse = (mess) => {
-    console.log(mess.data?.data?.name);
-    if(mess.data?.data){
-      setTitle(mess.data?.data?.name)
-      setBooking(mess.data?.data?.Bookings)
+    console.log(mess?.res);
+    if(mess.res?.data?.data){
+      setTitle(mess?.res?.data?.data?.name)
+      setBooking(mess?.res?.data?.data?.Bookings)
 
-      console.log("am booking now", mess.data?.data?.Bookings);
-      console.log("am title now", mess.data?.data?.name);
+      console.log("am booking now", mess?.res?.data?.data?.Bookings);
+      console.log("am title now", title);
     }
-   
-   console.log(mess.data?.data);
    
   }
 
   useEffect(() => {
     spaceBooking(handleResponse, spaceToken)
-  }, [])
+  }, [spaceToken])
 
   return (
     <div className='Bookspacebody'>
@@ -43,7 +42,7 @@ const Bookspace = () => {
               <article className='Bookspacemainmainwrap' key={id}>
                 <div className='Bookspacemainmaindiv'>
                   <span className='Bookspacemainmaindivspan1'>
-                    <HiUserCircle />
+                    <HiUserCircle className='Bookspacemainmaindivspan1img' />
                     {/* <img src={i.image} alt="" className='Bookspacemainmaindivspan1img' /> */}
                   </span>
                  
@@ -53,7 +52,7 @@ const Bookspace = () => {
                 
                     <div className='Bookspacemainmaindiv1' >
                       <span className='Bookspacemainmaindiv1span'>
-                        <p>{e.startDate}</p>
+                        <p>{i.startDate}</p>
                         <p className='Bookspacemainmaindiv1spanp'>{i.startTime}</p>
                       </span>  -
                       <span className='Bookspacemainmaindiv1span'>
@@ -65,8 +64,8 @@ const Bookspace = () => {
                 <div className='Bookspacemainmaindiv1'>
                   <span className='Bookspacemainmaindiv1spanXX'
                     style={{
-                      backgroundColor: i.status === 'pending' ? '#FEFAEE' : i.status === 'active' ? '#E9F7EF' : '#FFEAEB',
-                      color: i.status === 'pending' ? '#F2CB53' : i.status === 'active' ? '#27AE60' : '#EB5757'
+                      backgroundColor: i.status === 'upcoming' ? '#FEFAEE' : i.status === 'active' ? '#E9F7EF' : '#FFEAEB',
+                      color: i.status === 'upcoming' ? '#F5D77A' : i.status === 'active' ? '#27AE60' : '#EB5857'
                     }}
                   >
                     {i.status}

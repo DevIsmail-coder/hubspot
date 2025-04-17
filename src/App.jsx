@@ -26,6 +26,9 @@ import Accountsetting from './pages/allhostdashboard/accountsetting/Accountsetti
 import Bookspace from './pages/allhostdashboard/bookspace/Bookspace'
 import Verifyemail from './pages/emailpage/verifyemail/Verifyemail'
 import Listingspace from './pages/listingspace/Listingspace'
+import Header from './components/header/Header'
+import Usersett from './pages/user/userAccount/Usersett'
+import Usereview from './pages/user/userReview/Usereview'
 
 
 function App() {
@@ -58,6 +61,14 @@ const rountee = createBrowserRouter([
         path: "/abouthost",
         element: <Listhost />
       },
+      {
+        path: "/userAccountSetting",
+        element: <Usersett />
+      },
+      {
+        path: "usereview",
+        element: <Usereview />
+      }
     ]
   },
 
@@ -88,6 +99,12 @@ const rountee = createBrowserRouter([
         element: <Accountsetting />,
       },
     ]
+  },
+
+
+  {
+    path: "header",
+    element: <Header />
   },
   {
     path: "/password",

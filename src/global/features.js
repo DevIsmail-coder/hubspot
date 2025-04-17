@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     host: {},
   user: {},
+  hostName: "",
   userToken: "",
   hostToken: "",
   admin: false,
@@ -28,15 +29,21 @@ const features = createSlice({
         token: (state, {payload}) => {
             state.userToken = payload
         },
+        hostName: (state, {payload}) => {
+            state.hostName = payload
+        },
         hostTok: (state, {payload}) => {
             state.hostToken = payload
         },
         logout: (state) => {
-            state.user = {};
             state.userToken = "";
           },
+          hostlogout: (state) => {
+            state.hostToken = "";
+          },
+
     }
 })
 
-export const {userdata, hostdata, isAdmin, isVerified, token, logout, hostTok} = features.actions
+export const {userdata, hostdata, isAdmin, isVerified, token, logout, hostTok, hostName, hostlogout} = features.actions
 export default features.reducer

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './hostdashboard.css'
-import { Dashboardperformance, coworkSpaces } from '../../../components/hubdata'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { HiUserCircle } from "react-icons/hi";

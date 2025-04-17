@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './listingspace.css'
 import { useNavigate } from 'react-router-dom';
 import { FaClock } from 'react-icons/fa';
-import { FaPlus, FaMinus } from 'react-icons/fa';
+import { HiUserCircle } from "react-icons/hi";
 import { TfiGallery } from "react-icons/tfi";
 import { createSpace } from '../Hubspotapi';
 import { useSelector } from 'react-redux';
@@ -11,9 +11,9 @@ import { toast } from 'react-toastify';
 const Listingspace = () => {
   const navigate = useNavigate()
   const [imageFiles, setImageFiles] = useState({});
-    const [loading, setLoading] = useState(false)
-    const hostShowToken = useSelector((state) => state.hubspot.hostToken);
-    const spaceToken = hostShowToken.hostToken
+  const [loading, setLoading] = useState(false)
+  const hostShowToken = useSelector((state) => state.hubspot.hostToken);
+  const spaceToken = hostShowToken.hostToken
   const [listData, setListData] = useState({
     name: "",
     overview: "",
@@ -65,7 +65,7 @@ const Listingspace = () => {
     ]
   });
 
-  
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setListData(prevData => ({
@@ -88,12 +88,12 @@ const Listingspace = () => {
     }));
   };
 
-  
+
   // Handler for amenities checkboxes
   const handleAmenityChange = (e) => {
     const amenity = e.target.id;
     const isChecked = e.target.checked;
-    
+
     setListData(prevData => {
       if (isChecked) {
         return {
@@ -114,13 +114,13 @@ const Listingspace = () => {
     const { name, files } = e.target;
     if (files && files.length > 0) {
       const file = files[0];
-  
+
       // Save actual file for submission
       setImageFiles(prev => ({
         ...prev,
         [name]: file
       }));
-  
+
       // Preview file
       const fileURL = URL.createObjectURL(file);
       setListData(prevData => ({
@@ -132,80 +132,80 @@ const Listingspace = () => {
       }));
     }
   };
-  
+
 
   const handleResponse = (mess) => {
 
     if (mess.res?.data?.message) {
-        toast.success(mess.res?.data?.message);
-        setListData({
-          name: "",
-          overview: "",
-          amenities: [],
-          pricePerDay: "",
-          pricePerHour: "",
-          capacity: "",
-          availability: {
-            "Mon": {
-              "opening": "",
-              "closing": ""
-            },
-            "Tue": {
-              "opening": "",
-              "closing": ""
-            },
-            "Wed": {
-              "opening": "",
-              "closing": ""
-            },
-            "Thu": {
-              "opening": "",
-              "closing": ""
-            },
-            "Fri": {
-              "opening": "",
-              "closing": ""
-            },
-            "Sat": {
-              "opening": "",
-              "closing": ""
-            },
-            "Sun": {
-              "opening": "",
-              "closing": ""
-            }
+      toast.success(mess.res?.data?.message);
+      setListData({
+        name: "",
+        overview: "",
+        amenities: [],
+        pricePerDay: "",
+        pricePerHour: "",
+        capacity: "",
+        availability: {
+          "Mon": {
+            "opening": "",
+            "closing": ""
           },
-          spaceType: "",
-          location: "",
-          spaceAdress: "",
-          images: [
-            {
-              "imageUrl1": "",
-              "imageUrl2": "",
-              "imageUrl3": "",
-              "imageUrl4": "",
-              "imageUrl5": "",
-            },
-          ]
-        })
+          "Tue": {
+            "opening": "",
+            "closing": ""
+          },
+          "Wed": {
+            "opening": "",
+            "closing": ""
+          },
+          "Thu": {
+            "opening": "",
+            "closing": ""
+          },
+          "Fri": {
+            "opening": "",
+            "closing": ""
+          },
+          "Sat": {
+            "opening": "",
+            "closing": ""
+          },
+          "Sun": {
+            "opening": "",
+            "closing": ""
+          }
+        },
+        spaceType: "",
+        location: "",
+        spaceAdress: "",
+        images: [
+          {
+            "imageUrl1": "",
+            "imageUrl2": "",
+            "imageUrl3": "",
+            "imageUrl4": "",
+            "imageUrl5": "",
+          },
+        ]
+      })
     } else if (mess.err?.response?.data?.message) {
-        toast.error(mess.err?.response?.data?.message);
-        console.log(mess.err?.response?.data?.message);
-        
+      toast.error(mess.err?.response?.data?.message);
+      console.log(mess.err?.response?.data?.message);
+
     } else {
-        toast.error("An error occurred. Please try again.");
+      toast.error("An error occurred. Please try again.");
     }
-}
-  
-const handleloading = (parameter) => {
-  setLoading(parameter)
-}
+  }
+
+  const handleloading = (parameter) => {
+    setLoading(parameter)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const formData = new FormData();
-  
+
     formData.append('name', listData.name);
     formData.append('overview', listData.overview);
     formData.append('spaceType', listData.spaceType);
@@ -217,14 +217,14 @@ const handleloading = (parameter) => {
     formData.append('availability', JSON.stringify(listData.availability));
     formData.append('amenities', JSON.stringify(listData.amenities));
 
-    
+
     Object.entries(imageFiles).forEach(([key, file]) => {
       formData.append('images', file);
     });
-  
+
     await createSpace(formData, spaceToken, handleResponse, handleloading);
   };
-  
+
 
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -232,12 +232,12 @@ const handleloading = (parameter) => {
     <div className='Listingspacebody'>
       <div className='Listingspaceheader'>
         <div className='Listingspacelogo'>
-          <img src="/hubspot-logo.png" alt="HubSpot" />
+          <img src='/Frame 2382 (5).png' className='Listingspacelogoimg'  onClick={() => navigate("/")} />
         </div>
         <div className='Listingspacedashboard' onClick={() => navigate("/dashboardLayout/hostdashboard")}>
           <p>Go back to Dashboard</p>
           <div className='Listingspaceprofile'>
-            <div className='Listingspaceprofileicon'></div>
+            <div className='Listingspaceprofileicon'><HiUserCircle  className='Listingspaceprofileiconis'/></div>
           </div>
         </div>
       </div>
@@ -246,19 +246,19 @@ const handleloading = (parameter) => {
         <div className='Listingspaceimages'>
           <div className='Listingspacemainimage'>
             <label htmlFor='is' className='Listingspaceimageplaceholder'>
-              <input type="file" hidden  
-              file={listData.images.imageUrl1}
-              name='imageUrl1'
-              onChange={handleImage}
-              id='is'
-              accept="image/*"
+              <input type="file" hidden
+                file={listData.images.imageUrl1}
+                name='imageUrl1'
+                onChange={handleImage}
+                id='is'
+                accept="image/*"
               />
-              <img src={listData.images[0].imageUrl1 || ""} alt="" className='Listingspacethumbnailimg'/>
+              <img src={listData.images[0].imageUrl1 || ""} alt="" className='Listingspacethumbnailimg' />
             </label>
             <div className='Listingspacemainimagein'>
-              <input 
-                type="text" 
-                placeholder="Space Name" 
+              <input
+                type="text"
+                placeholder="Space Name"
                 className='Listingspacemainimageininput'
                 name="name"
                 value={listData.name}
@@ -268,55 +268,78 @@ const handleloading = (parameter) => {
           </div>
           <div className='Listingspacethumbnails'>
             <label htmlFor='ism' className='Listingspacethumbnail'>
-            <input type="file" hidden  
-              file={listData.images.imageUrl2}
-              name='imageUrl2'
-              onChange={handleImage}
-              accept="image/*"
-              id='ism'
+              <input type="file" hidden
+                file={listData.images.imageUrl2}
+                name='imageUrl2'
+                onChange={handleImage}
+                accept="image/*"
+                id='ism'
               />
-              <img src={listData.images[0].imageUrl2 || ""} alt="" className='Listingspacethumbnailimg'/>
+              <img src={listData.images[0].imageUrl2 || ""} alt="" className='Listingspacethumbnailimg' />
             </label>
             <label htmlFor='isma' className='Listingspacethumbnail'>
-            <input type="file" hidden  
-              file={listData.images.imageUrl3}
-              name='imageUrl3'
-              onChange={handleImage}
-              accept="image/*"
-              id='isma'
+              <input type="file" hidden
+                file={listData.images.imageUrl3}
+                name='imageUrl3'
+                onChange={handleImage}
+                accept="image/*"
+                id='isma'
               />
-              <img src={listData.images[0].imageUrl3 || ""} alt="" className='Listingspacethumbnailimg'/>
+              <img src={listData.images[0].imageUrl3 || ""} alt="" className='Listingspacethumbnailimg' />
             </label>
             <label htmlFor='ismail' className='Listingspacethumbnail'>
-            <input type="file" hidden  
-              file={listData.images.imageUrl4}
-               onChange={handleImage}
-              accept="image/*"
-              name='imageUrl4'
-              id='ismail'
+              <input type="file" hidden
+                file={listData.images.imageUrl4}
+                onChange={handleImage}
+                accept="image/*"
+                name='imageUrl4'
+                id='ismail'
               />
-              <img src={listData.images[0].imageUrl4 || ""} alt=""  className='Listingspacethumbnailimg'/>
+              <img src={listData.images[0].imageUrl4 || ""} alt="" className='Listingspacethumbnailimg' />
             </label>
             <label htmlFor='ismailx' className='Listingspacethumbnail'>
-            <input type="file" hidden  
-              file={listData.images.imageUrl5}
-              onChange={handleImage}
-              accept="image/*"
-              name='imageUrl5'
-              id='ismailx'
+              <input type="file" hidden
+                file={listData.images.imageUrl5}
+                onChange={handleImage}
+                accept="image/*"
+                name='imageUrl5'
+                id='ismailx'
               />
-              <img src={listData.images[0].imageUrl5 || ""} alt=""  className='Listingspacethumbnailimg'/>
+              <img src={listData.images[0].imageUrl5 || ""} alt="" className='Listingspacethumbnailimg' />
             </label>
           </div>
         </div>
 
         <div className='Listingspaceform'>
           <div className='Listingspaceleft'>
+
+          <div className='Listingspaceformgroup'>
+              <select
+                className='Listingspaceinputselect'
+                name="location"
+                placeholder='location'
+                value={listData.location}
+                onChange={handleInputChange}
+              >
+                <option value="">Choose location</option>
+                <option value="Apapa">Apapa</option>
+                <option value="Festac">Festac</option>
+                <option value="Ago">Ago</option>
+                <option value="Ikeja">Ikeja</option>
+                <option value="Yaba">Yaba</option>
+                <option value="Surulere">Surulere</option>
+                <option value="Ikoyi">Ikoyi</option>
+                <option value="Lekki">Lekki</option>
+                <option value="Magodo">Magodo</option>
+                <option value="Victoria island">Victoria island</option>
+              </select>
+            </div>
+
             <div className='Listingspaceformgroup'>
-              <input 
-                type="text" 
-                className='Listingspaceinput' 
-                placeholder='Space Address' 
+              <input
+                type="text"
+                className='Listingspaceinput'
+                placeholder='Space Address'
                 name="spaceAdress"
                 value={listData.spaceAdress}
                 onChange={handleInputChange}
@@ -324,24 +347,22 @@ const handleloading = (parameter) => {
             </div>
 
             <div className='Listingspaceformgroup'>
-              <select 
+              <select
                 className='Listingspaceinputselect'
                 name="spaceType"
                 value={listData.spaceType}
                 onChange={handleInputChange}
               >
                 <option value="">Select space type</option>
-                <option value="office">Office Space</option>
-                <option value="meeting">Meeting Room</option>
-                <option value="event">Event Space</option>
-                <option value="studio">Studio Space</option>
+                <option value="cowork hub">Cowork hub</option>
+                <option value="creative space">Creative space</option>
               </select>
             </div>
 
             <div className='Listingspaceformgroup'>
               <label className='Listingspacelabel'>Space Overview</label>
-              <textarea 
-                className='Listingspacetextareadd' 
+              <textarea
+                className='Listingspacetextareadd'
                 placeholder="Write a brief space overview"
                 name="overview"
                 value={listData.overview}
@@ -349,14 +370,6 @@ const handleloading = (parameter) => {
               ></textarea>
             </div>
 
-            <div className='Listingspaceformgroup'>
-              <input 
-                name="location"
-                placeholder='location'
-                value={listData.location}
-                onChange={handleInputChange}
-              />
-            </div>
           </div>
 
           <div className='Listingspaceright'>
@@ -371,12 +384,12 @@ const handleloading = (parameter) => {
 
               {daysOfWeek.map((day, index) => (
                 <div className="availability-row" key={index}>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     className="availability-checkbox"
                     id={`checkbox-${day}`}
-                    checked={listData.availability[day] && 
-                             (listData.availability[day].opening || listData.availability[day].closing)}
+                    checked={listData.availability[day] &&
+                      (listData.availability[day].opening || listData.availability[day].closing)}
                     onChange={(e) => {
                       if (!e.target.checked) {
                         handleAvailabilityChange(day, "opening", "");
@@ -388,8 +401,8 @@ const handleloading = (parameter) => {
 
                   <div className="time-input">
                     <FaClock className="clock-icon" />
-                    <input 
-                      type="time" 
+                    <input
+                      type="time"
                       className="time-picker"
                       value={listData.availability[day]?.opening || ""}
                       onChange={(e) => handleAvailabilityChange(day, "opening", e.target.value)}
@@ -400,16 +413,13 @@ const handleloading = (parameter) => {
 
                   <div className="time-input">
                     <FaClock className="clock-icon" />
-                    <input 
-                      type="time" 
+                    <input
+                      type="time"
                       className="time-picker"
                       value={listData.availability[day]?.closing || ""}
                       onChange={(e) => handleAvailabilityChange(day, "closing", e.target.value)}
                     />
                   </div>
-
-                  <FaPlus className="icon plus-icon" />
-                  <FaMinus className="icon minus-icon" />
                 </div>
               ))}
             </div>
@@ -420,8 +430,8 @@ const handleloading = (parameter) => {
             <label className='Listingspacelabel'>Space Capacity</label>
             <div className='Listingspacecapacity'>
               <span>Maximum number of occupants:</span>
-              <input 
-                type="number" 
+              <input
+                type="number"
                 className='Listingspaceinput Listingspacesmall'
                 name="capacity"
                 value={listData.capacity}
@@ -435,8 +445,8 @@ const handleloading = (parameter) => {
             <div className='Listingspaceamenities'>
               <div className='Listingspaceamenitiesrow'>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="wifi"
                     checked={listData.amenities.includes("wifi")}
                     onChange={handleAmenityChange}
@@ -444,8 +454,8 @@ const handleloading = (parameter) => {
                   <label htmlFor="wifi">Free Wifi</label>
                 </div>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="projector"
                     checked={listData.amenities.includes("projector")}
                     onChange={handleAmenityChange}
@@ -453,8 +463,8 @@ const handleloading = (parameter) => {
                   <label htmlFor="projector">Projector</label>
                 </div>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="ac"
                     checked={listData.amenities.includes("ac")}
                     onChange={handleAmenityChange}
@@ -464,8 +474,8 @@ const handleloading = (parameter) => {
               </div>
               <div className='Listingspaceamenitiesrow'>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="meeting"
                     checked={listData.amenities.includes("meeting")}
                     onChange={handleAmenityChange}
@@ -473,8 +483,8 @@ const handleloading = (parameter) => {
                   <label htmlFor="meeting">Private meeting room</label>
                 </div>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="workstation"
                     checked={listData.amenities.includes("workstation")}
                     onChange={handleAmenityChange}
@@ -482,8 +492,8 @@ const handleloading = (parameter) => {
                   <label htmlFor="workstation">Private workstation</label>
                 </div>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="solar"
                     checked={listData.amenities.includes("solar")}
                     onChange={handleAmenityChange}
@@ -493,8 +503,8 @@ const handleloading = (parameter) => {
               </div>
               <div className='Listingspaceamenitiesrow'>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="parking"
                     checked={listData.amenities.includes("parking")}
                     onChange={handleAmenityChange}
@@ -502,8 +512,8 @@ const handleloading = (parameter) => {
                   <label htmlFor="parking">Parking available</label>
                 </div>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="wheelchair"
                     checked={listData.amenities.includes("wheelchair")}
                     onChange={handleAmenityChange}
@@ -511,8 +521,8 @@ const handleloading = (parameter) => {
                   <label htmlFor="wheelchair">Wheelchair accessibility</label>
                 </div>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="microwave"
                     checked={listData.amenities.includes("microwave")}
                     onChange={handleAmenityChange}
@@ -522,17 +532,17 @@ const handleloading = (parameter) => {
               </div>
               <div className='Listingspaceamenitiesrow'>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="printer"
                     checked={listData.amenities.includes("printer")}
-                    onChange={handleAmenityChange} 
+                    onChange={handleAmenityChange}
                   />
                   <label htmlFor="printer">Printer & Scanner</label>
                 </div>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="coffee"
                     checked={listData.amenities.includes("coffee")}
                     onChange={handleAmenityChange}
@@ -540,8 +550,8 @@ const handleloading = (parameter) => {
                   <label htmlFor="coffee">Free Coffee</label>
                 </div>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="cctv"
                     checked={listData.amenities.includes("cctv")}
                     onChange={handleAmenityChange}
@@ -551,8 +561,8 @@ const handleloading = (parameter) => {
               </div>
               <div className='Listingspaceamenitiesrow'>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="sound"
                     checked={listData.amenities.includes("sound")}
                     onChange={handleAmenityChange}
@@ -560,8 +570,8 @@ const handleloading = (parameter) => {
                   <label htmlFor="sound">Sound Recording equipment</label>
                 </div>
                 <div className='Listingspaceamenity'>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     id="video"
                     checked={listData.amenities.includes("video")}
                     onChange={handleAmenityChange}
@@ -577,8 +587,8 @@ const handleloading = (parameter) => {
             <div className='Listingspaceprices'>
               <div className='Listingspaceprice'>
                 <label>Hourly Rate:</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   className='Listingspaceinput Listingspacesmall'
                   name="pricePerHour"
                   value={listData.pricePerHour}
@@ -587,8 +597,8 @@ const handleloading = (parameter) => {
               </div>
               <div className='Listingspaceprice'>
                 <label>Daily Rate:</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   className='Listingspaceinput Listingspacesmall'
                   name="pricePerDay"
                   value={listData.pricePerDay}

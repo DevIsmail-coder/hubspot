@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { hostLogin } from '../../pages/Hubspotapi';
 import { useDispatch } from 'react-redux';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
-import { hostTok } from '../../global/features';
+import { hostName, hostTok } from '../../global/features';
 import { toast } from 'react-toastify';
 
 const Hostlogin = () => {
@@ -67,21 +67,22 @@ const Hostlogin = () => {
     const handleResponse = (mess) => {
         if (mess.res?.data?.message) {
             toast.success(mess.res?.data?.message);
+        
             setUserInfo({
                 email: "",
                 password: ""
             })
             dispatch(hostTok({ hostToken: mess.res?.data?.token }))
+            dispatch(hostName({hostName: mess.res?.data?.data}))
+            console.log({hostName: mess.res?.data?.data});
+            
             setTimeout(() => {
                 navigate("/dashboardLayout/hostdashboard")
-            }, 2000)
+            }, 1500)
         }
         else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
         }
-        //  else {
-        //     toast.error("An error occurred. Please try again.");
-        // }
     }
 
 

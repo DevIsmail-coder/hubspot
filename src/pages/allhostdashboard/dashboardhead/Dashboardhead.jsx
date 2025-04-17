@@ -4,15 +4,17 @@ import { HiMiniUserCircle } from "react-icons/hi2";
 import { PiListLight } from "react-icons/pi";
 import Leftboard from '../leftboard/Leftboard';
 import { useUser } from '../../../global/context';
+import { useSelector } from 'react-redux';
 
 const Dashboardheader = () => {
 const {dropDown, showing} = useUser()
 
+const userDetail = useSelector((state) => state.hubspot.hostName.hostName)
 
   return (
     <div className='dashboardheaderbody'>
       <header className='dashboardheaderbodycontainer2head'>
-        <h3 className='dashboardheaderbodycontainer2headh3'>Hello, Ismail777</h3>
+        <h3 className='dashboardheaderbodycontainer2headh3'>Hello, {userDetail}</h3>
         <span className='dashboardheaderbodycontainer2headh3span'>
           <HiMiniUserCircle className='dashboardheaderbodycontainer2headh3spanicon' />
         </span>
