@@ -6,9 +6,9 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import { hostLogin } from '../../pages/Hubspotapi';
 import { useDispatch } from 'react-redux';
-import toast from 'react-hot-toast';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
 import { hostTok } from '../../global/features';
+import { toast } from 'react-toastify';
 
 const Hostlogin = () => {
     const dispatch = useDispatch()

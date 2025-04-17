@@ -85,7 +85,7 @@ const Hostdashboard = () => {
 
             <article className='Hostdashboardbodycontainer2mainart2'>
               <div className='Hostdashboardbodycontainer2mainart2div'>
-                <h1 className='Hostdashboardbodycontainer2mainart2divh1'>NGN {balance}</h1>
+                <h1 className='Hostdashboardbodycontainer2mainart2divh1'>NGN {balance.toLocaleString()}</h1>
                 <p className='Hostdashboardbodycontainer2mainart2divp'>Current Balance</p>
                 <button className='Hostdashboardbodycontainer2mainart2divbut'>Withdraw</button>
               </div>

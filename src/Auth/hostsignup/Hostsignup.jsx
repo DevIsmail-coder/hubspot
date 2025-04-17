@@ -11,7 +11,7 @@ import { hostdata } from '../../global/features';
 import { useDispatch } from 'react-redux';
 import { hostSignup } from '../../pages/Hubspotapi';
 import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 const Hostsignup = () => {
   const navigate = useNavigate()

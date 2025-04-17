@@ -7,7 +7,7 @@ import { BsBriefcaseFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import { userSignup } from '../../pages/Hubspotapi';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { isVerified, userdata, } from '../../global/features';
