@@ -354,8 +354,8 @@ const Listingspace = () => {
                 onChange={handleInputChange}
               >
                 <option value="">Select space type</option>
-                <option value="Cowork hub">Cowork hub</option>
-                <option value="Creative space">Creative space</option>
+                <option value="cowork hub">Cowork hub</option>
+                <option value="creative space">Creative space</option>
               </select>
             </div>
 

@@ -26,10 +26,6 @@ const Admindashboard = () => {
       </div>
       <div className='RightSide'>
         <div className='RightHeader'>
-          <div className='HeaderSearch'>
-            <input type="text" placeholder='Search' className='HeaderSearchInput' />
-            <IoIosSearch className='HeaderSearchicon' />
-          </div>
           <div className='ProfileDiv'>
             <p className='Profile1'>
               <IoMdNotifications className='ProfileIcon1' />

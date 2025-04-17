@@ -217,3 +217,85 @@ export const currentBalance = async (showbalance, spaceToken) => {
         console.log(err)
     }
 }
+
+
+// booking 
+export const initializeBooking = async (
+    spaceId,
+    bookingData,
+    handleloading,
+    handleResponse,
+    spaceToken
+  ) => {
+    console.log(spaceToken);
+    try {
+      handleloading(true);
+      let endpoint = "";
+      const requestData = { ...bookingData };
+  
+      if (bookingData.durationType === "hourly") {
+        endpoint = `${HUBSPOTAPI}/booking/initialize/${spaceId}`;
+        requestData.durationPerHour = bookingData.duration;
+        delete requestData.duration;
+        delete requestData.durationType;
+      } else if (bookingData.durationType === "daily") {
+        endpoint = `${HUBSPOTAPI}/booking/day/initialize/${spaceId}`;
+        requestData.durationPerDay = bookingData.duration;
+        delete requestData.duration;
+        delete requestData.durationType;
+      }
+  
+      const res = await axios.post(endpoint, requestData, {
+        headers: {
+          Authorization: `Bearer ${spaceToken}`,
+        },
+      });
+      handleloading(false);
+      handleResponse({ res });
+      console.log(res);
+    } catch (err) {
+      handleloading(false);
+      handleResponse({ err });
+      console.log(err);
+    }
+  };
+  
+  export const verifyBooking = async (
+    reference,
+    handleloading,
+    handleResponse
+  ) => {
+    try {
+      handleloading(true);
+      const res = await axios.get(
+        `${HUBSPOTAPI}/booking/verify?reference=${reference}`
+      );
+      handleloading(false);
+      handleResponse({ res });
+      console.log(res);
+    } catch (err) {
+      handleloading(false);
+      handleResponse({ err });
+      console.log(err);
+    }
+  };
+  
+  export const verifyDayBooking = async (
+    reference,
+    handleloading,
+    handleResponse
+  ) => {
+    try {
+      handleloading(true);
+      const res = await axios.get(
+        `${HUBSPOTAPI}/booking/day/verify?reference=${reference}`
+      );
+      handleloading(false);
+      handleResponse({ res });
+      console.log(res);
+    } catch (err) {
+      handleloading(false);
+      handleResponse({ err });
+      console.log(err);
+    }
+  };
