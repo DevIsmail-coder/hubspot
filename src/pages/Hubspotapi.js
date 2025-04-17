@@ -141,6 +141,9 @@ export const topSpace = async (handleResponse) => {
 }
 
 
+
+
+// host dashboard
 export const getSpace = async (handleResponse, spaceToken) => {
     try {
         const res = await axios.get(`${HUBSPOTAPI}/host/getspaces`, {
@@ -164,6 +167,51 @@ export const listing = async (handleResponselist, spaceToken) => {
             }
         })
         handleResponselist(res)
+        console.log(res);
+    }
+    catch (err){
+        console.log(err)
+    }
+}
+
+export const bookCategories = async (showPerformance, spaceToken) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/host/bookingcategories`, {
+            headers: {
+                'Authorization': `Bearer ${spaceToken}`
+            }
+        })
+        showPerformance(res)
+        console.log(res);
+    }
+    catch (err){
+        console.log(err)
+    }
+}
+
+export const spaceBooking = async (handleResponse, spaceToken) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/host/spacebookings`, {
+            headers: {
+                'Authorization': `Bearer ${spaceToken}`
+            }
+        })
+        handleResponse({res})
+        console.log(res);
+    }
+    catch (err){
+        console.log(err)
+    }
+}
+
+export const currentBalance = async (showbalance, spaceToken) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/host/currentbalance`, {
+            headers: {
+                'Authorization': `Bearer ${spaceToken}`
+            }
+        })
+        showbalance(res)
         console.log(res);
     }
     catch (err){

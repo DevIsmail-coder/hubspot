@@ -330,7 +330,7 @@ const handleloading = (parameter) => {
                 value={listData.spaceType}
                 onChange={handleInputChange}
               >
-                <option value="">Select ID Type</option>
+                <option value="">Select space type</option>
                 <option value="office">Office Space</option>
                 <option value="meeting">Meeting Room</option>
                 <option value="event">Event Space</option>

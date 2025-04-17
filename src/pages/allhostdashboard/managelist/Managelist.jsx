@@ -57,7 +57,12 @@ const handleResponselist = (mess) => {
                   
                 <div className='Managelistmainart2maindiv'>
                 <span className='Managelistmainart2maindivspan1'>
-                 <img src= {i.image} alt=""  className='Managelistmainart2maindivspan1img'/>
+                {
+                 i.images && i.images.length > 0 && (
+                   <img src= {i.images[0]?.imageUrl} alt=""  className='Managelistmainart2maindivspan1img' key={index}/>
+                 )
+               
+                }
                 </span>
                 <span className='Managelistmainart2maindivspan2'>
                  <p>{i.name}</p>
@@ -71,7 +76,12 @@ const handleResponselist = (mess) => {
              </div>
              <div className='Managelistmainart2maindiv1'>{i.capacity} Desks</div>
              <div className='Managelistmainart2maindiv1'>
-              <span className='Managelistmainart2maindiv1spanXX'>
+              <span className='Managelistmainart2maindiv1spanXX'
+                    style={{
+                      backgroundColor: i.listingStatus === 'pending' ? '#FEFAEE' : i.listingStatus === 'active' ? '#E9F7EF' : '#FFEAEB',
+                      color: i.listingStatus === 'pending' ? '#F2CB53' : i.listingStatus === 'active' ? '#27AE60' : '#EB5757'
+                    }}
+              >
               {i.listingStatus}
               </span>
              </div>
