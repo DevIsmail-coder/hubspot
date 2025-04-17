@@ -8,11 +8,13 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaRegIdCard } from "react-icons/fa";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { BsArrowLeftCircle } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 import { userdata } from '../../global/features';
 
 const Hostsignup = () => {
   const [show, setShow] = useState(false)
   const [userError, setUserError]  = useState({})
+ const navigate = useNavigate()
       const [userData, setUserData] = useState({
         fullName: "",
         email: "",
@@ -105,7 +107,7 @@ const Hostsignup = () => {
     return (
         <div className='Hostsignupbody'>
               <div className='HostsignupBackbutton'>
-             <BsArrowLeftCircle  className='HostsignupIconButton'/>
+             <BsArrowLeftCircle  className='HostsignupIconButton'  onClick={() => navigate("//login")}/>
             </div>
             <form className='Hostsignupmain' onSubmit={handleError}>
                 <div className='Hostsignupcontainer1'>
