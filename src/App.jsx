@@ -28,6 +28,7 @@ import Verifyemail from './pages/emailpage/verifyemail/Verifyemail'
 import Listingspace from './pages/listingspace/Listingspace'
 import Header from './components/header/Header'
 import Usersett from './pages/user/userAccount/Usersett'
+import Usereview from './pages/user/userReview/Usereview'
 
 
 function App() {
@@ -63,6 +64,10 @@ const rountee = createBrowserRouter([
       {
         path: "/userAccountSetting",
         element: <Usersett />
+      },
+      {
+        path: "usereview",
+        element: <Usereview />
       }
     ]
   },
