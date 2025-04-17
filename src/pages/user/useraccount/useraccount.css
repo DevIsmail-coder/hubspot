@@ -1,0 +1,205 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.AccountBody{
+    width: 100%;
+    display: flex;
+    font-family: sans-serif;
+    justify-content: center;
+}
+.Accountmain{
+    width: 50%;
+    overflow-y: auto;
+    display: flex;
+    gap: 18px;
+    font-family: sans-serif;
+    flex-direction: column;
+}
+.Settings{
+    width: 60%;
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+.SettingsProfile{
+    width: 15%;
+    height: 90px;
+    border-radius: 35px;
+    background-color:whitesmoke;
+
+    .SettingsProfileIcon{
+        width: 100%;
+        height: 100%;
+    }
+}
+.Securityspan{
+    width: 67%;
+    padding: 18px;
+    border: 1px solid #828282;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 15px;
+    color: #1E398A;
+
+    .Securityspaninput{
+        width: 70%;
+        border: none;
+        outline: none;
+    }
+}
+.Securityspan2{
+    width: 67%;
+    padding: 30px;
+    border: 1px solid #828282;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 15px;
+    color: #1E398A;
+
+    .Securityspaninput2{
+        width: 70%;
+        border: none;
+        outline: none;
+    }
+}
+
+.Securityspan3{
+    width: 67%;
+    padding: 16px;
+    border: 1px solid #828282;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 15px;
+    color: #1E398A;
+
+    .Securityspaninput3{
+        width: 70%;
+        border: none;
+        outline: none;
+    }
+}
+.SettingIcon{
+    font-size: 25px;
+}
+.SettingIcon2{
+    font-size: 20px;
+}
+.SettingButton{
+    width: 20%;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #1E398A ;
+}
+
+@media screen and (max-width: 800px) {
+
+    .AccountBody{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-family: sans-serif;
+    }
+    .Accountmain{
+        width: 80%;
+        overflow-y: auto;
+        display: flex;
+        gap: 18px;
+        font-family: sans-serif;
+        flex-direction: column;
+    }
+
+    .Settings{
+        width: 80%;
+        font-size: 30px;
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+    }
+
+    .SettingsProfile{
+        width: 25%;
+        height: 90px;
+        border-radius: 35px;
+        background-color:whitesmoke;
+    
+        .SettingsProfileIcon{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .Securityspan{
+        width: 100%;
+        padding: 18px;
+        border: 1px solid #828282;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 15px;
+        color: #1E398A;
+    
+        .Securityspaninput{
+            width: 70%;
+            border: none;
+            outline: none;
+        }
+    }
+
+    .Securityspan2{
+        width: 100%;
+        padding: 30px;
+        border: 1px solid #828282;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 15px;
+        color: #1E398A;
+    
+        .Securityspaninput2{
+            width: 70%;
+            border: none;
+            outline: none;
+        }
+    }
+
+    .Securityspan3{
+        width: 100%;
+        padding: 16px;
+        border: 1px solid #828282;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 15px;
+        color: #1E398A;
+    
+        .Securityspaninput3{
+            width: 70%;
+            border: none;
+            outline: none;
+        }
+    }
+
+    .SettingButton{
+        width: 30%;
+        padding: 8px;
+        font-size: 15px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        background-color: #1E398A ;
+    }
+}
