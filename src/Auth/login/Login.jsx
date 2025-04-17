@@ -6,7 +6,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 // import { loginUser } from '../../pages/Hubspotapi';
 import { useDispatch } from 'react-redux';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
 import { token } from '../../global/features';
 import { userLogin } from '../../pages/Hubspotapi';
@@ -51,7 +51,7 @@ const Login = () => {
             errors.email = "please enter a correct email"
         }
         if (userInfo.password.trim() === "" || !password(userInfo.password)) {
-            errors.password = "password must include uppercase, lowercase, and a special character."
+            errors.password = "password does not match "
         }
 
         if (Object.keys(errors).length > 0) {
@@ -75,13 +75,14 @@ const Login = () => {
             dispatch(token({ userToken: mess.res?.data?.token }))
             setTimeout(() => {
                 navigate("/")
-            }, 3000)
+            }, 2000)
         }
         else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
-        } else {
-            toast.error("An error occurred. Please try again.");
-        }
+        } 
+        // else {
+        //     toast.error("An error occurred. Please try again.");
+        // }
     }
 
 
@@ -132,7 +133,7 @@ const Login = () => {
 
                 </div>
                 <span className='Logincontainer3wrap' onClick={() => navigate("/forget")}>Forget Password?</span>
-                <button className='Signupbutton1' type='submit'>{loading ? "Loading..." : "Login"}</button>
+                <button className='Signupbutton1' type='submit'>{loading ? "Logging in..." : "Login"}</button>
                 <div className='Logincontainer4'>
                     <span className='Logincontainer3span'></span>
                     <p>OR</p>
