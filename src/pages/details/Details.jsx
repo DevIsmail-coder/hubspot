@@ -77,7 +77,7 @@ const Details = () => {
             </div>
             <div className='Detailscontainer1XX2'>
               {
-                allSpace?.images && allSpace.images.map((i, id) => (
+                allSpace?.images && allSpace.images.slice(0, 3).map((i, id) => (              
                   <span key={id} className='Detailscontainer1XX2span' onClick={() => setChangeImg(id)}>
                     <img src={i.imageUrl} className='Detailscontainer1XX2spanimg' alt={`Space view ${id + 1}`} />
                   </span>
