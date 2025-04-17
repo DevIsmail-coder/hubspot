@@ -1,5 +1,4 @@
 import axios from "axios"
-import { FaListCheck } from "react-icons/fa6"
 
 const  HUBSPOTAPI  = import.meta.env.VITE_HUBSPOT
 
