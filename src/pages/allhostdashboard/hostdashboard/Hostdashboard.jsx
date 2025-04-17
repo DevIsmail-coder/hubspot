@@ -3,27 +3,54 @@ import './hostdashboard.css'
 import { Dashboardperformance, coworkSpaces } from '../../../components/hubdata'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { getSpace } from '../../Hubspotapi'
+import { HiUserCircle } from "react-icons/hi";
+import { bookCategories, currentBalance, getSpace, listing } from '../../Hubspotapi'
 
 const Hostdashboard = () => {
   const navigate = useNavigate()
- const [current, setCurrent] = useState(0)
+  const [performance, setPerformance] = useState({})
+  const [balance, setbalance] = useState(0.00)
+  const [allListed, setAllListed] = useState([])
+  const [current, setCurrent] = useState(0)
   const hostShowToken = useSelector((state) => state.hubspot.hostToken);
   const spaceToken = hostShowToken.hostToken
 
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   const handleResponse = (mess) => {
-    if(mess.data?.data){
+    if (mess.data?.data) {
       setCurrent(mess.data?.data)
     }
-    console.log(mess.data?.data);
-    
-}
+
+  }
+
+  const handleResponselist = (mess) => {
+    if (mess.data?.data) {
+      setAllListed(mess.data?.data)
+    }
+  }
+
+  const showbalance = (mess) => {
+    if (mess.data?.data) {
+      setbalance(mess.data?.data)
+    }
+    console.log(balance);
+
+  }
+
+  const showPerformance = (mess) => {
+    if (mess.data?.data) {
+      setPerformance(mess.data?.data?.counts)
+    }
+    console.log(mess.data?.data?.counts);
+  }
 
   useEffect(() => {
-      getSpace(handleResponse, spaceToken)
+    listing(handleResponselist, spaceToken)
+    getSpace(handleResponse, spaceToken)
+    bookCategories(showPerformance, spaceToken)
+    currentBalance(showbalance, spaceToken)
   }, [])
-
   return (
     <div className='Hostdashboardbody'>
       <main className='Hostdashboardbodymain'>
@@ -31,11 +58,19 @@ const Hostdashboard = () => {
           <h3 className='Hostdashboardbodycontainer1h3'>Manage Bookings</h3>
           <div className='Hostdashboardbodycontainer1wrap'>
             {
-              Dashboardperformance.map((i, index) => (
-                <article key={index} className='Hostdashboardbodycontainer1art' style={{ borderTop: `6px solid ${i.color}` }}>
-                  <h1 className='Hostdashboardbodycontainer1arth1'>{i.number}</h1>
-                  <h3 className='Hostdashboardbodycontainer1arth3'>{i.work}</h3>
+              Object.entries(performance).map(([key, value]) => (
+
+                <article className='Hostdashboardbodycontainer1art' key={key} style={{
+                  borderTop: `4px solid ${key === "upcoming"
+                    ? "#AFFDA6"
+                    : key === "active"
+                      ? "#B2F2FF"
+                      : "#FFDCDC"}`
+                }}>
+                  <h1 className='Hostdashboardbodycontainer1arth1'>{value}</h1>
+                  <h3 className='Hostdashboardbodycontainer1arth3'>{key === "upcoming" ? "Upcoming bookings" : key === "active" ? "Active bookings" : "Completed stays"}</h3>
                 </article>
+
               ))
             }
           </div>
@@ -50,7 +85,7 @@ const Hostdashboard = () => {
 
             <article className='Hostdashboardbodycontainer2mainart2'>
               <div className='Hostdashboardbodycontainer2mainart2div'>
-                <h1 className='Hostdashboardbodycontainer2mainart2divh1'>NGN 158,000</h1>
+                <h1 className='Hostdashboardbodycontainer2mainart2divh1'>NGN {balance}</h1>
                 <p className='Hostdashboardbodycontainer2mainart2divp'>Current Balance</p>
                 <button className='Hostdashboardbodycontainer2mainart2divbut'>Withdraw</button>
               </div>
@@ -74,27 +109,36 @@ const Hostdashboard = () => {
           </header>
           <main className='Managelistmainart2main'>
             {
-              coworkSpaces.slice(0, 3).map((i, index) => (
+              allListed.slice(0, 3).map((i, index) => (
                 <article className='Managelistmainart2mainwrap' key={index}>
                   <div className='Managelistmainart2maindiv'>
                     <span className='Managelistmainart2maindivspan1'>
-                      <img src={i.image} alt="" className='Managelistmainart2maindivspan1img' />
+                      {
+                        i.images && i.images.length > 0 && (
+                          <img src={i.images[0].imageUrl} alt="" className='Managelistmainart2maindivspan1img' />
+                        )
+                      }
                     </span>
                     <span className='Managelistmainart2maindivspan2'>
                       <p>{i.name}</p>
                       <p>Cowork</p>
                     </span>
                   </div>
-                  <div className='Managelistmainart2maindiv1'>{i.users}</div>
+                  <div className='Managelistmainart2maindiv1'>{i.bookingCount} users</div>
                   <div className='Managelistmainart2maindiv2'>
-                    <p>{i.date}</p>
+                    <p>{`${i.createdAt?.slice(0, 5)}${months[Number(i.createdAt?.slice(5, 7)) - 1]}${i.createdAt?.slice(7, 10)}`}</p>
                     <p className='Managelistmainart2maindiv2p'>{i.daysAgo}</p>
                   </div>
-                  <div className='Managelistmainart2maindiv1'>{i.desks}</div>
+                  <div className='Managelistmainart2maindiv1'>{i.capacity} desks</div>
                   <div className='Managelistmainart2maindiv1'>
                     <span className='Managelistmainart2maindiv1spanXX'
-                      style={{ backgroundColor: i.status === 'Pending' ? '#FFF8E0' : i.status === 'Active' ? '#E8FFF0' : '#F5F5F5' }}>
-                      {i.status}
+                      style={{
+                        backgroundColor: i.listingStatus === 'pending' ? '#FEFAEE' : i.listingStatus === 'active' ? '#E9F7EF' : '#FFEAEB',
+                        color: i.listingStatus === 'pending' ? '#F2CB53' : i.listingStatus === 'active' ? '#27AE60' : '#EB5757'
+                      }}
+                    >
+
+                      {i.listingStatus}
                     </span>
                   </div>
                   <div className='Managelistmainart2maindiv1'>
@@ -113,17 +157,22 @@ const Hostdashboard = () => {
           <div className='Hostdashboardbodycontainer1XX'>
             <h3 className='Hostdashboardbodycontainer1h3'>Manage Bookings</h3>
             <div className='Hostdashboardbodycontainer1wrap'>
-              { 
-                Dashboardperformance.map((i, index) => (
-                  <article key={index} className='Hostdashboardbodycontainer1art' style={{
-                    borderTop: `6px solid ${i.color}`,
-                    borderColor: i.color
-                  }}>
-                    <h1 className='Hostdashboardbodycontainer1arth1'>{i.number}</h1>
-                    <h3 className='Hostdashboardbodycontainer1arth3'>{i.work}</h3>
-                  </article>
-                ))
-              }
+            {
+              Object.entries(performance).map(([key, value]) => (
+
+                <article className='Hostdashboardbodycontainer1art' key={key} style={{
+                  borderTop: `4px solid ${key === "upcoming"
+                    ? "#AFFDA6"
+                    : key === "active"
+                      ? "#B2F2FF"
+                      : "#FFDCDC"}`
+                }}>
+                  <h1 className='Hostdashboardbodycontainer1arth1'>{value}</h1>
+                  <h3 className='Hostdashboardbodycontainer1arth3'>{key === "upcoming" ? "Upcoming bookings" : key === "active" ? "Active bookings" : "Completed stays"}</h3>
+                </article>
+
+              ))
+            }
             </div>
           </div>
 
