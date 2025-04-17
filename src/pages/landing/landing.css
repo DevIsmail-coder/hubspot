@@ -130,6 +130,7 @@
                 object-fit: contain;
 
                 .Landingcontainer2wrapart1img{
+                    object-fit: cover;
                     width: 100%;
                     border-radius: 9px 9px 0 0;
                     height: 100%;
