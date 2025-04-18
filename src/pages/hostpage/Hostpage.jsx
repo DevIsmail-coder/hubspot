@@ -40,7 +40,7 @@ const Hostpage = () => {
         },
         {
             question: "Can I update my listing after it's live?",
-            answer: "Hosts can request to edit their listing. Once submitted, our team will review your update request before the changes go live."
+            answer: "Hosts can request to edit their listing. Once submitted, our team will review your update request before the changes go active."
         },
         {
             question: "How do I receive payments?",
@@ -60,7 +60,7 @@ const Hostpage = () => {
                             environments. Showcase your space effortlessly, fill your schedule, and <br />
                             turn idle areas into thriving hubs of productivity and creativity.
                         </p>
-                        <button className='headFontbutton'  onClick={() => navigate("/allspace")}>List Your Space</button>
+                        <button className='headFontbutton'  onClick={() => navigate("/listspace")}>List Your Space</button>
                     </div>
                 </div>
             </div>
