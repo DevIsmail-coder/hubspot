@@ -58,9 +58,9 @@ const Usersignup = () => {
         if (userData.email.trim() === "" || !validation(userData.email.trim())) {
             errors.email = "please enter a correct email"
         }
-        if (userData.company.trim() === "") {
-            errors.company = "please enter company name"
-        }
+        // if (userData.company.trim() === "") {
+        //     errors.company = "please enter company name"
+        // }
         if (userData.password.trim() === "" || !password(userData.password.trim())) {
             errors.password = "password must include uppercase, lowercase, and a special character."
         }

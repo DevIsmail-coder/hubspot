@@ -42,10 +42,10 @@ const Header = () => {
         <div className='Headerdiv1'>
           <img src='/Frame 2382 (5).png' className='Headerdiv1img' onClick={() => navigate("/")}/>
         </div>
-        <div className='Headerdiv2'>
+        {/* <div className='Headerdiv2'>
           <input type="text" placeholder='Search' className='Headerdiv2input' />
           <IoIosSearch className='Headerdiv2icon' />
-        </div>
+        </div> */}
         <div className='Headerdiv3'>
           <p className='Headerdiv3XX' onClick={() => navigate("/")}>Home</p>
           <p className='Headerdiv3X' onClick={() => navigate("/becomeahost")}>Become a Host</p>
@@ -58,9 +58,9 @@ const Header = () => {
             </span>
            { show === "profile" && (
                  <div className='Headerdiv3mainshow'>
-                 <p className='Headerdiv3mainshowp'>Manage Bookings</p>
+                 <p className='Headerdiv3mainshowp' onClick={() => navigate("/managebookings")}>Manage Bookings</p>
                  <p className='Headerdiv3mainshowp'>Saved Spaces</p>
-                 <p className='Headerdiv3mainshowp'>My Account Settings</p>
+                 <p className='Headerdiv3mainshowp' onClick={() => navigate("/userAccountSetting")}>My Account Settings</p>
                  <p className='Headerdiv3mainshowp' onClick={handleLogout}>Log Out</p>
                </div>
            )
@@ -104,9 +104,9 @@ const Header = () => {
       </span>
       { show === "profile" && (
                  <div className='Headerdiv3mainshow'>
-                 <p className='Headerdiv3mainshowp'>Manage Bookings</p>
+                 <p className='Headerdiv3mainshowp'  onClick={() => navigate("/managebookings")}>Manage Bookings</p>
                  <p className='Headerdiv3mainshowp'>Saved Spaces</p>
-                 <p className='Headerdiv3mainshowp'>My Account Settings</p>
+                 <p className='Headerdiv3mainshowp' onClick={() => navigate("/userAccountSetting")}>My Account Settings</p>
                  <p className='Headerdiv3mainshowp'>Log Out</p>
                </div>
            )
