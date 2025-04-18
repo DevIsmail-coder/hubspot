@@ -52,7 +52,7 @@ const Login = () => {
             errors.email = "please enter a correct email"
         }
         if (userInfo.password.trim() === "" || !password(userInfo.password)) {
-            errors.password = "password does not match "
+            errors.password = "Invalid credentials"
         }
 
         if (Object.keys(errors).length > 0) {
@@ -99,15 +99,15 @@ const Login = () => {
     }
     return (
         <div className='Loginbody'>
-              <div className='loginBackbutton'>
-                  
-                </div>
+<span className='Loginbodyicon'>
+<BsArrowLeftCircle className='loginIconButton' onClick={() => navigate(-1)}/>
+</span>
             <form className='Loginmain' onSubmit={handleSubmit}>
-              
+
                 <div className='Logincontainer1x'>
-                <BsArrowLeftCircle className='loginIconButton' onClick={() => navigate("/usersignup")} />
                  <span className='Logincontainer1'>
-                 <h1>Welcome Back </h1>
+                    <img src='/Frame 2382 (5).png' className='Logincontainer1img' onClick={() => navigate("/")}/>
+                 <h1>Welcome To Hubspot</h1>
                  <p className='Logincontainer1p'>login and discover the space that fits you</p>
                  </span>
                 </div>
