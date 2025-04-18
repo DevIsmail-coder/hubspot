@@ -10,7 +10,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { getAllspace } from '../Hubspotapi';
 import BookingModal from '../landing/BookingModal';
 import { useSelector } from 'react-redux';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 const Allspace = () => {
     const userToken = useSelector((state) => state.hubspot.userToken);
@@ -124,7 +124,7 @@ const Allspace = () => {
                                                 <IoStarSharp />
                                             </span>
                                         </div>
-                                        <p className='Allspacecontainer2wrapXXX1d2'>{i.overview}</p>
+                                        <p className='Allspacecontainer2wrapXXX1d2'>{i.overview.slice(0, 75)}...</p>
                                         <div className='Allspacecontainer2wrapXXX1d3'>
                                             <IoIosWifi />
                                             <GiCoffeeCup />
@@ -141,7 +141,7 @@ const Allspace = () => {
                                         </div>
                                         <div className='Allspacecontainer2wrapXXX2d2'>
                                             <main className='Allspacecontainer2wrapXXX2d2main1'>
-                                                <p>NGN 400/Hour</p>
+                                                <p>NGN {i.pricePerDay.toLocaleString()}/Hour</p>
                                             </main>
                                             <main className='Allspacecontainer2wrapXXX2d2main2'>
                                                 <div>
@@ -171,7 +171,7 @@ const Allspace = () => {
                                                     </span>
                                                     <span className='Allspacecontainer2wrapXXX2d2main1xwrapdiv2'>Add more days</span>
                                                 </div>
-                                                <p className='Allspacecontainer2wrapXXX2d2main1xwrappp'>NGN 400/Hour</p>
+                                                <p className='Allspacecontainer2wrapXXX2d2main1xwrappp'>NGN {i.pricePerDay}/Hour</p>
                                             </main>
                                             <button
                                                 className='Allspacecontainer2wrapXXX2d2mainbut'
