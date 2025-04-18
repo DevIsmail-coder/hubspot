@@ -52,7 +52,7 @@
     height: 60px;
     width: 35%;
     border-radius: 10px;
-    background-color: navy;
+    background-color: #1E3C8A;
     color: white;
     margin-top: 15px;
     border: none;
@@ -228,7 +228,7 @@
     width: 75%;
     font-family: sans-serif;
     font-size: 20px;
-    color: navy;
+    color: #1E3C8A;
     border-top: 1px solid orange;
     text-align: center;
     padding-top: 15px;
@@ -237,7 +237,7 @@
 
 .becomeThirdbodypara2{
     font-family: sans-serif;
-    color: navy;  
+    color: #1E3C8A;  
     margin-top: 10px;
     margin-left: 10px;
 }
@@ -279,18 +279,18 @@
   border-radius: 5px;
   font-family: sans-serif;
   font-size: larger;
-  color: navy;
+  color: #1E3C8A;
   background-color:rgb(215, 215, 241);
 
 }
 
 .fourthButton:first-child{
-    background-color: navy;
+    background-color: #1E3C8A;
     color: white;
 }
 
 .fourthButton:hover{
-    background-color: navy;
+    background-color: #1E3C8A;
     color: white;  
 }
 
@@ -376,7 +376,7 @@
 }
 
 .FourthbodyLeftdivbutton:hover{
-    background-color: rgb(15, 15, 94);
+    background-color:#1E3C8A;
 }
 
 .becomeFourthbodylast{
@@ -396,6 +396,7 @@
     flex-direction: column;
     align-items: center;
     font-family: sans-serif ;
+    /* background-color: yellow; */
 
 }
 
@@ -442,7 +443,7 @@
   font-family: sans-serif;
   font-size: 20px;
   font-weight: 600;
-  color: navy;
+  color: #1E3C8A;
 
 }
 
@@ -473,7 +474,7 @@ padding-bottom: 30px;
   font-size: 20px;
   border: none;
   border-radius: 10px;
-  background-color: navy;
+  background-color:  #1E3C8A;
   color: white;
   
 }
@@ -717,7 +718,7 @@ padding-bottom: 30px;
         font-size: 18px;
         width: 150px;
         padding: 12px 20px;
-        background-color: navy;
+        background-color: #1E3C8A;
         color: white;
         border-radius: 5px;
     }

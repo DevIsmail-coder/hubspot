@@ -245,8 +245,8 @@ const Hostsignup = () => {
                         />
                     </span>
                     <p className='Hostsignupcontainer2spanerror'>{userError.idCardNumber}</p>
-                    <span className='Hostsignupcontainer2span'>
-                      {/* <img src={userData.ninImage} alt="" className='Hostsignupcontainer2span1img'/> */}
+                    {/* <span className='Hostsignupcontainer2span'>
+                      <img src={userData.ninImage} alt="" className='Hostsignupcontainer2span1img'/>
                         <input type="file"
                         id='ismail'
                         onChange={handleImage}
@@ -257,8 +257,8 @@ const Hostsignup = () => {
                             readOnly
                         />
                         <label className='Browser' htmlFor='ismail'>Browse</label>
-                    </span> 
-                    <p className='Hostsignupcontainer2spanerror'>{userError.ninImage}</p>
+                    </span>  */}
+                    {/* <p className='Hostsignupcontainer2spanerror'>{userError.ninImage}</p> */}
                 </div>
                 <p className='Hostsignupcontainer3'>By signing up, you agree to the <span className='Hostsignupcontainer3wrap'>Terms of Use</span> and <span className='Signupcontainer3wrap'>Privacy Policy</span>.</p>
                 <button className='Hostsignupbutton1' type='submit'>{loading ? "Loading..." : "Create Account"}</button>

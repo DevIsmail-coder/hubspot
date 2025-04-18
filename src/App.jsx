@@ -66,7 +66,7 @@ const rountee = createBrowserRouter([
         element: <Usersett />
       },
       {
-        path: "usereview",
+        path: "managebookings",
         element: <Usereview />
       }
     ]
