@@ -131,7 +131,7 @@ const Details = () => {
             </div>
             <div className='Detailscontainer1XXX3'>
               <h3 className='Detailscontainer1XXX3h3'>Space Overview</h3>
-              <p className='Detailscontainer1XXXp'>{allSpace?.overview}</p>
+              <p className='Detailscontainer1XXXp'>{allSpace?.overview.slice(0, 200)}</p>
             </div>
             <div className='Detailscontainer1XXX4'>
               <h3 className='Detailscontainer1XXX4h3'>Space Amenities</h3>
