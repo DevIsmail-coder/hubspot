@@ -29,6 +29,7 @@ import Header from './components/header/Header'
 import Usersett from './pages/user/userAccount/Usersett'
 import Usereview from './pages/user/userReview/Usereview'
 import Privateroutes from './routes/Privateroutes'
+import Spacings from './pages/user/savedspace/Spacings'
 
 
 function App() {
@@ -68,6 +69,10 @@ const rountee = createBrowserRouter([
       {
         path: "managebookings",
         element: <Usereview />
+      },
+      {
+        path: "savedspace",
+        element: <Spacings />
       }
     ]
   },

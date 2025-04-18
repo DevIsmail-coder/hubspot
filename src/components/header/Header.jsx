@@ -59,7 +59,7 @@ const Header = () => {
            { show === "profile" && (
                  <div className='Headerdiv3mainshow'>
                  <p className='Headerdiv3mainshowp' onClick={() => navigate("/managebookings")}>Manage Bookings</p>
-                 <p className='Headerdiv3mainshowp'>Saved Spaces</p>
+                 <p className='Headerdiv3mainshowp' onClick={() => navigate("/savedspace")}>Saved Spaces</p>
                  <p className='Headerdiv3mainshowp' onClick={() => navigate("/userAccountSetting")}>My Account Settings</p>
                  <p className='Headerdiv3mainshowp' onClick={handleLogout}>Log Out</p>
                </div>
@@ -105,9 +105,9 @@ const Header = () => {
       { show === "profile" && (
                  <div className='Headerdiv3mainshow'>
                  <p className='Headerdiv3mainshowp'  onClick={() => navigate("/managebookings")}>Manage Bookings</p>
-                 <p className='Headerdiv3mainshowp'>Saved Spaces</p>
+                 <p className='Headerdiv3mainshowp' onClick={() => navigate("/savedspace")}>Saved Spaces</p>
                  <p className='Headerdiv3mainshowp' onClick={() => navigate("/userAccountSetting")}>My Account Settings</p>
-                 <p className='Headerdiv3mainshowp'>Log Out</p>
+                 <p className='Headerdiv3mainshowp' onClick={handleLogout}>Log Out</p>
                </div>
            )
            }

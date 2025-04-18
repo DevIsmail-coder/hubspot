@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { isVerified, userdata, } from '../../global/features';
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 
 const Usersignup = () => {
@@ -118,10 +119,13 @@ const Usersignup = () => {
     return (
         <div className='Signupbody'>
             <form className='Signupmain' onSubmit={handleSubmit}>
+                <main className='Signupcontainer1x'>
+                                <BsArrowLeftCircle className='loginIconButton' onClick={() => navigate("/")} />
                 <div className='Signupcontainer1'>
                     <h1 className='Signupcontainer1h1'>Welcome To Hubspot </h1>
                     <p className='Signupcontainer1p'>Create your account and unlock the perfect space for your needs.</p>
                 </div>
+                </main>
                 <div className='Signupcontainer2'>
                     <span className='Signupcontainer2span' >
                         <HiUser />

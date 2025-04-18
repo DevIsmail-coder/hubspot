@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { hostSignup } from '../../pages/Hubspotapi';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 const Hostsignup = () => {
   const navigate = useNavigate()
@@ -146,7 +147,11 @@ const Hostsignup = () => {
 
     return (
         <div className='Hostsignupbody'>
+        
             <form className='Hostsignupmain' onSubmit={handleSubmit}>
+            <div className='HostloginBackbutton'>
+                <BsArrowLeftCircle  className='HostloginIconButton'  onClick={() => navigate("/")}/>
+                </div>
                 <div className='Hostsignupcontainer1'>
                     <h1>Welcome To Hubspot</h1>
                     <p className='Hostsignupcontainer1p'>Create your account and share your space.</p>
