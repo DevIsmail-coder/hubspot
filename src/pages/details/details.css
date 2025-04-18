@@ -51,6 +51,7 @@
                 .Detailscontainer1XX2spanimg {
                     width: 100%;
                     height: 100%;
+                    object-fit: cover;
                 }
             }
         }
@@ -97,7 +98,7 @@
                 font-weight: 300;
             }
 
-            .Detailscontainer1XXX2p {
+            .Detailscontainer1XXX2p{
                 font-size: 18px;
                 font-weight: 290;
                 color: #1E398A;
@@ -124,31 +125,31 @@
             }
         }
 
-        .Detailscontainer1XXX4 {
+        .Detailscontainer1XXX4{
             width: 90%;
             width: 90%;
             display: flex;
             flex-direction: column;
             gap: 15px;
 
-            .Detailscontainer1XXX4h3 {
+            .Detailscontainer1XXX4h3{
                 color: #1E3B8A;
                 font-size: 20px;
                 font-weight: 350;
             }
 
-            .Detailscontainer1XXX4main {
+            .Detailscontainer1XXX4main{
                 display: flex;
                 flex-direction: column;
                 gap: 17px;
 
-                .Detailscontainer1XXX4mainspan {
+                .Detailscontainer1XXX4mainspan{
                     font: 13px;
                     display: flex;
                     gap: 20px;
                     font-weight: 230;
 
-                    .Detailscontainer1XXX4mainspanicon {
+                    .Detailscontainer1XXX4mainspanicon{
                         font-size: 25px;
                     }
                 }

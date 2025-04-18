@@ -40,7 +40,7 @@
     align-items: center;
     background-color: #FFFFFF;
   }
-
+  
   .Listingspaceprofileiconis{
     width: 100%;
     height: 100%;
@@ -87,9 +87,9 @@
   .Listingspaceimageplaceholder{
     position: relative;
    width: 100%;
-
+  
   }
-
+  
   .Listingspacemainimagein{
     position: absolute;
     width: 37%;
@@ -98,15 +98,15 @@
     align-items: center;
     background-color: #FFFFFF;
     bottom: 100px;
-
+  
     .Listingspacemainimageininput{
         width: 95%;
         padding: 15px;
         outline: none;
-
+  
     }
   }
-
+  
   .Listingspacethumbnail{
     background-color: #EBE8FB;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -121,7 +121,7 @@
     height: 100%;
     /* object-fit: cover; */
   }
-
+  
   .Listingspaceform {
     width: 90%;
     /* background-color: blue; */
@@ -163,7 +163,7 @@
     font-size: 14px;
     outline: none;
   }
-
+  
   .Listingspacetextareadd{
        width: 100%;
        height: 250px;
@@ -188,7 +188,7 @@
     border: none;
     width: 120px;
     border-radius: 3px;
-
+  
     padding: 15px 16px;
     font-size: 16px;
     cursor: pointer;
@@ -333,14 +333,14 @@
     background-color: #ff7a59;
     color: white;
   }
-
+  
   .Listingspacebuttom{
     width: 90%;
     display: flex;
     flex-direction: column;
     gap: 40px;
   }
-
+  
   .Listingspaceformgroup1{
     width: 30%;
     height: 200px;
@@ -348,7 +348,7 @@
     align-items: flex-end;
     /* background-color: blue; */
   }
-
+  
   .Listingspaceaddbtn1{
     width: 100%;
     height: 50px;
@@ -359,8 +359,8 @@
     border: none;
     border-radius: 3px;
   }
-
-
+  
+  
   .availability-container {
     padding: 20px;
     width: 495px;
@@ -376,7 +376,7 @@
     font-size: 18px;
     font-weight: bold;
     color: #1a3b7b;
-
+  
   }
   
   .availability-header {
@@ -449,16 +449,8 @@
     cursor: pointer;
   }
   
-  .plus-icon {
-    color: green;
-  }
   
-  .minus-icon {
-    color: red;
-    margin-left: 10px;
-  }
   
-
   .time-picker {
     width: 87%;
     border: none;
@@ -467,4 +459,138 @@
     /* font-weight: bold; */
     color: #333;
     outline: none;
+  }
+  
+  @media (max-width: 768px) {
+  
+  
+    .Listingspaceheader {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 10px;
+    }
+  
+    .Listingspacemain {
+      gap: 20px;
+    }
+  
+    .Listingspaceimages {
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .Listingspacemainimage,
+    .Listingspacethumbnails {
+      width: 98%;
+      margin-right: 0;
+    }
+  
+    .Listingspacethumbnail {
+      width: 100%;
+    }
+  
+    .Listingspaceform {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .Listingspaceleft,
+    .Listingspaceright {
+      width: 100%;
+    }
+  
+    .Listingspaceformgroup{
+     width: 95%;
+  
+    }
+  
+    .Listingspaceinputselect {
+      width: 100%;
+    }
+  
+    .Listingspaceformgroup1 {
+      width: 100%;
+      height: auto;
+      justify-content: center;
+    }
+  
+    .Listingspaceaddbtn1 {
+      font-size: 18px;
+      height: 45px;
+    }
+  
+    .Listingspaceamenitiesrow {
+      flex-direction: column;
+    }
+  
+    .Listingspaceamenity {
+      width: 100%;
+    }
+  
+    .Listingspaceprices {
+      flex-direction: column;
+    }
+  
+    .Listingspaceprice {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .availability-container {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .availability-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .availability-header {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .day-header,
+    .time-header,
+    .dash {
+      width: auto;
+      text-align: left;
+    }
+  
+    .time-input {
+      margin: 5px 0;
+      width: 100%;
+    }
+  
+    .Listingspacemainimagein {
+      position: static;
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .Listingspaceinput {
+      width: 95%;
+      
+    }
+  
+    .Listingspacemainimagein {
+      position: absolute;
+      width: 37%;
+      display: flex;
+      justify-content: flex-start;
+      
+  
+  
+      .Listingspacemainimageininput {
+        width: 100%;
+        padding: 12px;
+      }
+    }
+  
+    .Listingspacebuttom {
+      width: 80%;
+      padding: 0 15px;
+    }
   }

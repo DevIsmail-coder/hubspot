@@ -11,6 +11,7 @@ const Bookspace = () => {
   const hostShowToken = useSelector((state) => state.hubspot.hostToken);
   const spaceToken = hostShowToken.hostToken
 
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const handleResponse = (mess) => {
     console.log(mess?.res);
     if(mess.res?.data?.data){
@@ -52,11 +53,11 @@ const Bookspace = () => {
                 
                     <div className='Bookspacemainmaindiv1' >
                       <span className='Bookspacemainmaindiv1span'>
-                        <p>{i.startDate}</p>
-                        <p className='Bookspacemainmaindiv1spanp'>{i.startTime}</p>
+                        <p>{`${i.startDate?.slice(0,5)}${months[Number(i.startDate?.slice(5,7))-1]}${i.startDate?.slice(7,10)}`}</p>
+                        <p className='Bookspacemainmaindiv1spanp'></p>
                       </span>  -
                       <span className='Bookspacemainmaindiv1span'>
-                        <p>{i.endDate}</p>
+                        {/* <p>{`${i.endDate?.slice(0,5)}${months[Number(i.endDate?.slice(5,7))-1]}${i.endDate?.slice(7,10)}`}</p> */}
                         <p className='Bookspacemainmaindiv1spanp'>{i.endTime}</p>
                       </span>
                     </div>

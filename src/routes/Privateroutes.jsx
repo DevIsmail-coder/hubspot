@@ -1,19 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
-const Privateroutes = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const Privateroutes = ({ children }) => {
+    const hostToken = useSelector((state) => state.hubspot.hostToken);
 
-export default Privateroutes
+    return hostToken ? children : <Navigate to="/hostLogin" />;
+};
+
+export default Privateroutes;
 
 
 
-// const ProtectedRoute = ({ children }) => {
-//     const userToken = useSelector((state) => state.token.userToken);
-  
-//     return userToken ? children : <Navigate to="/login" />;
-//   };

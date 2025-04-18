@@ -24,11 +24,11 @@ import Psswordsecurity from './pages/allhostdashboard/psswordsecurity/Psswordsec
 import Managelist from './pages/allhostdashboard/managelist/Managelist'
 import Accountsetting from './pages/allhostdashboard/accountsetting/Accountsetting'
 import Bookspace from './pages/allhostdashboard/bookspace/Bookspace'
-import Verifyemail from './pages/emailpage/verifyemail/Verifyemail'
 import Listingspace from './pages/listingspace/Listingspace'
 import Header from './components/header/Header'
 import Usersett from './pages/user/userAccount/Usersett'
 import Usereview from './pages/user/userReview/Usereview'
+import Privateroutes from './routes/Privateroutes'
 
 
 function App() {
@@ -76,7 +76,11 @@ const rountee = createBrowserRouter([
 
   {
     path: "/dashboardLayout",
-    element: <DashboardLayout />,
+    element: (
+      <Privateroutes>
+        <DashboardLayout />
+      </Privateroutes>
+    ),
     children: [
       {
         path: "hostdashboard",
@@ -148,13 +152,13 @@ const rountee = createBrowserRouter([
     element: <Hostlogin />
   },
   {
-    path: "/verifyemail/:token",
-    element: <Verifyemail />
-  },
-  {
     path: "/listspace",
-    element: <Listingspace />
-  },
+    element: (
+      <Privateroutes>
+        <Listingspace />
+      </Privateroutes>
+    )
+  }
 ])
   return (
     <RouterProvider router={rountee}/>
