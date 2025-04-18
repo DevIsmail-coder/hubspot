@@ -94,7 +94,7 @@ const Works = () => {
                         </main>
                     </div>
                     <div className='Workscontainerwrap2'>
-                        <img src='https://cdnewmoda.expatwoman.com/s3fs-public/Most-Expensive-Homes-In-Dubai.jpg' className='Workscontainerwrap2img' />
+                        <img src='/Group 99.jpg' className='Workscontainerwrap2img' />
                     </div>
                 </main>
             </article>

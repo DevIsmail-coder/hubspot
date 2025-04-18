@@ -7,13 +7,14 @@ import { useNavigate } from 'react-router-dom';
 // import { loginUser } from '../../pages/Hubspotapi';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { token } from '../../global/features';
 import { userLogin } from '../../pages/Hubspotapi';
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 const Login = () => {
     const dispatch = useDispatch()
-      const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false)
     const navigate = useNavigate()
     const [userError, setUserError] = useState({})
     const [loading, setLoading] = useState(false)
@@ -24,7 +25,7 @@ const Login = () => {
 
     const toggle = () => {
         setShow(!show)
-      }
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -51,7 +52,7 @@ const Login = () => {
             errors.email = "please enter a correct email"
         }
         if (userInfo.password.trim() === "" || !password(userInfo.password)) {
-            errors.password = "password does not match "
+            errors.password = "Invalid credentials"
         }
 
         if (Object.keys(errors).length > 0) {
@@ -79,7 +80,7 @@ const Login = () => {
         }
         else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
-        } 
+        }
         // else {
         //     toast.error("An error occurred. Please try again.");
         // }
@@ -98,10 +99,17 @@ const Login = () => {
     }
     return (
         <div className='Loginbody'>
+<span className='Loginbodyicon'>
+<BsArrowLeftCircle className='loginIconButton' onClick={() => navigate(-1)}/>
+</span>
             <form className='Loginmain' onSubmit={handleSubmit}>
-                <div className='Logincontainer1'>
-                    <h1>Welcome Back </h1>
-                    <p className='Logincontainer1p'>login and discover the space that fits you</p>
+
+                <div className='Logincontainer1x'>
+                 <span className='Logincontainer1'>
+                    <img src='/Frame 2382 (5).png' className='Logincontainer1img' onClick={() => navigate("/")}/>
+                 <h1>Welcome To Hubspot</h1>
+                 <p className='Logincontainer1p'>login and discover the space that fits you</p>
+                 </span>
                 </div>
                 <div className='Logincontainer2'>
 
@@ -127,7 +135,7 @@ const Login = () => {
                             name='password'
                             value={userInfo.password}
                         />
-                         <p onClick={toggle} className='Hostsignupcontainer2spantoggle1'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline  className="eye-icon"/>}</p>
+                        <p onClick={toggle} className='Hostsignupcontainer2spantoggle1'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline className="eye-icon" />}</p>
                     </span>
                     <p className='Logincontainer2spanerror'>{userError.password}</p>
 

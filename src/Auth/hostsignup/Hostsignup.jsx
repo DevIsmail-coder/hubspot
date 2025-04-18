@@ -12,8 +12,10 @@ import { useDispatch } from 'react-redux';
 import { hostSignup } from '../../pages/Hubspotapi';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 const Hostsignup = () => {
+    const [allow, setAllow] = useState(false)
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -30,9 +32,12 @@ const Hostsignup = () => {
         idCardNumber: "",
       })
 
-      console.log(userData);
       const toggle = () => {
         setShow(!show)
+      }
+
+      const toggleAll = () => {
+        setAllow(!allow)
       }
 
       const handleChange = (e) => {
@@ -127,9 +132,7 @@ const Hostsignup = () => {
     } else if (mess.err?.response?.data?.message) {
         toast.error(mess.err.response.data?.message);
     } 
-    // else {
-    //     toast.error("An error occurred. Please try again.");
-    // }
+
 }
 
     const handleloading = (parameter) => {
@@ -146,8 +149,13 @@ const Hostsignup = () => {
 
     return (
         <div className='Hostsignupbody'>
+        
             <form className='Hostsignupmain' onSubmit={handleSubmit}>
+            <div className='HostloginBackbutton'>
+                <BsArrowLeftCircle  className='HostloginIconButton'  onClick={() => navigate(-1)}/>
+                </div>
                 <div className='Hostsignupcontainer1'>
+                    <img src="/Frame 2382 (5).png" alt=""  className='Hostsignupcontainer1img' onClick={() => navigate("/")}/>
                     <h1>Welcome To Hubspot</h1>
                     <p className='Hostsignupcontainer1p'>Create your account and share your space.</p>
                 </div>
@@ -210,14 +218,14 @@ const Hostsignup = () => {
                     <p className='Hostsignupcontainer2spanerror'>{userError.password}</p>
                     <span className='Hostsignupcontainer2span'>
                         <RiLockPasswordFill />
-                        <input type={show ? "text" : "password"}
+                        <input type={allow ? "text" : "password"}
                             placeholder='Confirm Password'
                             className='Hostsignupcontainerinput'
                             onChange={handleChange}
                             name='confirmPassword'
                             value={userData.confirmPassword}
                         />
-                        <p onClick={toggle} className='Hostsignupcontainer2spantoggle'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline  className="eye-icon"/>}</p>
+                        <p onClick={toggleAll} className='Hostsignupcontainer2spantoggle'>{allow ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline  className="eye-icon"/>}</p>
                     </span> 
                     <p className='Hostsignupcontainer2spanerror'>{userError.confirmPassword}</p>
                     <span className='Hostsignupcontainer3span'>
@@ -245,8 +253,8 @@ const Hostsignup = () => {
                         />
                     </span>
                     <p className='Hostsignupcontainer2spanerror'>{userError.idCardNumber}</p>
-                    <span className='Hostsignupcontainer2span'>
-                      {/* <img src={userData.ninImage} alt="" className='Hostsignupcontainer2span1img'/> */}
+                    {/* <span className='Hostsignupcontainer2span'>
+                      <img src={userData.ninImage} alt="" className='Hostsignupcontainer2span1img'/>
                         <input type="file"
                         id='ismail'
                         onChange={handleImage}
@@ -257,8 +265,8 @@ const Hostsignup = () => {
                             readOnly
                         />
                         <label className='Browser' htmlFor='ismail'>Browse</label>
-                    </span> 
-                    <p className='Hostsignupcontainer2spanerror'>{userError.ninImage}</p>
+                    </span>  */}
+                    {/* <p className='Hostsignupcontainer2spanerror'>{userError.ninImage}</p> */}
                 </div>
                 <p className='Hostsignupcontainer3'>By signing up, you agree to the <span className='Hostsignupcontainer3wrap'>Terms of Use</span> and <span className='Signupcontainer3wrap'>Privacy Policy</span>.</p>
                 <button className='Hostsignupbutton1' type='submit'>{loading ? "Loading..." : "Create Account"}</button>

@@ -1,0 +1,101 @@
+.userSavedspaces{
+    width: 100vw;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+ 
+ }
+ 
+ 
+ .custom-table {
+     width: 70%;
+     border-collapse: collapse;
+     font-family: sans-serif;
+     margin-top: 60px;
+   }
+ 
+   .userSaveddata{
+     font-family: sans-serif;
+     background-color: #1E3C8A;
+     color: white;
+     padding: 12px;
+     vertical-align: middle; 
+   }
+ 
+   .space-titleLocation{
+     padding: 12px;
+ 
+   }
+ 
+   .userSavedDetails{
+     padding: 12px;
+     vertical-align: middle; 
+   }
+ 
+ .space-titleRating{
+   text-align: center;
+ 
+ }  
+ 
+   .space-name-cell {
+     display: flex;
+     justify-content: center;
+     gap: 10px;
+   }
+   
+   .space-img {
+     width: 50px;
+     height: 50px;
+     object-fit: cover;
+     border-radius: 4px;
+   }
+   
+   .space-text {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+   }
+   
+   .space-title {
+     font-weight: bold;
+     margin: 0;
+     font-size: 14px;
+   }
+ 
+   .space-subtitle {
+     font-size: 13px;
+     margin: 0;
+     color: black;
+   }
+   
+ 
+   .space-titleLocation{
+     text-align: center;
+ 
+   }
+   
+  @media  (max-width: 768px){
+     .userSavedspaces{
+         width: 100%;
+         height: max-content;
+         display: flex;
+         justify-content: center;
+        
+      
+      }
+ 
+ 
+      .space-title {
+         font-weight: bold;
+         margin: 0;
+         font-size: 12px;
+         
+       }
+ 
+       .space-subtitle {
+         font-size: 10px;
+         color: black;
+       }
+       
+     
+  }

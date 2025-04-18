@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import './BookingModal.css'
-import { initializeBooking, verifyBooking, verifyDayBooking, getDetails } from '../Hubspotapi'
+import { initializeBooking, getDetails } from '../Hubspotapi'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
 import BookingTypeSelector from './BookingSelector';
+import { toast } from 'react-toastify';
 
 const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1, initialDurationType = 'hourly' }) => {
     const userToken = useSelector((state) => state.hubspot.userToken);
     const navigate = useNavigate();
-    const verificationAttempted = useRef(false);
 
     const [spaceDetails, setSpaceDetails] = useState(null);
     const [bookingData, setBookingData] = useState({
@@ -17,10 +16,10 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
         durationType: initialDurationType,
         startDate: '',
         checkinTime: ''
-    })
+    });
 
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
     const [iframeUrl, setIframeUrl] = useState(null);
     const [paymentStatus, setPaymentStatus] = useState({
         status: 'idle',
@@ -57,6 +56,12 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
         }
     };
 
+    useEffect(() => {
+        if (!isOpen) {
+            resetAllStates();
+        }
+    }, [isOpen]);
+
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-NG', {
             style: 'currency',
@@ -66,8 +71,8 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
 
     const resetAllStates = () => {
         setBookingData({
-            duration: 1,
-            durationType: 'hourly',
+            duration: initialDuration,
+            durationType: initialDurationType,
             startDate: '',
             checkinTime: ''
         });
@@ -79,71 +84,36 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
             message: '',
             data: null
         });
-        verificationAttempted.current = false;
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target
+        const { name, value } = e.target;
         setBookingData(prev => ({
             ...prev,
             [name]: value
-        }))
-    }
+        }));
+    };
 
     const handleTypeChange = (type) => {
         setBookingData(prev => ({
             ...prev,
             durationType: type
-        }))
-    }
-
-    const handleVerificationLoading = (isLoading) => {
-        setLoading(isLoading)
-    }
-
-    const handleVerificationResponse = (response) => {
-        if (response.res) {
-            setPaymentStatus({
-                status: 'success',
-                message: 'Payment and booking verified successfully!',
-                data: { reference: localStorage.getItem('pendingBookingReference'), verificationData: response.res.data }
-            });
-            setTimeout(() => {
-                localStorage.removeItem('pendingBookingReference');
-                resetAllStates();
-                onClose();
-                navigate('/', { state: { paymentSuccess: true } });
-            }, 2000);
-        } else if (response.err) {
-            const errorMessage = response.err.response?.data?.message || 'Verification failed'
-            setPaymentStatus({
-                status: 'error',
-                message: `Verification failed: ${errorMessage}`,
-                data: { reference: localStorage.getItem('pendingBookingReference') }
-            });
-
-            toast.error(`Verification failed: ${errorMessage}`, {
-                duration: 4000,
-                position: 'top-center',
-                style: {
-                    background: '#1E398A',
-                    color: '#fff',
-                    padding: '16px',
-                    borderRadius: '10px',
-                    textAlign: 'center'
-                },
-                icon: '❌',
-            });
-        }
-    }
+        }));
+    };
 
     const handleloading = (isLoading) => {
-        setLoading(isLoading)
-    }
+        setLoading(isLoading);
+    };
 
     const handleResponse = (response) => {
         if (response.res) {
-            localStorage.setItem('pendingBookingReference', response?.res?.data?.data?.reference)
+            const reference = response?.res?.data?.data?.reference;
+            if (reference) {
+                localStorage.setItem('refrence', reference);
+                sessionStorage.setItem('bookingReference', reference);
+                sessionStorage.setItem('bookingDurationType', bookingData.durationType);
+            }
+
             const checkoutUrl = response.res.data?.data?.checkout_url;
 
             if (checkoutUrl) {
@@ -152,14 +122,13 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
                 onSubmit(response.res.data);
             }
         } else if (response.err) {
-            const errorMessage = response.err.response?.data?.message || 'Booking failed'
-            setError(errorMessage)
-            setBookingData({
-                duration: 1,
-                durationType: 'hourly',
+            const errorMessage = response.err.response?.data?.message || 'Booking failed';
+            setError(errorMessage);
+            setBookingData(prev => ({
+                ...prev,
                 startDate: '',
                 checkinTime: ''
-            })
+            }));
             setIframeUrl(null);
             setPaymentStatus({
                 status: 'failed',
@@ -180,44 +149,25 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
                 icon: '❌',
             });
         }
-    }
+    };
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        setError('')
+        e.preventDefault();
+        setError('');
+        localStorage.removeItem('refrence');
+        sessionStorage.removeItem('bookingReference');
+        sessionStorage.removeItem('bookingDurationType');
 
         if (!userToken) {
-            setError('You must be logged in to book a space')
+            setError('You must be logged in to book a space');
             toast.error('You must be logged in to book a space', {
                 duration: 4000,
                 position: 'top-center',
             });
-            return
-        }
-
-        initializeBooking(spaceId, bookingData, handleloading, handleResponse, userToken.userToken)
-    }
-
-    const verifyBookingOnce = async (reference) => {
-        if (verificationAttempted.current) {
-            console.log('Verification already attempted, skipping duplicate call');
             return;
         }
 
-        verificationAttempted.current = true;
-
-        await verifyBooking(reference, handleVerificationLoading, handleVerificationResponse);
-    };
-
-    const verifyDayBookingOnce = async (reference) => {
-        if (verificationAttempted.current) {
-            console.log('Verification already attempted, skipping duplicate call');
-            return;
-        }
-
-        verificationAttempted.current = true;
-
-        await verifyDayBooking(reference, handleVerificationLoading, handleVerificationResponse);
+        initializeBooking(spaceId, bookingData, handleloading, handleResponse, userToken.userToken);
     };
 
     useEffect(() => {
@@ -239,25 +189,11 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
         const processPaymentResult = async (result) => {
             switch (result) {
                 case 'success': {
-                    setPaymentStatus({
-                        status: 'success',
-                        message: 'Your payment was successful!',
-                        data: { reference: localStorage.getItem('pendingBookingReference') }
-                    });
-                    const reference = localStorage.getItem('pendingBookingReference');
-                    if (reference) {
-                        if (bookingData.durationType === 'daily') {
-                            await verifyDayBookingOnce(reference);
-                        } else {
-                            await verifyBookingOnce(reference);
-                        }
-                    } else {
-                        setPaymentStatus({
-                            status: 'error',
-                            message: 'No booking reference found.',
-                            data: null
-                        });
-                    }
+                    setIframeUrl(null)
+                    setTimeout(() => {
+                        onClose();
+                        navigate('/', { state: { paymentSuccess: true, needVerification: true } });
+                    }, 500);
                     break;
                 }
 
@@ -265,12 +201,14 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
                     setPaymentStatus({
                         status: 'failed',
                         message: 'Payment failed. Please try again.',
-                        data: { reference: localStorage.getItem('pendingBookingReference') }
+                        data: { reference: localStorage.getItem('refrence') }
                     });
+                    localStorage.removeItem('refrence');
                     toast.error('Payment failed. Please try again.', {
                         duration: 4000,
                         position: 'top-center',
                     });
+                    setIframeUrl(null);
                     break;
 
                 case 'close':
@@ -291,36 +229,16 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
 
         return () => {
             window.removeEventListener('message', handlePaymentEvent);
-            verificationAttempted.current = false;
         };
-    }, [navigate, onClose, userToken?.userToken, bookingData.durationType]);
+    }, [onClose, navigate]);
 
-    useEffect(() => {
-        if (!isOpen) {
-            verificationAttempted.current = false;
-        }
-    }, [isOpen]);
-
-    if (!isOpen) return null
+    if (!isOpen) return null;
 
     return (
         <>
-            {paymentStatus.status !== 'idle' && paymentStatus.status !== 'processing' && (
+            {paymentStatus.status !== 'idle' && paymentStatus.status !== 'processing' && paymentStatus.status !== 'success' && (
                 <div className="payment-status-overlay">
                     <div className="payment-status-modal">
-                        {paymentStatus.status === 'success' && (
-                            <>
-                                <div className="status-icon success">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                    </svg>
-                                </div>
-                                <h3 className="status-title success">Payment Successful!</h3>
-                                <p className="status-message">{paymentStatus.message}</p>
-                                <p className="status-reference">Reference: {paymentStatus.data?.reference}</p>
-                            </>
-                        )}
-
                         {paymentStatus.status === 'failed' && (
                             <>
                                 <div className="status-icon error">
@@ -335,9 +253,8 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
                                 )}
                                 <button
                                     onClick={() => {
-                                        setPaymentStatus({ status: 'idle' })
-                                        setError('')
-                                        verificationAttempted.current = false;
+                                        setPaymentStatus({ status: 'idle' });
+                                        setError('');
                                     }}
                                     className="status-button"
                                 >
@@ -357,8 +274,7 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
                                 <p className="status-message">{paymentStatus.message}</p>
                                 <button
                                     onClick={() => {
-                                        setPaymentStatus({ status: 'idle' })
-                                        verificationAttempted.current = false;
+                                        setPaymentStatus({ status: 'idle' });
                                     }}
                                     className="status-button"
                                 >
@@ -475,7 +391,7 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
                 </div>
             )}
         </>
-    )
-}
+    );
+};
 
-export default BookingModal
+export default BookingModal;
