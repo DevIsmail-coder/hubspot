@@ -8,6 +8,7 @@
     background-color: #FFFFFF;
 }
 
+
 .Loginmain {
     width: 40%;
     display: flex;
@@ -16,6 +17,10 @@
     align-items: center;
 }
 
+.Logincontainer1x{
+    width: 100%;
+    display: flex;
+}
 .Logincontainer1 {
     width: 100%;
     display: flex;
