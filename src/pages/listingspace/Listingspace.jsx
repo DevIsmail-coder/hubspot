@@ -188,6 +188,7 @@ const Listingspace = () => {
           },
         ]
       })
+     navigate("/dashboardLayout/hostdashboard")
     } else if (mess.err?.response?.data?.message) {
       toast.error(mess.err?.response?.data?.message);
       console.log(mess.err?.response?.data?.message);

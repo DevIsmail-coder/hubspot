@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     font-family: intel, sans-serif;
     background-color: #FFFFFF;
 }
@@ -16,6 +17,15 @@
     align-items: center;
 }
 
+.HostloginBackIcon{
+    width: 60%;
+    padding: 20px;
+}
+
+.HostloginIcon{
+    font-size: 30px;
+    color: #1E3D8A;
+}
 .Hostlogincontainer1 {
     width: 100%;
     display: flex;
@@ -27,6 +37,11 @@
         font-size: 15px;
         font-weight: 300;
         text-align: center;
+    }
+
+
+    .Logincontainer1img{
+        width: 170px;
     }
 }
 

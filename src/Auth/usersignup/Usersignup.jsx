@@ -10,12 +10,13 @@ import { userSignup } from '../../pages/Hubspotapi';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import {  userdata, } from '../../global/features';
+import { userdata, } from '../../global/features';
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 
 const Usersignup = () => {
     const [show, setShow] = useState(false)
+    const [allow, setAllow] = useState(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
@@ -30,6 +31,10 @@ const Usersignup = () => {
 
     const toggle = () => {
         setShow(!show)
+    }
+
+    const togglepas = () => {
+        setAllow(!allow)
     }
 
     const handleChange = (e) => {
@@ -59,9 +64,6 @@ const Usersignup = () => {
         if (userData.email.trim() === "" || !validation(userData.email.trim())) {
             errors.email = "please enter a correct email"
         }
-        // if (userData.company.trim() === "") {
-        //     errors.company = "please enter company name"
-        // }
         if (userData.password.trim() === "" || !password(userData.password.trim())) {
             errors.password = "password must include uppercase, lowercase, and a special character."
         }
@@ -96,7 +98,7 @@ const Usersignup = () => {
             navigate("/email")
         } else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
-        } 
+        }
         // else {
         //     toast.error("An error occurred. Please try again.");
         // }
@@ -120,11 +122,14 @@ const Usersignup = () => {
         <div className='Signupbody'>
             <form className='Signupmain' onSubmit={handleSubmit}>
                 <main className='Signupcontainer1x'>
-                                <BsArrowLeftCircle className='loginIconButton' onClick={() => navigate("/")} />
-                <div className='Signupcontainer1'>
-                    <h1 className='Signupcontainer1h1'>Welcome To Hubspot </h1>
-                    <p className='Signupcontainer1p'>Create your account and unlock the perfect space for your needs.</p>
-                </div>
+                    <div className='HostloginBackbutton'>
+                        <BsArrowLeftCircle className='HostloginIconButton' onClick={() => navigate(-1)} />
+                    </div>
+                    <div className='Signupcontainer1'>
+                    <img src="/Frame 2382 (5).png" alt=""  className='Signupcontainer1img' onClick={() => navigate("/")}/>
+                        <h1 className='Signupcontainer1h1'>Welcome To Hubspot </h1>
+                        <p className='Signupcontainer1p'>Create your account and unlock the perfect space for your needs.</p>
+                    </div>
                 </main>
                 <div className='Signupcontainer2'>
                     <span className='Signupcontainer2span' >
@@ -175,14 +180,14 @@ const Usersignup = () => {
                     <p className='Signupcontainer2spanerror'>{userError.password}</p>
                     <span className='Signupcontainer2span1'>
                         <RiLockPasswordFill />
-                        <input type={show ? "text" : "password"}
+                        <input type={allow ? "text" : "password"}
                             placeholder='Confirm Password'
                             className='Signupcontainerinput'
                             onChange={handleChange}
                             name='confirmPassword'
                             value={userData.confirmPassword}
                         />
-                        <p onClick={toggle} className='Hostsignupcontainer2spantoggle1'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline className="eye-icon" />}</p>
+                        <p onClick={togglepas} className='Hostsignupcontainer2spantoggle1'>{allow ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline className="eye-icon" />}</p>
                     </span>
                     <p className='Signupcontainer2spanerror'>{userError.confirmPassword}</p>
                 </div>

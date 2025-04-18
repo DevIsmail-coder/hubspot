@@ -6,13 +6,14 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import { hostLogin } from '../../pages/Hubspotapi';
 import { useDispatch } from 'react-redux';
-import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"; 
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { hostName, hostTok } from '../../global/features';
 import { toast } from 'react-toastify';
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 const Hostlogin = () => {
     const dispatch = useDispatch()
-      const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false)
     const navigate = useNavigate()
     const [userError, setUserError] = useState({})
     const [loading, setLoading] = useState(false)
@@ -23,7 +24,7 @@ const Hostlogin = () => {
 
     const toggle = () => {
         setShow(!show)
-      }
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -50,7 +51,7 @@ const Hostlogin = () => {
             errors.email = "please enter a correct email"
         }
         if (userInfo.password.trim() === "" || !password(userInfo.password)) {
-            errors.password = "password does not match"
+            errors.password = "Invalid credentials"
         }
 
         if (Object.keys(errors).length > 0) {
@@ -67,15 +68,15 @@ const Hostlogin = () => {
     const handleResponse = (mess) => {
         if (mess.res?.data?.message) {
             toast.success(mess.res?.data?.message);
-        
+
             setUserInfo({
                 email: "",
                 password: ""
             })
             dispatch(hostTok({ hostToken: mess.res?.data?.token }))
-            dispatch(hostName({hostName: mess.res?.data?.data}))
-            console.log({hostName: mess.res?.data?.data});
-            
+            dispatch(hostName({ hostName: mess.res?.data?.data }))
+            console.log({ hostName: mess.res?.data?.data });
+
             setTimeout(() => {
                 navigate("/dashboardLayout/hostdashboard")
             }, 1500)
@@ -98,9 +99,13 @@ const Hostlogin = () => {
     }
     return (
         <div className='Hostloginbody'>
-            <form className='Loginmain' onSubmit={handleSubmit}>
+                <div className='HostloginBackIcon'>
+                    <BsArrowLeftCircle className='HostloginIcon' onClick={() => navigate(-1)} />
+                </div>
+            <form className='Hostloginmain' onSubmit={handleSubmit}>
                 <div className='Hostlogincontainer1'>
-                    <h1>Welcome Back </h1>
+                <img src='/Frame 2382 (5).png' className='Logincontainer1img' onClick={() => navigate("/")}/>
+                    <h1>Welcome  To Hubspot</h1>
                     <p className='Hostlogincontainer1p'>login and discover the space that fits you</p>
                 </div>
                 <div className='Hostlogincontainer2'>
@@ -127,7 +132,7 @@ const Hostlogin = () => {
                             name='password'
                             value={userInfo.password}
                         />
-                         <p onClick={toggle} className='Hostsignupcontainer2spantoggle1'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline  className="eye-icon"/>}</p>
+                        <p onClick={toggle} className='Hostsignupcontainer2spantoggle1'>{show ? <IoEyeOutline className="eye-icon" /> : <IoEyeOffOutline className="eye-icon" />}</p>
                     </span>
                     <p className='Hostlogincontainer2spanerror'>{userError.password}</p>
 
