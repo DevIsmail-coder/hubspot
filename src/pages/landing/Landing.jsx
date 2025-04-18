@@ -9,7 +9,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { getAllspace } from '../Hubspotapi';
 import BookingModal from './BookingModal';
 import { useSelector } from 'react-redux';
-import toast from 'react-hot-toast';
+import BookingVerification from './BookingVerification';
 
 const Landing = () => {
     const userToken = useSelector((state) => state.hubspot.userToken);
@@ -19,7 +19,7 @@ const Landing = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedSpaceId, setSelectedSpaceId] = useState(null)
-    const [selectedDurationType, setSelectedDurationType] = useState('hourly') 
+    const [selectedDurationType, setSelectedDurationType] = useState('hourly') // Add state for duration type
 
     const handleResponse = (mess) => {
         if (mess.data?.data) {
@@ -30,18 +30,6 @@ const Landing = () => {
 
     useEffect(() => {
         if (location.state?.paymentSuccess) {
-            toast.success('Your payment was successful and your booking has been confirmed!', {
-                duration: 7000,
-                position: 'top-center',
-                style: {
-                    background: '#1E398A',
-                    color: '#fff',
-                    padding: '16px',
-                    borderRadius: '10px',
-                    textAlign: 'center'
-                },
-                icon: '🎉',
-            });
             window.history.replaceState({}, document.title);
         }
     }, [location.state]);
@@ -128,7 +116,7 @@ const Landing = () => {
                                     </article>
                                     <article className='Landingcontainer2wrapart2'>
                                         <h3 className='Landingcontainer2wrapart2h3'>{i.name}</h3>
-                                        <p className='Landingcontainer2wrapart2hp'>{i.overview.slice(0, 75)}...</p>
+                                        <p className='Landingcontainer2wrapart2hp'>{i.overview}</p>
                                         <div className='Landingcontainer2iconwrap'>
                                             <IoIosWifi />
                                             <GiCoffeeCup />
@@ -165,6 +153,11 @@ const Landing = () => {
                 onDurationTypeChange={setSelectedDurationType}
                 onSubmit={handleBookingSubmit}
             />
+            {
+                location.state?.paymentSuccess && (
+                    <BookingVerification />
+                )
+            }
         </>
     )
 }
