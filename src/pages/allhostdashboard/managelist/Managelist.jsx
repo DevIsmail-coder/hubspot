@@ -3,8 +3,10 @@ import './managelist.css'
 import { coworkSpaces } from '../../../components/hubdata'
 import { useSelector } from 'react-redux'
 import { getSpace, listing } from '../../Hubspotapi'
+import { useNavigate } from 'react-router-dom'
 
 const Managelist = () => {
+  const navigate = useNavigate()
   const [allListed, setAllListed] = useState([])
   const [current, setCurrent] = useState(0)
   const hostShowToken = useSelector((state) => state.hubspot.hostToken);
@@ -39,7 +41,7 @@ const handleResponselist = (mess) => {
         <article className='Managelistmainart1'>
           <h3 className='Managelistmainart1h3'>{current} Spaces</h3>
           <p className='Managelistmainart1p'>Total Spaces Currently Live</p>
-          <button className='Managelistmainart1but'>Add Space</button>
+          <button className='Managelistmainart1but' onClick={() => navigate("/spalce")}>Add Space</button>
         </article>
         <article className='Managelistmainart2'>
           <header className='Managelistmainart2head'>

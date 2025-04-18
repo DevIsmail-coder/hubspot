@@ -232,7 +232,7 @@ const Listingspace = () => {
     <div className='Listingspacebody'>
       <div className='Listingspaceheader'>
         <div className='Listingspacelogo'>
-          <img src='/Frame 2382 (5).png' className='Listingspacelogoimg'  onClick={() => navigate("/")} />
+          <img src='/Frame 2382 (5).png' className='Listingspacelogoimg'  onClick={() => navigate("/listspace")} />
         </div>
         <div className='Listingspacedashboard' onClick={() => navigate("/dashboardLayout/hostdashboard")}>
           <p>Go back to Dashboard</p>
@@ -354,8 +354,8 @@ const Listingspace = () => {
                 onChange={handleInputChange}
               >
                 <option value="">Select space type</option>
-                <option value="cowork hub">Cowork hub</option>
-                <option value="creative space">Creative space</option>
+                <option value="cowork hub">cowork hub</option>
+                <option value="creative space">creative space</option>
               </select>
             </div>
 
