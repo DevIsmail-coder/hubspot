@@ -69,7 +69,27 @@ const Works = () => {
                             </p>
                         </main>
                         <main className='Workscontainerwrap1XXX'>
-                            <span className='Workscontainerwrap1XXXspan'>Location <IoIosArrowDown className='Workscontainerwrap1XXXspanicon' /></span>
+                            {/* <span className='Workscontainerwrap1XXXspan'> */}
+                            <select
+                className='Listingspaceinputselect'
+                name="location"
+                placeholder='location'
+                // value={listData.location}
+                // onChange={handleInputChange}
+              >
+                <option value="">Choose location</option>
+                <option value="Apapa">Apapa</option>
+                <option value="Festac">Festac</option>
+                <option value="Ago">Ago</option>
+                <option value="Ikeja">Ikeja</option>
+                <option value="Yaba">Yaba</option>
+                <option value="Surulere">Surulere</option>
+                <option value="Ikoyi">Ikoyi</option>
+                <option value="Lekki">Lekki</option>
+                <option value="Magodo">Magodo</option>
+                <option value="Victoria island">Victoria island</option>
+              </select>
+                                 {/* <IoIosArrowDown className='Workscontainerwrap1XXXspanicon' /></span> */}
                             <button className='Workscontainerwrap1XXXbut'>Find Your Space</button>
                         </main>
                     </div>
