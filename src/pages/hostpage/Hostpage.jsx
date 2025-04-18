@@ -234,7 +234,7 @@ const Hostpage = () => {
 
             <div className='becomeLastdiv'>
                 <h1 className='lastdivFont'>Unlock the Actual Value of Your Space</h1>
-                <button className='lastdivButton'  onClick={() => navigate("/allspace")}>List Your Space</button>
+                <button className='lastdivButton'  onClick={() => navigate("/listspace")}>List Your Space</button>
             </div>
         </div>
     );

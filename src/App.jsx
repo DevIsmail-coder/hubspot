@@ -29,6 +29,7 @@ import Listingspace from './pages/listingspace/Listingspace'
 import Header from './components/header/Header'
 import Usersett from './pages/user/userAccount/Usersett'
 import Usereview from './pages/user/userReview/Usereview'
+import Privateroutes from './routes/Privateroutes'
 
 
 function App() {
@@ -76,7 +77,11 @@ const rountee = createBrowserRouter([
 
   {
     path: "/dashboardLayout",
-    element: <DashboardLayout />,
+    element: (
+      <Privateroutes>
+        <DashboardLayout />
+      </Privateroutes>
+    ),
     children: [
       {
         path: "hostdashboard",
@@ -153,8 +158,12 @@ const rountee = createBrowserRouter([
   },
   {
     path: "/listspace",
-    element: <Listingspace />
-  },
+    element: (
+      <Privateroutes>
+        <Listingspace />
+      </Privateroutes>
+    )
+  }
 ])
   return (
     <RouterProvider router={rountee}/>
