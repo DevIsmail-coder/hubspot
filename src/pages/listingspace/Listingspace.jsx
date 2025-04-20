@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './listingspace.css'
 import { useNavigate } from 'react-router-dom';
 import { FaClock } from 'react-icons/fa';
 import { HiUserCircle } from "react-icons/hi";
-import { TfiGallery } from "react-icons/tfi";
 import { createSpace } from '../Hubspotapi';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import TimePicker from 'react-time-picker';
+import 'react-time-picker/dist/TimePicker.css';
 
 const Listingspace = () => {
   const navigate = useNavigate()
@@ -65,6 +66,8 @@ const Listingspace = () => {
     ]
   });
 
+  console.log(listData);
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -135,7 +138,6 @@ const Listingspace = () => {
 
 
   const handleResponse = (mess) => {
-
     if (mess.res?.data?.message) {
       toast.success(mess.res?.data?.message);
       setListData({
@@ -166,14 +168,6 @@ const Listingspace = () => {
             "opening": "",
             "closing": ""
           },
-          "Sat": {
-            "opening": "",
-            "closing": ""
-          },
-          "Sun": {
-            "opening": "",
-            "closing": ""
-          }
         },
         spaceType: "",
         location: "",
@@ -188,7 +182,7 @@ const Listingspace = () => {
           },
         ]
       })
-     navigate("/dashboardLayout/hostdashboard")
+      navigate("/dashboardLayout/hostdashboard")
     } else if (mess.err?.response?.data?.message) {
       toast.error(mess.err?.response?.data?.message);
       console.log(mess.err?.response?.data?.message);
@@ -204,6 +198,16 @@ const Listingspace = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate that all weekdays have opening and closing times
+    const missingTimes = daysOfWeek.filter(day =>
+      !listData.availability[day].opening || !listData.availability[day].closing
+    );
+
+    if (missingTimes.length > 0) {
+      toast.error(`Please set opening and closing times for: ${missingTimes.join(', ')}`);
+      return;
+    }
 
     const formData = new FormData();
 
@@ -227,18 +231,19 @@ const Listingspace = () => {
   };
 
 
-  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
   return (
     <div className='Listingspacebody'>
       <div className='Listingspaceheader'>
         <div className='Listingspacelogo'>
-          <img src='/Frame 2382 (5).png' className='Listingspacelogoimg'  onClick={() => navigate("/listspace")} />
+          <img src='/Frame 2382 (5).png' className='Listingspacelogoimg' onClick={() => navigate("/listspace")} />
         </div>
         <div className='Listingspacedashboard' onClick={() => navigate("/dashboardLayout/hostdashboard")}>
           <p>Go back to Dashboard</p>
           <div className='Listingspaceprofile'>
-            <div className='Listingspaceprofileicon'><HiUserCircle  className='Listingspaceprofileiconis'/></div>
+            <div className='Listingspaceprofileicon'><HiUserCircle className='Listingspaceprofileiconis' /></div>
           </div>
         </div>
       </div>
@@ -254,7 +259,13 @@ const Listingspace = () => {
                 id='is'
                 accept="image/*"
               />
-              <img src={listData.images[0].imageUrl1 || ""} alt="" className='Listingspacethumbnailimg' />
+              {
+                listData.images[0]?.imageUrl1 ? (
+                  <img src={listData.images[0].imageUrl1 || ""} alt="" className='Listingspacethumbnailimg' />
+                ) : (
+                  <img src='/Rectangle 7.png' className='Listingspacethumbnailimg' />
+                )
+              }
             </label>
             <div className='Listingspacemainimagein'>
               <input
@@ -276,7 +287,13 @@ const Listingspace = () => {
                 accept="image/*"
                 id='ism'
               />
-              <img src={listData.images[0].imageUrl2 || ""} alt="" className='Listingspacethumbnailimg' />
+              {
+                listData.images[0]?.imageUrl2 ? (
+                  <img src={listData.images[0].imageUrl2 || ""} alt="" className='Listingspacethumbnailimg' />
+                ) : (
+                  <img src='/Rectangle 7.png' className='Listingspacethumbnailimg' />
+                )
+              }
             </label>
             <label htmlFor='isma' className='Listingspacethumbnail'>
               <input type="file" hidden
@@ -286,7 +303,13 @@ const Listingspace = () => {
                 accept="image/*"
                 id='isma'
               />
-              <img src={listData.images[0].imageUrl3 || ""} alt="" className='Listingspacethumbnailimg' />
+              {
+                listData.images[0]?.imageUrl3 ? (
+                  <img src={listData.images[0].imageUrl3 || ""} alt="" className='Listingspacethumbnailimg' />
+                ) : (
+                  <img src='/Rectangle 7.png' className='Listingspacethumbnailimg' />
+                )
+              }
             </label>
             <label htmlFor='ismail' className='Listingspacethumbnail'>
               <input type="file" hidden
@@ -296,7 +319,13 @@ const Listingspace = () => {
                 name='imageUrl4'
                 id='ismail'
               />
-              <img src={listData.images[0].imageUrl4 || ""} alt="" className='Listingspacethumbnailimg' />
+              {
+                listData.images[0]?.imageUrl4 ? (
+                  <img src={listData.images[0].imageUrl4 || ""} alt="" className='Listingspacethumbnailimg' />
+                ) : (
+                  <img src='/Rectangle 7.png' className='Listingspacethumbnailimg' />
+                )
+              }
             </label>
             <label htmlFor='ismailx' className='Listingspacethumbnail'>
               <input type="file" hidden
@@ -306,7 +335,13 @@ const Listingspace = () => {
                 name='imageUrl5'
                 id='ismailx'
               />
-              <img src={listData.images[0].imageUrl5 || ""} alt="" className='Listingspacethumbnailimg' />
+              {
+                listData.images[0]?.imageUrl5 ? (
+                  <img src={listData.images[0].imageUrl5 || ""} alt="" className='Listingspacethumbnailimg' />
+                ) : (
+                  <img src='/Rectangle 7.png' className='Listingspacethumbnailimg' />
+                )
+              }
             </label>
           </div>
         </div>
@@ -314,7 +349,7 @@ const Listingspace = () => {
         <div className='Listingspaceform'>
           <div className='Listingspaceleft'>
 
-          <div className='Listingspaceformgroup'>
+            <div className='Listingspaceformgroup'>
               <select
                 className='Listingspaceinputselect'
                 name="location"
@@ -389,38 +424,34 @@ const Listingspace = () => {
                     type="checkbox"
                     className="availability-checkbox"
                     id={`checkbox-${day}`}
-                    checked={listData.availability[day] &&
-                      (listData.availability[day].opening || listData.availability[day].closing)}
-                    onChange={(e) => {
-                      if (!e.target.checked) {
-                        handleAvailabilityChange(day, "opening", "");
-                        handleAvailabilityChange(day, "closing", "");
-                      }
-                    }}
+                    checked={true}
                   />
                   <span className="day-name">{day}</span>
 
-                  <div className="time-input">
+                  {/* <div className="time-input"> */}
                     <FaClock className="clock-icon" />
-                    <input
-                      type="time"
-                      className="time-picker"
+                    <TimePicker
+                      onChange={(value) => handleAvailabilityChange(day, "opening", value)}
                       value={listData.availability[day]?.opening || ""}
-                      onChange={(e) => handleAvailabilityChange(day, "opening", e.target.value)}
+                      disableClock={true}
+                      className="custom-time-picker"
+                      format="HH:mm"
+                      required
                     />
-                  </div>
-
+                  {/* </div> */}
                   <span className="dash">—</span>
 
-                  <div className="time-input">
+                  {/* <div className="time-input"> */}
                     <FaClock className="clock-icon" />
-                    <input
-                      type="time"
-                      className="time-picker"
+                    <TimePicker
+                      onChange={(value) => handleAvailabilityChange(day, "closing", value)}
                       value={listData.availability[day]?.closing || ""}
-                      onChange={(e) => handleAvailabilityChange(day, "closing", e.target.value)}
+                      disableClock={true}
+                      className="custom-time-picker"
+                      format="HH:mm"
+                      required
                     />
-                  </div>
+                  {/* </div> */}
                 </div>
               ))}
             </div>

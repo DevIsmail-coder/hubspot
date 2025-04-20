@@ -87,6 +87,7 @@
   .Listingspaceimageplaceholder{
     position: relative;
    width: 100%;
+   cursor: pointer;
   
   }
   
@@ -114,6 +115,7 @@
    width: 48%;
    height: 240px;
    object-fit: contain;
+   cursor: pointer;
   }
   
   .Listingspacethumbnailimg{
@@ -212,11 +214,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
   }
   
   .Listingspacecapacity span {
     color: #33475b;
     font-size: 14px;
+    cursor: pointer;
   }
   
   .Listingspaceamenities {

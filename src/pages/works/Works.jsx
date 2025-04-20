@@ -89,7 +89,6 @@ const Works = () => {
                 <option value="Magodo">Magodo</option>
                 <option value="Victoria island">Victoria island</option>
               </select>
-                                 {/* <IoIosArrowDown className='Workscontainerwrap1XXXspanicon' /></span> */}
                             <button className='Workscontainerwrap1XXXbut'>Find Your Space</button>
                         </main>
                     </div>

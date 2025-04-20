@@ -1,212 +1,254 @@
-.Body{
-    width: 100%;
-    height: 100vh;
+/* Admin Dashboard Styles */
+.admin-body {
     display: flex;
-    flex-direction: row;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
   }
-  *{
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-  }
-  .LeftSide{
+  
+  /* Sidebar Styles */
+  .admin-sidebar {
     width: 25%;
-    height: 100%;
+    height: 100vh;
+    background-color: #f5f8fa;
     display: flex;
     flex-direction: column;
     background-color: #DBE0ED;
-    /* position: relative; */
+    border-right: 1px solid #e0e6ed;
   }
-  .RightSide{
+  
+  .admin-logo {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .admin-logo img {
+    max-width: 130px;
+  }
+  
+  .admin-menu {
+    flex-grow: 1;
+    padding: 0 15px;
+  }
+  
+  .admin-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    color: #33475b;
+    font-weight: 500;
+  }
+  
+  .admin-menu-item.active {
+    background-color: #eaf0f6;
+    color: #0091ae;
+  }
+  
+  .admin-icon {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .admin-logout {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: #33475b;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Main Content Styles */
+  .admin-main {
     width: 75%;
-    height: 100%;
-    background-color:yellow;
-  }
-  .RightHeader{
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    background-color:whitesmoke;
-    position: relative;
-  }
-  .HeaderSearch{
-    width: 32%;
-    padding: 2px ;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border-radius: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #A1A1A1;
-    position: absolute;
-    right: 50%;
-  
-     .HeaderSearchInput{
-        width: 80%;
-        border: none;
-        outline: none;
-        background-color: transparent;
-    }
-    .HeaderSearchicon{
-        color: #828282;
-        font-size: 25px;
-    }
-  }
-  .ProfileDiv{
-  width: 20%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 0%;
-  gap: 3px;
-  }
-  .Profile1{
-    width: 30%;
-    height: 55%;
-  
-    .ProfileIcon1{
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .Profile2{
-    width: 25%;
-    height: 65%;
-    border-radius: 20px;
-    background-color:whitesmoke;
-  
-    .ProfileIcon2{
-      width: 100%;
-      height: 100%;
-    
-    }
-  
-  }
-  .ImgDiv{
-    width: 80%;
-    height: 10%;
     background-color: blue;
-  }
-  .TextDiv1{
-    width: 60%;
-    height:7%;
-    font-size: 20px;
+    /* flex-grow: 1; */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: absolute;
-    color: #1E3A8A;
-    top: 15%;
-    gap: 10px;
-  
-    .TextIcon1{
-      font-size: 25px;
-      color: #1E3A8A;
-    }
-  }
-  .TextDiv2{
-    width: 80%;
-    height:10%;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-    color: #1E3A8A;
-    position: absolute;
-    bottom: 5%;
-  
-  .TextIcon2{
-      font-size: 25px;
-      color: #1E3A8A;
     
+    flex-direction: column;
+    background-color: #fff;
   }
+  
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #F4F4F4;
+    border-bottom: 1px solid #e0e6ed;
   }
-  .RightsideBody{
-    width: 45%;
-    height: 70%;
-    background-color: aqua;
-   padding-left: 5px;
+  
+  .admin-search {
+    position: relative;
+    width: 300px;
   }
-  .AdminLandingcontainer2wrap{
-    width: 45%;
-    height: 70%;
+  
+  .admin-search input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #cbd6e2;
+    font-size: 14px;
+    background-color: #f5f8fa;
+  }
+  
+  .admin-search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .admin-profile {
+   width: 100%;
+   display: flex;
+   justify-content: flex-end;
+  }
+  
+  .admin-notifications {
+    margin-right: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .admin-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    /* overflow: hidden; */
+    cursor: pointer;
+  }
+  
+  .admin-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .admin-avataricon{
+    width: 100%;
+    height: 100%;
+    color: #1E398A;
+  }
+  
+  .admin-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-grow: 1; */
+    padding: 30px;
+    background-color: #f5f8fa;
+    overflow-y: auto;
+  }
+  
+  .admin-spaces-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 30px;
+    padding: 20px;
+    justify-content: space-between;
+  }
+  
+  .admin-space-card {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 40%;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .admin-space-image {
+    height: 260px;
+    overflow: hidden;
+    background-color: green;
+    object-fit: contain;
+  }
+  
+  .admin-space-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .admin-space-info {
+    padding: 15px 20px;
+  }
+  
+  .admin-space-title {
+    color: #ff7a59;
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+  
+  .admin-space-description {
+    color: #33475b;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .admin-space-amenities {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border-radius: 12px;
-    border: 1px solid #E8E8E8;
-    background-color: #FFFFFF;
+    padding: 0 20px 15px;
   }
   
-    .AdminLandingcontainer2wrapart1{
-        width: 100%;
-        /* height: 58%;background-color: #1E3A8A; */
-        border-radius: 9px 9px 0 0;
-    }
-       
-    .AdminLandingcontainer2wrapart1img{
-      width: 100%;
-      height: 100%;
-      border-radius: 9px 9px 0 0;
-      object-fit: contain;
-    }
+  .admin-amenity-icon {
+    margin-right: 12px;
+    color: #516f90;
+    font-size: 16px;
+  }
   
-  .AdminLandingcontainer2iconwrap{
-    height: 30%;
-    width: 80%;
+  .admin-space-actions {
     display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+    border-top: 1px solid #f0f3f7;
     gap: 10px;
-    font-size: 20px;
-  }
-  .AdminLandingcontainer2butwrap{
-    display: flex;
-    align-items: center;
-    gap: 20px;
   }
   
-  .AdminLandingcontainer2wrapart2h3{
-    height: 30%;
-    color: #F2994A;
-    font-size: 20px;
-    font-weight: 570;
-    letter-spacing: 1.5px;
-  
-  }
-  .AdminLandingcontainer2wrapart2hp{ 
-    height: 40%;    
-    font-size: 14px;
-    font-weight: 300;
+  .admin-approve-btn, .admin-delete-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
   }
   
-    .AdminLandingcontainer2butwrap1{
-        width: 40%;
-        padding: 9px;
-        color: #FFFFFF;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        cursor: pointer;
-        background-color: #1E398A;
-        border-radius: 5px;
-    }
-    .AdminLandingcontainer2butwrap2{
-        width: 40%;
-        padding: 9px;
-        background-color: #FFFFFF;
-        border: 1.5px solid ;
-        border-radius: 4px;
-        cursor: pointer;
-        color: #1E398A;
-    }
+  .admin-approve-btn {
+    width: 45%;
+    background-color: #1E398A;
+    color: white;
+    border: none;
+  }
+  
+  .admin-delete-btn {
+    width: 45%;
+    background-color: white;
+    color: #33475b;
+    border: 1px solid #cbd6e2;
+  }
+  
+  .admin-approve-btn:hover {
+    background-color: #172e70;
+  }
+  
+  .admin-delete-btn:hover {
+    background-color: #f5f8fa;
+    border: 1px solid #1E398A;
+  }

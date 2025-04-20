@@ -6,10 +6,6 @@ import { MdOutlineStars } from "react-icons/md";
 import { HiOutlineLightBulb } from "react-icons/hi";
 
 
-
-
-
-
 const Aboutus = () => {
     return (
         <div className='aboutBody'>
@@ -66,7 +62,7 @@ const Aboutus = () => {
                     <div className='aboutLastdivleft'>
                         <div className='aboutSmallbox1'>
                             <div className='aboutSmallbox2'>
-                                <img className='smallBoximage' src="" alt="" />
+                                <img className='smallBoximage' src = "" alt = "" />
                             </div>
                         </div>
                     </div>
@@ -94,18 +90,18 @@ const Aboutus = () => {
                         <h1 className='teamFont'>MEET OUR TEAM</h1>
                         <div className='teampicDiv'>
                            <div className='teampicDiv1'> 
-                                <div className='teamPic'>  <img className='teamImage' src="" alt="" /> </div> 
+                                <div className='teamPic'>  <img className='teamImage' src = "" alt = "" /> </div> 
                                 <span  className='nameDesignated'>David Tokode</span>
                                  <p className='nameSpecs'> Product designer</p>
                            </div>
 
                             <div className='teampicDiv1'> 
-                                <div className='teamPic'> <img className='teamImage' src="" alt="" /></div> 
+                                <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
                                 <span  className='nameDesignated'>Chika Odimgbe</span>
                                  <p className='nameSpecs'> Product designer</p>
                             </div>
                             <div className='teampicDiv1'>
-                                 <div className='teamPic'> <img className='teamImage' src="" alt="" /></div> 
+                                 <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
                                  <span  className='nameDesignated'>Perpetual Nwoyeocha</span>
                                  <p className='nameSpecs'> Front-End Developer</p>
                                  
@@ -114,18 +110,18 @@ const Aboutus = () => {
 
                         <div className='teampicDiv'>
                            <div className='teampicDiv1'> 
-                                <div className='teamPic'> <img className='teamImage' src="" alt="" /></div> 
+                                <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
                                 <span  className='nameDesignated'>Ismail Mohammed</span>
                                  <p className='nameSpecs'> Front-End Developer</p>
                            </div>
 
                             <div className='teampicDiv1'> 
-                                <div className='teamPic'> <img className='teamImage' src="" alt="" /></div> 
+                                <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
                                 <span  className='nameDesignated'>Sudais Dikko</span>
                                  <p className='nameSpecs'> Front-End Developer</p>
                             </div>
                             <div className='teampicDiv1'>
-                                 <div className='teamPic'> <img className='teamImage' src="" alt="" /></div> 
+                                 <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
                                  <span  className='nameDesignated'>Chinasa Acha</span>
                                  <p className='nameSpecs'> Back-End Developer</p>
                                  
@@ -134,7 +130,7 @@ const Aboutus = () => {
 
                         <div className='teampicDiv'>
                            <div className='teampicDiv1'> 
-                                <div className='teamPic'> <img className='teamImage' src="" alt="" /></div> 
+                                <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
                                 <span className='nameDesignated'>Kelvin Oliseh</span>
                                  <p className='nameSpecs'>Back-End Developer</p>
                            </div>

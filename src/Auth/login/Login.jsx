@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import { token } from '../../global/features';
+import { adminTok, isAdmin, token } from '../../global/features';
 import { userLogin } from '../../pages/Hubspotapi';
 import { BsArrowLeftCircle } from "react-icons/bs";
 
@@ -73,10 +73,18 @@ const Login = () => {
                 email: "",
                 password: ""
             })
-            dispatch(token({ userToken: mess.res?.data?.token }))
-            setTimeout(() => {
-                navigate("/")
-            }, 2000)
+            dispatch(isAdmin({admin: mess.res?.data?.data?.isAdmin}))
+            dispatch(adminTok({adminToken: mess.res?.data?.token}))
+            if(mess.res?.data?.data?.isAdmin){
+                setTimeout(() => {
+                    navigate("/admindashboard")
+                }, 2000)
+                dispatch(token({ userToken: mess.res?.data?.token }))
+            } else {
+                setTimeout(() => {
+                    navigate("/")
+                }, 2000)
+            }
         }
         else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
