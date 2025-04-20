@@ -149,7 +149,7 @@ const Header = () => {
     )}
 
     <p onClick={() => navigate("/")}>Home</p>
-    <p onClick={() => navigate("/hostpage")}>Become a host</p>
+    <p onClick={() => navigate("/becomeahost")}>Become a host</p>
     <p onClick={() => navigate("/aboutus")}>About Us</p>
   </div>
 )}

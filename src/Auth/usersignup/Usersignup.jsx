@@ -120,11 +120,11 @@ const Usersignup = () => {
 
     return (
         <div className='Signupbody'>
+              <div className='SignupBackbutton'>
+                        <BsArrowLeftCircle className='SignupIconButton' onClick={() => navigate(-1)} />
+                    </div>
             <form className='Signupmain' onSubmit={handleSubmit}>
                 <main className='Signupcontainer1x'>
-                    <div className='HostloginBackbutton'>
-                        <BsArrowLeftCircle className='HostloginIconButton' onClick={() => navigate(-1)} />
-                    </div>
                     <div className='Signupcontainer1'>
                     <img src="/Frame 2382 (5).png" alt=""  className='Signupcontainer1img' onClick={() => navigate("/")}/>
                         <h1 className='Signupcontainer1h1'>Welcome To Hubspot </h1>

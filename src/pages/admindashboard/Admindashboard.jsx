@@ -1,59 +1,102 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './admindashboard.css'
-import { IoIosSearch } from "react-icons/io";
-import { RxAvatar } from "react-icons/rx";
-import { IoMdNotifications } from "react-icons/io";
-import { FaEdit } from "react-icons/fa";
-import { CgLogOut } from "react-icons/cg";
-import { IoIosWifi } from "react-icons/io";
-import { GiCoffeeCup } from "react-icons/gi";
-import { MdSolarPower } from "react-icons/md";
-import { PiSecurityCameraFill } from "react-icons/pi";
+import { FaCircleUser } from "react-icons/fa6";
+import { adminApproved, getAdmin } from '../Hubspotapi';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const Admindashboard = () => {
+  const showAdminToken = useSelector((state) => state.hubspot.adminToken);
+  const isAdminToken = showAdminToken.adminToken
+  const [unApproved, setUnApproved] = useState([])
+
+
+  
+
+  const handleResponse =  (res) => {
+    if (res.data?.data) {
+      setUnApproved(res.data?.data)
+      console.log(res.data?.data);
+    }
+  };
+
+  const handleApprovedRes = (res) => {
+    if(res?.data?.message){
+      toast.success(res?.data?.message)
+      getAdmin(isAdminToken, handleResponse)
+    }
+  
+  }
+
+  const handleApprove = (id) => {
+    adminApproved(id, isAdminToken, handleApprovedRes)
+
+  }
+
+  useEffect(() => {
+    getAdmin(isAdminToken, handleResponse);
+  }, []);
+
+
   return (
-    <div className='Body'>
-      <div className='LeftSide'>
-        <div className='ImgDiv'></div>
-        <div className='TextDiv1'>
-          <FaEdit className='TextIcon1' />
-          Admin
+    <div className='admin-body'>
+      <div className='admin-sidebar'>
+        <div className='admin-logo'>
+          <img src='/Frame 2382 (5).png' alt='HubSpot' />
         </div>
-        <div className='TextDiv2'>
-          <CgLogOut className='TextIcon2' />
-          Log Out
+        <div className='admin-menu'>
+          <div className='admin-menu-item active'>
+            <i className='admin-icon'></i>
+            <span>Admin</span>
+          </div>
+        </div>
+        <div className='admin-logout'>
+          <i className='admin-icon'></i>
+          <span>Log Out</span>
         </div>
       </div>
-      <div className='RightSide'>
-        <div className='RightHeader'>
-          <div className='ProfileDiv'>
-            <p className='Profile1'>
-              <IoMdNotifications className='ProfileIcon1' />
-            </p>
-            <p className='Profile2'>
-              <RxAvatar className='ProfileIcon2' />
-            </p>
+
+      <div className='admin-main'>
+        <div className='admin-header'>
+          <div className='admin-profile'>
+            <div className='admin-avatar'>
+              <FaCircleUser className='admin-avataricon' />
+            </div>
           </div>
         </div>
 
-        <div className='AdminLandingcontainer2wrap'>
-          <article className='AdminLandingcontainer2wrapart1'>
-          </article>
-          <img src="https://focus.hidubai.com/content/images/2023/07/best-homes-cover.jpg" className='AdminLandingcontainer2wrapart1img' />
-          <article className='AdminLandingcontainer2wrapart2'>
-            <h3 className='AdminLandingcontainer2wrapart2h3'>Flexispace</h3>
-            <p className='AdminLandingcontainer2wrapart2hp'>A modern coworking space hosting a community of professionals, designed to boost productivity.</p>
-            <div className='AdminLandingcontainer2iconwrap'>
-              <IoIosWifi />
-              <GiCoffeeCup />
-              <MdSolarPower />
-              <PiSecurityCameraFill />
-            </div>
-            <div className='AdminLandingcontainer2butwrap'>
-              <button className='AdminLandingcontainer2butwrap1'>Approve space</button>
-              <button className='AdminLandingcontainer2butwrap2'>Delete space</button>
-            </div>
-          </article>
+        <div className='admin-content'>
+          <div className='admin-spaces-grid'>
+            {
+              unApproved.map((i, id) => (
+                
+                <div className='admin-space-card' key={id}>
+                  <div className='admin-space-image'>
+                    {i.images && i.images?.length > 0 && (
+                      <img src={i.images[0].imageUrl}  />
+                    )}
+                  </div>
+                  <div className='admin-space-info'>
+                    <h3 className='admin-space-title'>{i.name}</h3>
+                    <p className='admin-space-description'>
+                      {i.overview.slice(0, 75)}....
+                    </p>
+                  </div>
+                  <div className='admin-space-amenities'>
+                    {
+                      i.amenities && i.amenities.split(",").slice(0, 4).map((amenity, index) => (
+                        <span key={index} className='admin-amenity-icon '>{amenity}</span>
+                      ))
+                    }
+                  </div>
+                  <div className='admin-space-actions'>
+                    <button className='admin-approve-btn' onClick={()=> handleApprove(i.id)}>Approve Space</button>
+                    <button className='admin-delete-btn'>Delete Space</button>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>

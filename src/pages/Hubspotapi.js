@@ -1,18 +1,19 @@
 import axios from "axios"
 
-const  HUBSPOTAPI  = import.meta.env.VITE_HUBSPOT
+const HUBSPOTAPI = import.meta.env.VITE_HUBSPOT
 
 /////  user
 export const userSignup = async (userData, handleloading, handleResponse) => {
     try {
         handleloading(true)
         const res = await axios.post(`${HUBSPOTAPI}/users/register`, userData)
-        handleResponse({res})
+        handleResponse({ res })
+
         handleloading(false)
     }
     catch (err) {
         handleloading(false)
-        handleResponse({err})
+        handleResponse({ err })
     }
 }
 
@@ -21,29 +22,29 @@ export const verifyEmail = async (token, handleloading, handleResponse) => {
     try {
         handleloading(true)
         const res = await axios.get(`${HUBSPOTAPI}/users/verify/${token}`)
-        handleResponse({res})
+        handleResponse({ res })
         handleloading(false)
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         handleloading(false)
-        handleResponse({err})
+        handleResponse({ err })
         console.log(err)
     }
 }
 
 
-export const userLogin = async (userInfo,  handleloading, handleResponse) => {
+export const userLogin = async (userInfo, handleloading, handleResponse) => {
     try {
         handleloading(true)
         const res = await axios.post(`${HUBSPOTAPI}/users/login`, userInfo)
         handleloading(false)
-        handleResponse({res})
+        handleResponse({ res })
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         handleloading(false)
-        handleResponse({err})
+        handleResponse({ err })
         console.log(err)
     }
 }
@@ -57,27 +58,27 @@ export const hostSignup = async (userData, handleloading, handleResponse) => {
     try {
         handleloading(true)
         const res = await axios.post(`${HUBSPOTAPI}/host/register`, userData)
-        handleResponse({res})
+        handleResponse({ res })
         handleloading(false)
     }
     catch (err) {
         handleloading(false)
-        handleResponse({err})
+        handleResponse({ err })
     }
 }
 
 
-export const hostLogin = async (userInfo,  handleloading, handleResponse) => {
+export const hostLogin = async (userInfo, handleloading, handleResponse) => {
     try {
         handleloading(true)
         const res = await axios.post(`${HUBSPOTAPI}/host/login`, userInfo)
         handleloading(false)
-        handleResponse({res})
+        handleResponse({ res })
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         handleloading(false)
-        handleResponse({err})
+        handleResponse({ err })
         console.log(err)
     }
 }
@@ -91,7 +92,7 @@ export const getAllspace = async (handleResponse) => {
         handleResponse(res)
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         console.log(err)
     }
 }
@@ -102,7 +103,7 @@ export const getDetails = async (handleResponse, id) => {
         handleResponse(res)
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         console.log(err)
     }
 }
@@ -116,15 +117,15 @@ export const createSpace = async (formData, spaceToken, handleResponse, handlelo
             }
         })
         handleloading(false)
-        handleResponse({res});
+        handleResponse({ res });
         console.log(res);
-        
+
     }
-    catch (err){
+    catch (err) {
         handleloading(false)
-        handleResponse({err})
+        handleResponse({ err })
         console.log(err);
-        
+
     }
 }
 
@@ -134,7 +135,7 @@ export const topSpace = async (handleResponse) => {
         handleResponse(res)
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         console.log(err)
     }
 }
@@ -153,7 +154,7 @@ export const getSpace = async (handleResponse, spaceToken) => {
         handleResponse(res)
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         console.log(err)
     }
 }
@@ -168,7 +169,7 @@ export const listing = async (handleResponselist, spaceToken) => {
         handleResponselist(res)
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         console.log(err)
     }
 }
@@ -183,7 +184,7 @@ export const bookCategories = async (showPerformance, spaceToken) => {
         showPerformance(res)
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         console.log(err)
     }
 }
@@ -195,10 +196,10 @@ export const spaceBooking = async (handleResponse, spaceToken) => {
                 'Authorization': `Bearer ${spaceToken}`
             }
         })
-        handleResponse({res})
+        handleResponse({ res })
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         console.log(err)
     }
 }
@@ -213,89 +214,159 @@ export const currentBalance = async (showbalance, spaceToken) => {
         showbalance(res)
         console.log(res);
     }
-    catch (err){
+    catch (err) {
         console.log(err)
     }
 }
 
 
-// booking 
 export const initializeBooking = async (
     spaceId,
     bookingData,
     handleloading,
     handleResponse,
     spaceToken
-  ) => {
+) => {
     console.log(spaceToken);
     try {
-      handleloading(true);
-      let endpoint = "";
-      const requestData = { ...bookingData };
-  
-      if (bookingData.durationType === "hourly") {
-        endpoint = `${HUBSPOTAPI}/booking/initialize/${spaceId}`;
-        requestData.durationPerHour = bookingData.duration;
-        delete requestData.duration;
-        delete requestData.durationType;
-      } else if (bookingData.durationType === "daily") {
-        endpoint = `${HUBSPOTAPI}/booking/day/initialize/${spaceId}`;
-        requestData.durationPerDay = bookingData.duration;
-        delete requestData.duration;
-        delete requestData.durationType;
-      }
-  
-      const res = await axios.post(endpoint, requestData, {
-        headers: {
-          Authorization: `Bearer ${spaceToken}`,
-        },
-      });
-      handleloading(false);
-      handleResponse({ res });
-      console.log(res);
+        handleloading(true);
+        let endpoint = "";
+        const requestData = { ...bookingData };
+
+        if (bookingData.durationType === "hourly") {
+            endpoint = `${HUBSPOTAPI}/booking/initialize/${spaceId}`;
+            requestData.durationPerHour = bookingData.duration;
+            delete requestData.duration;
+            delete requestData.durationType;
+        } else if (bookingData.durationType === "daily") {
+            endpoint = `${HUBSPOTAPI}/booking/day/initialize/${spaceId}`;
+            requestData.durationPerDay = bookingData.duration;
+            delete requestData.duration;
+            delete requestData.durationType;
+        }
+
+        const res = await axios.post(endpoint, requestData, {
+            headers: {
+                Authorization: `Bearer ${spaceToken}`,
+            },
+        });
+        handleloading(false);
+        handleResponse({ res });
+        console.log(res);
     } catch (err) {
-      handleloading(false);
-      handleResponse({ err });
-      console.log(err);
+        handleloading(false);
+        handleResponse({ err });
+        console.log(err);
     }
-  };
-  
-  export const verifyBooking = async (
+};
+
+export const verifyBooking = async (
     reference,
     handleloading,
     handleResponse
-  ) => {
+) => {
     try {
-      handleloading(true);
-      const res = await axios.get(
-        `${HUBSPOTAPI}/booking/verify?reference=${reference}`
-      );
-      handleloading(false);
-      handleResponse({ res });
-      console.log(res);
+        handleloading(true);
+        const res = await axios.get(
+            `${HUBSPOTAPI}/booking/verify?reference=${reference}`
+        );
+        handleloading(false);
+        handleResponse({ res });
+        console.log(res);
     } catch (err) {
-      handleloading(false);
-      handleResponse({ err });
-      console.log(err);
+        handleloading(false);
+        handleResponse({ err });
+        console.log(err);
     }
-  };
-  
-  export const verifyDayBooking = async (
+};
+
+export const verifyDayBooking = async (
     reference,
     handleloading,
     handleResponse
-  ) => {
+) => {
     try {
-      handleloading(true);
-      const res = await axios.get(
-        `${HUBSPOTAPI}/booking/day/verify?reference=${reference}`
-      );
-      handleloading(false);
-      handleResponse({ res });
-      console.log(res);
+        handleloading(true);
+        const res = await axios.get(
+            `${HUBSPOTAPI}/booking/day/verify?reference=${reference}`
+        );
+        handleloading(false);
+        handleResponse({ res });
+        console.log(res);
     } catch (err) {
-      handleloading(false);
-      handleResponse({ err });
-      console.log(err);
+        handleloading(false);
+        handleResponse({ err });
+        console.log(err);
     }
-  };
+};
+
+export const initializeSubscription = async (handleResponse, hostToken, handleloading) => {
+    handleloading(true);
+    try {
+        const res = await axios.post(`${HUBSPOTAPI}/subscription/initialize`, {
+            headers: {
+                Authorization: `Bearer ${hostToken}`,
+            }
+        })
+        handleloading(false);
+        handleResponse({ res });
+    } catch (err) {
+        console.log(err)
+        handleloading(false);
+    }
+}
+
+export const verifySubscriptionBooking = async (
+    spaceToken,
+    handleResponse,
+    handleloading,
+) => {
+    try {
+        handleloading(true);
+        const res = await axios.get(
+            `${HUBSPOTAPI}/subscription/verify?reference=${spaceToken}`
+        );
+        handleloading(false);
+        handleResponse({ res });
+        console.log(res);
+    } catch (err) {
+        handleloading(false);
+        handleResponse({ err });
+        console.log(err);
+    }
+};
+// admin
+
+export const getAdmin = async (isAdminToken, handleResponse) => {
+    console.log(isAdminToken);
+
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/spaces/unapproved`, {
+            headers: {
+                'Authorization': `Bearer ${isAdminToken}`,
+            },
+        })
+        handleResponse(res)
+        console.log(res);
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+export const adminApproved = async (id, isAdminToken, handleApprovedRes) => {
+    console.log(isAdminToken);
+
+    try {
+        const res = await axios.patch(`${HUBSPOTAPI}/space/approve/${id}`, {}, {
+            headers: {
+                'Authorization': `Bearer ${isAdminToken}`,
+            },
+        })
+        handleApprovedRes(res)
+        console.log(res);
+    }
+    catch (err) {
+        console.log(err)
+    }
+}

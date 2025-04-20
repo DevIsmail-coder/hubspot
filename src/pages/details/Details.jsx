@@ -77,7 +77,7 @@ const Details = () => {
             </div>
             <div className='Detailscontainer1XX2'>
               {
-                allSpace?.images && allSpace.images.slice(0, 3).map((i, id) => (              
+                allSpace?.images && allSpace?.images?.slice(0, 3).map((i, id) => (              
                   <span key={id} className='Detailscontainer1XX2span' onClick={() => setChangeImg(id)}>
                     <img src={i.imageUrl} className='Detailscontainer1XX2spanimg' alt={`Space view ${id + 1}`} />
                   </span>
@@ -131,7 +131,7 @@ const Details = () => {
             </div>
             <div className='Detailscontainer1XXX3'>
               <h3 className='Detailscontainer1XXX3h3'>Space Overview</h3>
-              <p className='Detailscontainer1XXXp'>{allSpace?.overview.slice(0, 200)}</p>
+              <p className='Detailscontainer1XXXp'>{allSpace?.overview?.slice(0, 300)}</p>
             </div>
             <div className='Detailscontainer1XXX4'>
               <h3 className='Detailscontainer1XXX4h3'>Space Amenities</h3>
@@ -156,10 +156,7 @@ const Details = () => {
               <span className='Detailscontainer2XXwrap1span'></span>
             </div>
             <div className='Detailscontainer2XXwrap2'>
-              <article className='Detailscontainer2XXwrap2art1'>
-                <span className='Detailscontainer2XXwrap2art1span'></span>
-                <span className='Detailscontainer2XXwrap2art1span'></span>
-              </article>
+            
               <article className='Detailscontainer2XXwrap2art2'>
                 <button className='Detailscontainer2XXwrap2art2but' onClick={handleBookNowClick}>
                   Book Space Now
