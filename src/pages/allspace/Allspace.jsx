@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './allspace.css'
-import { IoIosWifi } from "react-icons/io";
-import { GiCoffeeCup } from "react-icons/gi";
-import { MdSolarPower } from "react-icons/md";
-import { PiSecurityCameraFill } from "react-icons/pi";
+import { FiAlertCircle } from "react-icons/fi";
 import { IoStarSharp } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -126,32 +123,27 @@ const Allspace = () => {
                                         </div>
                                         <p className='Allspacecontainer2wrapXXX1d2'>{i.overview.slice(0, 75)}...</p>
                                         <div className='Allspacecontainer2wrapXXX1d3'>
-                                            <IoIosWifi />
-                                            <GiCoffeeCup />
-                                            <MdSolarPower />
-                                            <PiSecurityCameraFill />
+                                            {
+                                                i.amenities && i.amenities.split(",").slice(0, 4).map((amenity, index) => (
+                                                    <span key={index} className='admin-amenity-icon '>{amenity}</span>
+                                                ))
+                                            }
                                         </div>
-                                        <div className='Allspacecontainer2wrapXXX1d4'>
-                                            <IoLocationOutline className='Allspacecontainer2wrapXXX1d4ii' />
-                                            {i.location}
-                                        </div>
+                                    
                                     </article>
                                     <article className='Allspacecontainer2wrapXXX2'>
                                         <div className='Allspacecontainer2wrapXXX2d1'>
                                         </div>
                                         <div className='Allspacecontainer2wrapXXX2d2'>
+                                        <div className='Allspacecontainerlocation'>
+                                            <IoLocationOutline className='Allspacecontainerlocationxx' />
+                                            {i.location}
+                                        </div>
                                             <main className='Allspacecontainer2wrapXXX2d2main1'>
                                                 <p>NGN {i.pricePerDay.toLocaleString()}/Hour</p>
                                             </main>
                                             <main className='Allspacecontainer2wrapXXX2d2main2'>
-                                                <div>
-                                                    <span className='Allspacecontainer2wrapXXX2d2main2div1'>
-                                                        <p>-</p>
-                                                        <p>1</p>
-                                                        <p>+</p>
-                                                    </span>
-                                                    <span className='Allspacecontainer2wrapXXX2d2main2div2'>Add more days</span>
-                                                </div>
+                                    
                                                 <button
                                                     className='Allspacecontainer2wrapXXX2d2mainbut'
                                                     onClick={() => handleBookNowClick(i.id)}
@@ -164,11 +156,11 @@ const Allspace = () => {
                                         <div className='Allspacecontainer2wrapXXX2d2XX'>
                                             <main className='Allspacecontainer2wrapXXX2d2main1x'>
                                                 <div className='Allspacecontainer2wrapXXX2d2main1xwrap'>
-                                                    <span className='Allspacecontainer2wrapXXX2d2main1xwrapdiv1'>
+                                                    {/* <span className='Allspacecontainer2wrapXXX2d2main1xwrapdiv1'>
                                                         <p>-</p>
                                                         <p>1</p>
                                                         <p>+</p>
-                                                    </span>
+                                                    </span> */}
                                                     <span className='Allspacecontainer2wrapXXX2d2main1xwrapdiv2'>Add more days</span>
                                                 </div>
                                                 <p className='Allspacecontainer2wrapXXX2d2main1xwrappp'>NGN {i.pricePerDay}/Hour</p>
@@ -180,6 +172,7 @@ const Allspace = () => {
                                                 Book 1 day
                                             </button>
                                         </div>
+                                        <main className='mainerror'><FiAlertCircle className='mainerroricon'/> Space is closed on Sat & Sun</main>
                                     </article>
                                 </div>
                             </div>

@@ -198,7 +198,7 @@ const Usersignup = () => {
                     <p>OR</p>
                     <span className='Signupcontainer3span'></span>
                 </div>
-                <button className='Signupbutton2'><FcGoogle className='Signupbutton2icon' /> Continue with Google</button>
+                <button className='Signupbutton2' type='button'><FcGoogle className='Signupbutton2icon' /> Continue with Google</button>
                 <p className='Signupcontainer3'>Already have an account? <span className='Signupcontainer3wrap' onClick={() => navigate("/login")}>Log in</span></p>
             </form>
         </div>

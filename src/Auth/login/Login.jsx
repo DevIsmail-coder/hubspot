@@ -155,7 +155,7 @@ const Login = () => {
                     <p>OR</p>
                     <span className='Logincontainer3span'></span>
                 </div>
-                <button className='Loginbutton2'><FcGoogle className='Loginbutton2icon' /> Continue with Google</button>
+                <button className='Loginbutton2' type='button'><FcGoogle className='Loginbutton2icon' /> Continue with Google</button>
                 <p className='Logincontainer3'>Don't have an account? <span className='Logincontainer4wrap' onClick={() => navigate("/usersignup")}>Create an account</span></p>
             </form>
         </div>

@@ -146,7 +146,8 @@
                 .Detailscontainer1XXX4mainspan{
                     font: 13px;
                     display: flex;
-                    gap: 20px;
+                    flex-direction: column;
+                    gap: 13px;
                     font-weight: 230;
 
                     .Detailscontainer1XXX4mainspanicon{

@@ -4,9 +4,11 @@ import { LuMapPinned } from "react-icons/lu";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineStars } from "react-icons/md";
 import { HiOutlineLightBulb } from "react-icons/hi";
+import { useNavigate } from 'react-router-dom';
 
 
 const Aboutus = () => {
+    const navigate = useNavigate()
     return (
         <div className='aboutBody'>
             <div className='aboutusHead'>
@@ -25,13 +27,13 @@ const Aboutus = () => {
                 <div className='aboutMiddlelist'>
                     <div className='aboutMiddlelistleft'>
                         <div className='middlehHeaderleft'>
-                            <LuMapPinned size={70} color='orange' />
+                           <img src='/0607_Location_1 (1) (1).png' className='aboutImage'/>
                             <h1 className='alpha1'> Discover Flexible Spaces </h1>
                             <p className='pdescrip1'> Whether you're a freelancer, creative, or business owner discover<br /> the ideal workspace or studio in Lagos top locations. </p>
                         </div>
 
                         <div className='middlehHeaderleft'>
-                            <MdOutlineStars size={70} color='orange' />
+                        <img src='/star.png' className='aboutImage'/>
                             <h1 className='alpha1'> Transparent & Reliable</h1>
                             <p className='pdescrip1'>Enjoy peace of mind with verified spaces, clear pricing <br /> and direct communication with space owners.</p>
                         </div>
@@ -40,13 +42,13 @@ const Aboutus = () => {
 
                     <div className='aboutMiddlelistright'>
                         <div className='middlehHeaderright'>
-                            <SlCalender size={70} color='orange' />
+                        <img src='/calender.png' className='aboutImage'/>
                             <h1 className='alpha1'> Hassle-Free Experience</h1>
                             <p className='pdescrip1'>Effortlessly book or manage spaces with our seamless <br /> platform, designed to save you time and effort.</p>
                         </div>
 
                         <div className='middlehHeaderright'>
-                            <HiOutlineLightBulb size={70} color='orange' />
+                        <img src='/bulb.png' className='aboutImage'/>
                             <h1 className='alpha1'> Unlock New Opportunities</h1>
                             <p className='pdescrip1'> Whether you're hosting or booking, Hubspot helps you <br />unlock growth, creativity, and business opportunites</p>
                         </div>
@@ -62,7 +64,7 @@ const Aboutus = () => {
                     <div className='aboutLastdivleft'>
                         <div className='aboutSmallbox1'>
                             <div className='aboutSmallbox2'>
-                                <img className='smallBoximage' src = "" alt = "" />
+                                <img className='smallBoximage' src = "/2df4fe65e8e9efcc474458f9287773f7.jpg" alt = "" />
                             </div>
                         </div>
                     </div>
@@ -90,18 +92,18 @@ const Aboutus = () => {
                         <h1 className='teamFont'>MEET OUR TEAM</h1>
                         <div className='teampicDiv'>
                            <div className='teampicDiv1'> 
-                                <div className='teamPic'>  <img className='teamImage' src = "" alt = "" /> </div> 
+                                <div className='teamPic'>  <img className='teamImage' src = "/david.png" alt = "" /> </div> 
                                 <span  className='nameDesignated'>David Tokode</span>
                                  <p className='nameSpecs'> Product designer</p>
                            </div>
 
                             <div className='teampicDiv1'> 
-                                <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
+                                <div className='teamPic'> <img className='teamImage' src = "/picture (1).png" alt = "" /></div> 
                                 <span  className='nameDesignated'>Chika Odimgbe</span>
                                  <p className='nameSpecs'> Product designer</p>
                             </div>
                             <div className='teampicDiv1'>
-                                 <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
+                                 <div className='teamPic'> <img className='teamImage' src = "/picture (2).png" alt = "" /></div> 
                                  <span  className='nameDesignated'>Perpetual Nwoyeocha</span>
                                  <p className='nameSpecs'> Front-End Developer</p>
                                  
@@ -116,12 +118,12 @@ const Aboutus = () => {
                            </div>
 
                             <div className='teampicDiv1'> 
-                                <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
+                                <div className='teamPic'> <img className='teamImage' src = "/picture (5).png" alt = "" /></div> 
                                 <span  className='nameDesignated'>Sudais Dikko</span>
                                  <p className='nameSpecs'> Front-End Developer</p>
                             </div>
                             <div className='teampicDiv1'>
-                                 <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
+                                 <div className='teamPic'> <img className='teamImage' src = "/acha.png" alt = "" /></div> 
                                  <span  className='nameDesignated'>Chinasa Acha</span>
                                  <p className='nameSpecs'> Back-End Developer</p>
                                  
@@ -130,7 +132,7 @@ const Aboutus = () => {
 
                         <div className='teampicDiv'>
                            <div className='teampicDiv1'> 
-                                <div className='teamPic'> <img className='teamImage' src = "" alt = "" /></div> 
+                                <div className='teamPic'> <img className='teamImage' src = "/picture (3).png" alt = "" /></div> 
                                 <span className='nameDesignated'>Kelvin Oliseh</span>
                                  <p className='nameSpecs'>Back-End Developer</p>
                            </div>
@@ -145,7 +147,7 @@ const Aboutus = () => {
                 <div className='lastDiv'>
                     <div className='lastdivClass'>
                         <h1 className='discoverFont'>Discover Your Ideal Workspace</h1>
-                        <button className='findButton'>Find Your Space</button>
+                        <button className='findButton' onClick={() => navigate("/allspace")}>Find Your Space</button>
                     </div>
                 </div>
 

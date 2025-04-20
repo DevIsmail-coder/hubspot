@@ -29,6 +29,8 @@ const Details = () => {
     if (mess.data?.data) {
       setAllSpace(mess.data?.data)
     }
+    console.log(mess.data?.data);
+
   }
 
   useEffect(() => {
@@ -77,7 +79,7 @@ const Details = () => {
             </div>
             <div className='Detailscontainer1XX2'>
               {
-                allSpace?.images && allSpace?.images?.slice(0, 3).map((i, id) => (              
+                allSpace?.images && allSpace?.images?.slice(0, 3).map((i, id) => (
                   <span key={id} className='Detailscontainer1XX2span' onClick={() => setChangeImg(id)}>
                     <img src={i.imageUrl} className='Detailscontainer1XX2spanimg' alt={`Space view ${id + 1}`} />
                   </span>
@@ -136,10 +138,13 @@ const Details = () => {
             <div className='Detailscontainer1XXX4'>
               <h3 className='Detailscontainer1XXX4h3'>Space Amenities</h3>
               <main className='Detailscontainer1XXX4main'>
-                <span className='Detailscontainer1XXX4mainspan'><IoIosWifi className='Detailscontainer1XXX4mainspanicon' /> Free WiFi</span>
-                <span className='Detailscontainer1XXX4mainspan'><GiCoffeeCup className='Detailscontainer1XXX4mainspanicon' /> Free Coffee</span>
-                <span className='Detailscontainer1XXX4mainspan'><MdSolarPower className='Detailscontainer1XXX4mainspanicon' /> 24 hours light</span>
-                <span className='Detailscontainer1XXX4mainspan'><PiSecurityCameraFill className='Detailscontainer1XXX4mainspanicon' /> Camera</span>
+                <span className='Detailscontainer1XXX4mainspan'>
+                  {
+                    allSpace.amenities && allSpace.amenities?.split(",").map((amenity, index) => (
+                      <span key={index} className='admin-amenity-icon '>{amenity}</span>
+                    ))
+                  }
+                </span>
               </main>
             </div>
             <div className='Detailscontainer1XXX3'>
@@ -156,7 +161,7 @@ const Details = () => {
               <span className='Detailscontainer2XXwrap1span'></span>
             </div>
             <div className='Detailscontainer2XXwrap2'>
-            
+
               <article className='Detailscontainer2XXwrap2art2'>
                 <button className='Detailscontainer2XXwrap2art2but' onClick={handleBookNowClick}>
                   Book Space Now
