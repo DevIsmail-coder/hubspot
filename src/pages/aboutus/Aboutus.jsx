@@ -4,9 +4,11 @@ import { LuMapPinned } from "react-icons/lu";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineStars } from "react-icons/md";
 import { HiOutlineLightBulb } from "react-icons/hi";
+import { useNavigate } from 'react-router-dom';
 
 
 const Aboutus = () => {
+    const navigate = useNavigate()
     return (
         <div className='aboutBody'>
             <div className='aboutusHead'>
@@ -145,7 +147,7 @@ const Aboutus = () => {
                 <div className='lastDiv'>
                     <div className='lastdivClass'>
                         <h1 className='discoverFont'>Discover Your Ideal Workspace</h1>
-                        <button className='findButton'>Find Your Space</button>
+                        <button className='findButton' onClick={() => navigate("/allspace")}>Find Your Space</button>
                     </div>
                 </div>
 
