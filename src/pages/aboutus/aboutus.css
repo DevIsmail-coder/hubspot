@@ -5,13 +5,14 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  font-family: sans-serif;
 
 }
 
 .aboutusHead {
   width: 100%;
   height: 45vh;
-  background-color: rgb(56, 56, 121);
+  background-image: url("./public/Frame 2274 (1).jpg");
   display: flex;
   justify-content: center;
 
@@ -22,6 +23,7 @@
   width: 85%;
   height: 100%;
   display: flex;
+  gap: 20px;
   flex-direction: column;
   justify-content: center;
 
@@ -35,8 +37,9 @@
 
 .aboutDescription {
   color: white;
-  font-size: 25px;
-  line-height: 1.4;
+  font-size: 19px;
+  font-weight: 200;
+  line-height: 1.5;
 
 }
 
@@ -58,11 +61,17 @@
 
 }
 
+.aboutImage{
+  width: 80px;
+}
+
 .aboutMiddlelistleft {
   width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  justify-content: center;
+  gap: 60px;
+  /* background-color: yellow; */
 
 }
 
@@ -71,49 +80,64 @@
   display: flex;
   flex-direction: column;
   align-items: end;
-  gap: 30px;
+  justify-content: center;
+  gap: 60px;
 
 }
 
 .alpha1 {
-  color: navy;
+  font-size: 22px;
+  color: #1E398A;
 
 }
 
 .pdescrip1 {
-  font-size: 20px;
+  font-size: 15px;
 
 }
 
 .aboutLastdiv {
   width: 100%;
-  height: 300vh;
-  background-color: white;
-  border-top: 10px solid navy;
+  padding: 30px 0 40px 0;
+  border-top: 10px solid #1E398A;
   display: flex;
+  gap: 30px;
   flex-direction: column;
 }
 
 .aboutLastdiv1 {
   width: 100%;
-  height: 40%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 90px;
 }
 
 .aboutLastdivleft {
   width: 50%;
-  height: 80%;
+  height: 600px;
   display: flex;
   align-items: center;
 
 }
 
+.middlehHeaderleft{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.middlehHeaderright{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
 .aboutSmallbox1 {
   width: 60%;
   height: 85%;
-  background-color: navy;
+  background-color: #1E398A;
   margin-left: 75px;
   display: flex;
   align-items: center;
@@ -123,7 +147,6 @@
 .aboutSmallbox2 {
   width: 110%;
   height: 85%;
-  /* border: 2px solid black; */
   background-color: white;
   position: absolute;
   left: 10%;
@@ -138,7 +161,8 @@
 
 .aboutLastdivright {
   width: 50%;
-  height: 80%;
+  gap: 30px;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -146,41 +170,40 @@
 
 .missionDiv {
   display: flex;
+  gap: 20px;
   flex-direction: column;
   justify-content: center;
 
 }
 
 .missionName {
+  letter-spacing: 2px;
   font-family: sans-serif;
 
 
 }
 
 .missiondescript {
-  font-family: sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
+  font-weight: 250;
 }
 
 
 
 .meetOurTeam {
   width: 100%;
-  height: 55%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 30px;
 }
 
-.teamFont {
-  font-family: sans-serif;
-}
 
 .teamDiv {
   width: 85%;
-  height: 90%;
+  gap: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -189,7 +212,7 @@
 
 .teampicDiv {
   width: 100%;
-  height: 30%;
+  height: 320px;
   display: flex;
   justify-content: center;
 }
@@ -219,14 +242,16 @@
 
 
 .teamPic {
-  width: 45%;
+  /* width: 100%; */
   height: 50%;
   border-radius: 50%;
-  border: 10px solid orange;
+object-fit: contain;
+
 
 }
 
 .teamImage {
+  object-fit: cover;
   width: 100%;
   height: 100%;
 
@@ -235,17 +260,19 @@
 
 .lastDiv {
   width: 100%;
-  height: 10%;
   display: flex;
   justify-content: center;
+  padding-bottom: 15px;
 }
 
 .lastdivClass {
   width: 80%;
   display: flex;
+  /* background-color: green; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 15px;
 }
 
 .discoverFont {
@@ -255,13 +282,15 @@
 }
 
 .findButton {
-  width: 30%;
-  height: 30%;
-  background: navy;
+  display: flex;
+  justify-content: center;
+  width: 350px;
+  /* white-space: 400px; */
+  background: #1E398A;
   color: white;
   font-size: 20px;
   font-weight: 600;
-  font-family: sans-serif;
+  padding: 18px;
   border: none;
   border-radius: 10px;
 }

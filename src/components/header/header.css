@@ -66,6 +66,10 @@
         color: #1E398A;
         font-weight: 450;
     }
+    .Headerdiv3X:hover{
+        cursor: pointer;
+        color: #243c84;
+    }
     .Headerdiv3X{
         color: #000000;
         font-size: 18px;
