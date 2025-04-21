@@ -394,3 +394,20 @@
       background-color: #a0aec0;
       cursor: not-allowed;
   }
+  
+  .checkinTimebuild{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* background-color: yellow; */
+  }
+  .custom-time-picker{
+    display: flex;
+    width: 95%;
+    align-items: center;
+    background: transparent;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+  }

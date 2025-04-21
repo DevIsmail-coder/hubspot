@@ -120,11 +120,11 @@ const Usersignup = () => {
 
     return (
         <div className='Signupbody'>
+              <div className='SignupBackbutton'>
+                        <BsArrowLeftCircle className='SignupIconButton' onClick={() => navigate(-1)} />
+                    </div>
             <form className='Signupmain' onSubmit={handleSubmit}>
                 <main className='Signupcontainer1x'>
-                    <div className='HostloginBackbutton'>
-                        <BsArrowLeftCircle className='HostloginIconButton' onClick={() => navigate(-1)} />
-                    </div>
                     <div className='Signupcontainer1'>
                     <img src="/Frame 2382 (5).png" alt=""  className='Signupcontainer1img' onClick={() => navigate("/")}/>
                         <h1 className='Signupcontainer1h1'>Welcome To Hubspot </h1>
@@ -198,7 +198,7 @@ const Usersignup = () => {
                     <p>OR</p>
                     <span className='Signupcontainer3span'></span>
                 </div>
-                <button className='Signupbutton2'><FcGoogle className='Signupbutton2icon' /> Continue with Google</button>
+                <button className='Signupbutton2' type='button'><FcGoogle className='Signupbutton2icon' /> Continue with Google</button>
                 <p className='Signupcontainer3'>Already have an account? <span className='Signupcontainer3wrap' onClick={() => navigate("/login")}>Log in</span></p>
             </form>
         </div>

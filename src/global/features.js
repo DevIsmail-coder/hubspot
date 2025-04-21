@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    host: {},
+ host: {},
   user: {},
   hostName: "",
   userToken: "",
   hostToken: "",
+  adminToken: "",
   admin: false,
   verified: false,
 }
@@ -35,15 +36,21 @@ const features = createSlice({
         hostTok: (state, {payload}) => {
             state.hostToken = payload
         },
+        adminTok: (state, {payload}) => {
+            state.adminToken = payload
+        },
         logout: (state) => {
             state.userToken = "";
           },
           hostlogout: (state) => {
             state.hostToken = "";
           },
+          adminLogout: (state) => {
+            state.adminToken = "";
+          },
 
     }
 })
 
-export const {userdata, hostdata, isAdmin, isVerified, token, logout, hostTok, hostName, hostlogout} = features.actions
+export const {userdata, hostdata, isAdmin, isVerified, token, logout, hostTok, hostName, hostlogout, adminTok, adminLogout} = features.actions
 export default features.reducer

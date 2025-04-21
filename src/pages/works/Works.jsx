@@ -17,6 +17,8 @@ const Works = () => {
     const handleResponse = (mess) => {
         if (mess.data?.data) {
             setTopRated(mess.data?.data)
+            console.log("toprated", mess.data?.data);
+
 
         }
     }
@@ -71,25 +73,24 @@ const Works = () => {
                         <main className='Workscontainerwrap1XXX'>
                             {/* <span className='Workscontainerwrap1XXXspan'> */}
                             <select
-                className='Listingspaceinputselect'
-                name="location"
-                placeholder='location'
-                // value={listData.location}
-                // onChange={handleInputChange}
-              >
-                <option value="">Choose location</option>
-                <option value="Apapa">Apapa</option>
-                <option value="Festac">Festac</option>
-                <option value="Ago">Ago</option>
-                <option value="Ikeja">Ikeja</option>
-                <option value="Yaba">Yaba</option>
-                <option value="Surulere">Surulere</option>
-                <option value="Ikoyi">Ikoyi</option>
-                <option value="Lekki">Lekki</option>
-                <option value="Magodo">Magodo</option>
-                <option value="Victoria island">Victoria island</option>
-              </select>
-                                 {/* <IoIosArrowDown className='Workscontainerwrap1XXXspanicon' /></span> */}
+                                className='Listingspaceinputselect'
+                                name="location"
+                                placeholder='location'
+                            // value={listData.location}
+                            // onChange={handleInputChange}
+                            >
+                                <option value="">Choose location</option>
+                                <option value="Apapa">Apapa</option>
+                                <option value="Festac">Festac</option>
+                                <option value="Ago">Ago</option>
+                                <option value="Ikeja">Ikeja</option>
+                                <option value="Yaba">Yaba</option>
+                                <option value="Surulere">Surulere</option>
+                                <option value="Ikoyi">Ikoyi</option>
+                                <option value="Lekki">Lekki</option>
+                                <option value="Magodo">Magodo</option>
+                                <option value="Victoria island">Victoria island</option>
+                            </select>
                             <button className='Workscontainerwrap1XXXbut'>Find Your Space</button>
                         </main>
                     </div>
@@ -104,16 +105,15 @@ const Works = () => {
                     {
                         images[currentImage]
                     }
+
                 </main>
                 <main className='Workscontainer2YYY2'>
                     {
-                        topRated.slice(0, 3).map((i, id) => (
+                        topRated.slice().map((i, id) => (
                             <div className='Workscontainer2wrap' key={id}>
-                                {
-                                    i.images?.map((e, index) => (
-                                        <img src={e.imageUrl} className='Workscontainer2img' key={index}  onClick={() => navigate(`/detailpage/${i.id}`)}/>
-                                    ))
-                                }
+                                {i.images && i.images.length > 0 && (
+                                    <img src={i.images[0].imageUrl} className='Landingcontainer2wrapart1img' onClick={() => navigate(`/detailpage/${i.id}`)} />
+                                )}
 
                                 <h3 className='Workscontainer2wraphh'>{i.name}</h3>
                             </div>

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import { token } from '../../global/features';
+import { adminTok, isAdmin, token } from '../../global/features';
 import { userLogin } from '../../pages/Hubspotapi';
 import { BsArrowLeftCircle } from "react-icons/bs";
 
@@ -73,10 +73,18 @@ const Login = () => {
                 email: "",
                 password: ""
             })
-            dispatch(token({ userToken: mess.res?.data?.token }))
-            setTimeout(() => {
-                navigate("/")
-            }, 2000)
+            dispatch(isAdmin({admin: mess.res?.data?.data?.isAdmin}))
+            dispatch(adminTok({adminToken: mess.res?.data?.token}))
+            if(mess.res?.data?.data?.isAdmin){
+                setTimeout(() => {
+                    navigate("/admindashboard")
+                }, 2000)
+                dispatch(token({ userToken: mess.res?.data?.token }))
+            } else {
+                setTimeout(() => {
+                    navigate("/")
+                }, 2000)
+            }
         }
         else if (mess.err?.response?.data?.message) {
             toast.error(mess.err.response.data?.message);
@@ -147,7 +155,7 @@ const Login = () => {
                     <p>OR</p>
                     <span className='Logincontainer3span'></span>
                 </div>
-                <button className='Loginbutton2'><FcGoogle className='Loginbutton2icon' /> Continue with Google</button>
+                <button className='Loginbutton2' type='button'><FcGoogle className='Loginbutton2icon' /> Continue with Google</button>
                 <p className='Logincontainer3'>Don't have an account? <span className='Logincontainer4wrap' onClick={() => navigate("/usersignup")}>Create an account</span></p>
             </form>
         </div>

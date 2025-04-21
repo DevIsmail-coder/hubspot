@@ -82,26 +82,33 @@
 
                     .Allspacecontainer2wrapXXX1d3{
                         display: flex;
-                        gap: 9px;
+                        flex-direction: column;
+                        gap: 4px;
                         font-size: 23px;
                     }
 
-                    .Allspacecontainer2wrapXXX1d4{
-                        font-size: 13px;
-                        font-weight: 300;
-                        display: flex;
-                        gap: 10px;
-                        align-items: center;
+                }
 
-                        .Allspacecontainer2wrapXXX1d4ii {
-                            font-size: 25px;
-                        }
+
+                .Allspacecontainerlocation{
+                    font-size: 13px;
+                    font-weight: 300;
+                    display: flex;
+                   justify-content: center;
+                    gap: 8px;
+                    align-items: center;
+
+                    .Allspacecontainerlocationxx {
+                        font-size: 25px;
+                        color: red;
                     }
                 }
 
                 .Allspacecontainer2wrapXXX2 {
                     width: 53%;
                     display: flex;
+                    align-items: center;
+                    justify-content: center;
                     flex-direction: column;
                     gap: 20px;
 
@@ -142,13 +149,13 @@
                             font-size: 17px;
                             color: #000000;
                             align-content: center;
-                            justify-content: flex-end;
+                            justify-content: center;
                         }
 
                         .Allspacecontainer2wrapXXX2d2main2 {
                             display: flex;
-                            align-items: flex-end;
-                            justify-content: space-between;
+                            align-items: center;
+                            justify-content: center;
 
 
                             .Allspacecontainer2wrapXXX2d2main2div1 {
@@ -168,7 +175,7 @@
 
                             .Allspacecontainer2wrapXXX2d2mainbut {
                                 padding: 15px;
-                                width: 50%;
+                                width: 80%;
                                 color: #FFFFFF;
                                 font-size: 15px;
                                 background-color: #1E3B8A;
@@ -180,6 +187,22 @@
                 }
             }
         }
+    }
+    .mainerror{
+        width: 90%;
+        background-color: #FFF2C9;
+        border: 1px solid #E9CB6D;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        align-items: center;
+        font-size: 13px;
+        border-radius: 3px;
+        font-weight: 300;
+    }
+    .mainerroricon{
+        color: #E2B93C;
     }
 }
 

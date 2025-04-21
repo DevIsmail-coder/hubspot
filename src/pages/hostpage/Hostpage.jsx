@@ -8,9 +8,14 @@ import { LuBadgeCheck } from "react-icons/lu";
 import { FaCalendarDays } from "react-icons/fa6";
 import { VscChromeMinimize } from "react-icons/vsc";
 import { useNavigate } from 'react-router-dom';
+import { initializeSubscription } from '../Hubspotapi';
+import { useSelector } from 'react-redux';
 
 const Hostpage = () => {
+    const hostShowToken = useSelector((state) => state.hubspot.hostToken);
+    const spaceToken = hostShowToken.hostToken
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
     const [openFAQIndexes, setOpenFAQIndexes] = useState([]);
 
     const toggleFAQ = (index) => {
@@ -20,6 +25,14 @@ const Hostpage = () => {
             setOpenFAQIndexes([...openFAQIndexes, index]);
         }
     };
+
+  const  handleResponse = (mess) => {
+
+    }
+
+    const handleSubscription = () => {
+    initializeSubscription(spaceToken, handleResponse)
+    }
 
     const faqList = [
         {
@@ -157,6 +170,7 @@ const Hostpage = () => {
 
                     <div className='becomeFourthbody1A'>
                         {[{
+                            id: 1,
                             title: 'Standard Plan',
                             price: '10,000',
                             features: [
@@ -167,6 +181,7 @@ const Hostpage = () => {
                             ],
                             button: 'Get Started'
                         }, {
+                            id: 2,
                             title: 'Premium Plan',
                             price: '21,000',
                             features: [
@@ -186,11 +201,13 @@ const Hostpage = () => {
                                     </div>
                                     <div className='FourthbodyLeftdivfeat'>
                                         {plan.features.map((feat, i) => (
-                                            <div className='FourthbodyLeftdivA' key={i}>
-                                                <p className='FourthbodyLeftdivAicon'>
-                                                    <RiCheckboxCircleLine color='orange' />
-                                                </p>
-                                                {feat}
+                                            <div className='FourthbodyLeftdivA' key={i}>                         
+                                             <span className='FourthbodyLeftdivAspan'>
+                                             <RiCheckboxCircleLine className='FourthbodyLeftdivAicon'/>
+                                              <p className='FourthbodyLeftdivfeat'>
+                                              {feat}
+                                              </p>
+                                             </span>
                                             </div>
                                         ))}
                                     </div>

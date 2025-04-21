@@ -1,0 +1,59 @@
+.Booklistbody{
+    width: 100%;
+    font-family: sans-serif;
+    
+}
+
+.Booklistbodyart{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+
+.Booklistheader{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    
+    background-color: #1E398A;
+    justify-content: space-between;
+}
+
+.Booklistheaderspan{
+    width: 23%;
+    display: flex;
+   justify-content: center;
+    padding: 10px;
+    color: white;
+}
+
+
+.Booklistmain{
+    width: 85%;
+    /* background-color: yellow; */
+}
+
+.Booklistmaindiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Booklistmaindivcover{
+    width: 23%;
+    display: flex;
+   justify-content: center;
+    padding: 10px;
+}
+
+.Booklistmaindivcoverbut{
+    width: 80%;
+    padding: 8px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    background-color: #1E398A
+}

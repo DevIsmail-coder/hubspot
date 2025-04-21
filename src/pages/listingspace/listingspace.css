@@ -10,12 +10,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 25px 40px;
+    cursor: pointer;
     background-color: #fff;
     /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
   }
   
   .Listingspacelogo img {
     height: 30px;
+    cursor: pointer;
   }
   
   .Listingspacedashboard {
@@ -87,6 +89,7 @@
   .Listingspaceimageplaceholder{
     position: relative;
    width: 100%;
+   cursor: pointer;
   
   }
   
@@ -114,6 +117,7 @@
    width: 48%;
    height: 240px;
    object-fit: contain;
+   cursor: pointer;
   }
   
   .Listingspacethumbnailimg{
@@ -212,11 +216,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
   }
   
   .Listingspacecapacity span {
     color: #33475b;
     font-size: 14px;
+    cursor: pointer;
   }
   
   .Listingspaceamenities {
@@ -227,6 +233,7 @@
   
   .Listingspaceamenitiesrow {
     display: flex;
+
   }
   
   .Listingspaceamenity {
@@ -238,6 +245,7 @@
   
   .Listingspaceamenity input[type="checkbox"] {
     margin-right: 8px;
+    cursor: pointer;
   }
   
   .Listingspaceamenity label {
@@ -356,6 +364,7 @@
     background-color: #1E3B8A;
     color: #FFFFFF;
     font-size: 25px;
+    cursor: pointer;
     border: none;
     border-radius: 3px;
   }
