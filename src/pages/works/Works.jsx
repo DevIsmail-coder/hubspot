@@ -8,28 +8,40 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
-import { topSpace } from '../Hubspotapi';
+import { spaceLocation, topSpace } from '../Hubspotapi';
 import { useNavigate } from 'react-router-dom';
 const Works = () => {
     const [topRated, setTopRated] = useState([])
     const navigate = useNavigate()
+    const [valueLocation, setValueLocation] = useState("")
 
-    const handleResponse = (mess) => {
+    const handleChange = (e) => {
+        setValueLocation(e.target.value)
+    }
+
+        const handleResponse = (mess) => {
         if (mess.data?.data) {
             setTopRated(mess.data?.data)
             console.log("toprated", mess.data?.data);
-
-
         }
     }
-    console.log(topRated);
+
+
+    const handleLocationResponse = (mess) => {
+        if (mess.data?.data) {
+            setTopRated(mess.data?.data)
+            console.log("toprated", mess.data?.data);
+        }
+    }
 
     useEffect(() => {
         topSpace(handleResponse)
     }, [])
 
 
-
+  const findSpace = () => {
+    spaceLocation(handleLocationResponse, )
+  }
 
     const [currentImage, setCurrentImage] = useState(0)
     const images = Ismail.map((i, index) => (
@@ -76,8 +88,8 @@ const Works = () => {
                                 className='Listingspaceinputselect'
                                 name="location"
                                 placeholder='location'
-                            // value={listData.location}
-                            // onChange={handleInputChange}
+                            value={valueLocation}
+                            onChange={handleChange}
                             >
                                 <option value="">Choose location</option>
                                 <option value="Apapa">Apapa</option>
