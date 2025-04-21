@@ -189,9 +189,26 @@ export const bookCategories = async (showPerformance, spaceToken) => {
     }
 }
 
+
+export const bookingDetails = async (handleResponse, spaceToken, id) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/host/spacebookings/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${spaceToken}`
+            }
+        })
+        handleResponse({ res })
+        console.log(res);
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+
 export const spaceBooking = async (handleResponse, spaceToken) => {
     try {
-        const res = await axios.get(`${HUBSPOTAPI}/host/spacebookings`, {
+        const res = await axios.get(`${HUBSPOTAPI}/host/bookingList`, {
             headers: {
                 'Authorization': `Bearer ${spaceToken}`
             }

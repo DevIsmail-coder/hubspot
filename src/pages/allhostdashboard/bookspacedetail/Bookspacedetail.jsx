@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { HiUserCircle } from "react-icons/hi";
-import './bookspace.css'
+import './bookspacedetail.css'
 // import { bookings } from '../../../components/hubdata'
 import { useSelector } from 'react-redux';
-import { spaceBooking } from '../../Hubspotapi';
+import { bookingDetails } from '../../Hubspotapi';
+import { useParams } from 'react-router-dom';
+
 
 const Bookspace = () => {
-  const [booking, setBooking] = useState([])
-  const [title, setTitle] = useState("")
+  const {id} = useParams()
+  const [bookingList, setBookingList] = useState([])
   const hostShowToken = useSelector((state) => state.hubspot.hostToken);
   const spaceToken = hostShowToken.hostToken
 
@@ -15,17 +17,16 @@ const Bookspace = () => {
   const handleResponse = (mess) => {
     console.log(mess?.res);
     if(mess.res?.data?.data){
-      setTitle(mess?.res?.data?.data?.name)
-      setBooking(mess?.res?.data?.data?.Bookings)
+      setBookingList(mess.res?.data?.data)
 
-      console.log("am booking now", mess?.res?.data?.data?.Bookings);
+      console.log("am booking now", mess?.res?.data?.data);
       console.log("am title now", title);
     }
    
   }
 
   useEffect(() => {
-    spaceBooking(handleResponse, spaceToken)
+    bookingDetails(handleResponse, spaceToken, id)
   }, [spaceToken])
 
   return (
@@ -39,12 +40,11 @@ const Bookspace = () => {
         </header>
         <main className='Bookspacemainmain'>
           {
-            booking.map((i, id) => (
+            bookingList.map((i, id) => (
               <article className='Bookspacemainmainwrap' key={id}>
                 <div className='Bookspacemainmaindiv'>
                   <span className='Bookspacemainmaindivspan1'>
                     <HiUserCircle className='Bookspacemainmaindivspan1img' />
-                    {/* <img src={i.image} alt="" className='Bookspacemainmaindivspan1img' /> */}
                   </span>
                  
                       <p className='Bookspacemainmaindivspan2' >{i.userName}</p>

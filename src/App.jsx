@@ -23,13 +23,14 @@ import DashboardLayout from './routes/DashboardLayout'
 import Psswordsecurity from './pages/allhostdashboard/psswordsecurity/Psswordsecurity'
 import Managelist from './pages/allhostdashboard/managelist/Managelist'
 import Accountsetting from './pages/allhostdashboard/accountsetting/Accountsetting'
-import Bookspace from './pages/allhostdashboard/bookspace/Bookspace'
+import Bookspace from './pages/allhostdashboard/bookspacedetail/Bookspacedetail'
 import Listingspace from './pages/listingspace/Listingspace'
 import Header from './components/header/Header'
 import Usersett from './pages/user/userAccount/Usersett'
 import Usereview from './pages/user/userReview/Usereview'
 import Privateroutes from './routes/Privateroutes'
 import Spacings from './pages/user/savedspace/Spacings'
+import Booklist from './pages/allhostdashboard/booklist/Booklist'
 
 
 function App() {
@@ -94,12 +95,16 @@ const rountee = createBrowserRouter([
         element: <Psswordsecurity />,
       },
       {
-        path: "booking",
+        path: "bookinglist/:Id",
         element: <Bookspace />,
       },
       {
         path: "managelist",
         element: <Managelist />,
+      },
+      {
+        path: "booking",
+        element: <Booklist />,
       },
       {
         path: "accountsetting",
