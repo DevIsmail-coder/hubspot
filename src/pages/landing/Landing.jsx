@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './landing.css'
-import { IoIosWifi } from "react-icons/io";
-import { GiCoffeeCup } from "react-icons/gi";
-import { MdSolarPower } from "react-icons/md";
-import { PiSecurityCameraFill } from "react-icons/pi";
 import Works from '../works/Works';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getAllspace } from '../Hubspotapi';
@@ -24,6 +20,8 @@ const Landing = () => {
     const handleResponse = (mess) => {
         if (mess.data?.data) {
             setAllSpace(mess.data?.data)
+            console.log("show", mess.data?.data?.data?.amenities);
+
             setIsLoading(false)
         }
     }
@@ -118,10 +116,12 @@ const Landing = () => {
                                         <h3 className='Landingcontainer2wrapart2h3'>{i.name}</h3>
                                         <p className='Landingcontainer2wrapart2hp'>{i.overview.slice(0, 75)}....</p>
                                         <div className='Landingcontainer2iconwrap'>
-                                            <IoIosWifi />
-                                            <GiCoffeeCup />
-                                            <MdSolarPower />
-                                            <PiSecurityCameraFill />
+                                            {
+                                                i.amenities &&
+                                                i.amenities.split(",").slice(0, 3).map((amenity, index) => (
+                                                    <span key={index} className='Landingcontainer2iconwrapamen'>{amenity}</span>
+                                                ))
+                                            }
                                         </div>
                                         <div className='Landingcontainer2butwrap'>
                                             <button
