@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import "./header.css";
-import { IoIosSearch } from "react-icons/io";
 import { HiMiniUserCircle } from "react-icons/hi2";
 import { PiListLight } from "react-icons/pi";
 import { MdOutlineClear } from "react-icons/md";
@@ -42,10 +41,6 @@ const Header = () => {
         <div className='Headerdiv1'>
           <img src='/Frame 2382 (5).png' className='Headerdiv1img' onClick={() => navigate("/")}/>
         </div>
-        {/* <div className='Headerdiv2'>
-          <input type="text" placeholder='Search' className='Headerdiv2input' />
-          <IoIosSearch className='Headerdiv2icon' />
-        </div> */}
         <div className='Headerdiv3'>
           <p className='Headerdiv3XX' onClick={() => navigate("/")}>Home</p>
           <p className='Headerdiv3X' onClick={() => navigate("/becomeahost")}>Become a Host</p>

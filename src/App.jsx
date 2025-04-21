@@ -95,7 +95,7 @@ const rountee = createBrowserRouter([
         element: <Psswordsecurity />,
       },
       {
-        path: "bookinglist/:Id",
+        path: "bookinglist/:id",
         element: <Bookspace />,
       },
       {
