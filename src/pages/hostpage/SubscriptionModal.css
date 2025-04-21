@@ -1,0 +1,280 @@
+/* SubscriptionModal.css */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    border-radius: 10px;
+    max-width: 550px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .subscription-modal {
+    max-width: 500px;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    color: #1E398A;
+    font-size: 1.5rem;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .subscription-content {
+    padding: 20px;
+  }
+  
+  .plan-details {
+    margin-bottom: 20px;
+  }
+  
+  .plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .plan-header h3 {
+    margin: 0;
+    color: #1E398A;
+    font-size: 1.3rem;
+  }
+  
+  .plan-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1E398A;
+  }
+  
+  .plan-price span {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #666;
+  }
+  
+  .plan-features {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .plan-features h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .plan-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .plan-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-left: 5px;
+  }
+  
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    color: orange;
+  }
+  
+  .error-message {
+    color: #d9534f;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f8d7da;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .note {
+    margin: 15px 0;
+    text-align: center;
+    color: #666;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .subscription-message {
+      text-align: center;
+      color: #1E398A;
+      margin: 10px 0;
+      font-weight: 500;
+  }
+  
+  .price-savings {
+      font-size: 0.8rem;
+      color: #27ae60;
+      margin-top: 5px;
+  }
+  .cancel-button,
+  .subscribe-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .cancel-button {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  .subscribe-button {
+    background-color: #FF8C00;
+    color: white;
+    flex-grow: 1;
+    margin-left: 10px;
+  }
+  
+  .cancel-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .subscribe-button:hover {
+    background-color: #e67e00;
+  }
+  
+  .subscribe-button:disabled {
+    background-color: #ffc78a;
+    cursor: not-allowed;
+  }
+  
+  /* Payment Status Overlay */
+  .payment-status-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+  }
+  
+  .payment-status-modal {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  .status-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+  }
+  
+  .status-icon.error {
+    color: #d9534f;
+  }
+  
+  .status-icon.closed {
+    color: #f0ad4e;
+  }
+  
+  .status-title {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  
+  .status-title.error {
+    color: #d9534f;
+  }
+  
+  .status-message {
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .status-reference {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  .status-button {
+    padding: 10px 25px;
+    background-color: #1E398A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .status-button:hover {
+    background-color: #162b6a;
+  }
+  
+  /* iFrame Overlay */
+  .iframe-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1001;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .iframe-container {
+      width: 90%;
+      max-width: 500px;
+      height: 80vh;
+      max-height: 700px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+  }
+  
+  .iframe-container iframe {
+    border: none;
+  }

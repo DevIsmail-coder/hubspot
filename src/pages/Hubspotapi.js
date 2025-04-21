@@ -191,8 +191,9 @@ export const bookCategories = async (showPerformance, spaceToken) => {
 
 
 export const bookingDetails = async (handleResponse, spaceToken, id) => {
+
     try {
-        const res = await axios.get(`${HUBSPOTAPI}/host/spacebookings/${id}`, {
+        const res = await axios.get(`${HUBSPOTAPI}/host/bookingdetails/${id}`, {
             headers: {
                 'Authorization': `Bearer ${spaceToken}`
             }
@@ -317,41 +318,73 @@ export const verifyDayBooking = async (
     }
 };
 
-export const initializeSubscription = async (handleResponse, hostToken, handleloading) => {
-    handleloading(true);
+// Standard Subscription
+export const initializeStandardSubscription = async (handleloading, handleResponse, hostToken) => {
     try {
-        const res = await axios.post(`${HUBSPOTAPI}/subscription/initialize`, {
-            headers: {
-                Authorization: `Bearer ${hostToken}`,
-            }
-        })
-        handleloading(false);
-        handleResponse({ res });
+      handleloading(true);
+      const res = await axios.post(`${HUBSPOTAPI}/subscription/initialize`, {}, {
+        headers: {
+          Authorization: `Bearer ${hostToken}`,
+        },
+      });
+      handleloading(false);
+      handleResponse({ res });
     } catch (err) {
-        console.log(err)
-        handleloading(false);
+      handleloading(false);
+      handleResponse({ err });
+      console.log(err);
     }
-}
+  };
+  
+  export const verifyStandardSubscription = async (reference, handleloading, handleResponse) => {
+    try {
+      handleloading(true);
+      const res = await axios.get(
+        `${HUBSPOTAPI}/subscription/verify?reference=${reference}`
+      );
+      handleloading(false);
+      handleResponse({ res });
+    } catch (err) {
+      handleloading(false);
+      handleResponse({ err });
+      console.log(err);
+    }
+  };
+  
+  // Premium Subscription
+  export const initializePremiumSubscription = async (handleloading, handleResponse, hostToken) => {
+    try {
+      handleloading(true);
+      const res = await axios.post(`${HUBSPOTAPI}/subscription/premium/initialize`, {}, {
+        headers: {
+          Authorization: `Bearer ${hostToken}`,
+        },
+      });
+      handleloading(false);
+      handleResponse({ res });
+    } catch (err) {
+      handleloading(false);
+      handleResponse({ err });
+      console.log(err);
+    }
+  };
+  
+  export const verifyPremiumSubscription = async (reference, handleloading, handleResponse) => {
+    try {
+      handleloading(true);
+      const res = await axios.get(
+        `${HUBSPOTAPI}/subscription/premium/verify?reference=${reference}`
+      );
+      handleloading(false);
+      handleResponse({ res });
+    } catch (err) {
+      handleloading(false);
+      handleResponse({ err });
+      console.log(err);
+    }
+  };
 
-export const verifySubscriptionBooking = async (
-    spaceToken,
-    handleResponse,
-    handleloading,
-) => {
-    try {
-        handleloading(true);
-        const res = await axios.get(
-            `${HUBSPOTAPI}/subscription/verify?reference=${spaceToken}`
-        );
-        handleloading(false);
-        handleResponse({ res });
-        console.log(res);
-    } catch (err) {
-        handleloading(false);
-        handleResponse({ err });
-        console.log(err);
-    }
-};
+
 // admin
 
 export const getAdmin = async (isAdminToken, handleResponse) => {
