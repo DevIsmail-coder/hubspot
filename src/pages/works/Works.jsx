@@ -3,23 +3,26 @@ import './works.css'
 import { Ismail, User } from '../../components/hubdata';
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import { HiUserCircle } from "react-icons/hi";
-import { IoIosArrowRoundForward, IoIosArrowRoundBack, IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowRoundForward, IoIosArrowRoundBack, } from "react-icons/io";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
-import { spaceLocation, topSpace } from '../Hubspotapi';
+import { topSpace, spaceByLocation } from '../Hubspotapi';
 import { useNavigate } from 'react-router-dom';
 const Works = () => {
     const [topRated, setTopRated] = useState([])
     const navigate = useNavigate()
     const [valueLocation, setValueLocation] = useState("")
-
+    const [locationSpaces, setLocationSpaces] = useState([])
+    const [isLocationLoading, setIsLocationLoading] = useState(false)
+    const [searchSubmitted, setSearchSubmitted] = useState(false)
     const handleChange = (e) => {
         setValueLocation(e.target.value)
+setSearchSubmitted(false)
     }
 
-        const handleResponse = (mess) => {
+    const handleResponse = (mess) => {
         if (mess.data?.data) {
             setTopRated(mess.data?.data)
             console.log("toprated", mess.data?.data);
@@ -28,9 +31,13 @@ const Works = () => {
 
 
     const handleLocationResponse = (mess) => {
+        setIsLocationLoading(false)
         if (mess.data?.data) {
-            setTopRated(mess.data?.data)
-            console.log("toprated", mess.data?.data);
+            setLocationSpaces(mess.data?.data)
+            console.log("location spaces", mess.data?.data)
+        } else if (mess.err) {
+            setLocationSpaces([])
+            console.log("Error fetching spaces by location:", mess.err)
         }
     }
 
@@ -39,10 +46,24 @@ const Works = () => {
     }, [])
 
 
-  const findSpace = () => {
-    spaceLocation(handleLocationResponse, )
-  }
-
+    const findSpace = () => {
+        if (valueLocation) {
+            setSearchSubmitted(true)
+            setIsLocationLoading(true)
+            spaceByLocation(handleLocationResponse, valueLocation);
+        }
+    }
+    const LocationSkeleton = () => (
+        <div className="WorksSkeletonContainer">
+            {[1, 2, 3, 4].map((item) => (
+                <div key={item} className="WorksSkeletonItem">
+                    <div className="WorksSkeletonImage"></div>
+                    <div className="WorksSkeletonTitle"></div>
+                    <div className="WorksSkeletonPrice"></div>
+                </div>
+            ))}
+        </div>
+    )
     const [currentImage, setCurrentImage] = useState(0)
     const images = Ismail.map((i, index) => (
         <div className='Workscontainer2wrap' key={index}>
@@ -88,8 +109,8 @@ const Works = () => {
                                 className='Listingspaceinputselect'
                                 name="location"
                                 placeholder='location'
-                            value={valueLocation}
-                            onChange={handleChange}
+                                value={valueLocation}
+                                onChange={handleChange}
                             >
                                 <option value="">Choose location</option>
                                 <option value="Apapa">Apapa</option>
@@ -103,7 +124,7 @@ const Works = () => {
                                 <option value="Magodo">Magodo</option>
                                 <option value="Victoria island">Victoria island</option>
                             </select>
-                            <button className='Workscontainerwrap1XXXbut'>Find Your Space</button>
+                            <button className='Workscontainerwrap1XXXbut' onClick={findSpace}>Find Your Space</button>
                         </main>
                     </div>
                     <div className='Workscontainerwrap2'>
@@ -111,6 +132,35 @@ const Works = () => {
                     </div>
                 </main>
             </article>
+            {searchSubmitted && (
+                <article className='WorksLocationResults'>
+                    <h3 className='WorksLocationResultsTitle'>
+                        {isLocationLoading ? `Searching spaces in ${valueLocation}...` : `Spaces in ${valueLocation}`}
+                    </h3>
+
+                    {isLocationLoading ? (
+                        <LocationSkeleton />
+                    ) : locationSpaces.length > 0 ? (
+                        <main className='WorksLocationResultsGrid'>
+                            {locationSpaces.map((space, id) => (
+                                <div className='Workscontainer2wrap' key={id} onClick={() => navigate(`/detailpage/${space.id}`)}>
+                                    {space.images && space.images.length > 0 && (
+                                        <img src={space.images[0].imageUrl} className='WorksLocationResultsGridImg' />
+                                    )}
+                                    <h3 className='Workscontainer2wraphh'>{space.name}</h3>
+                                    <p className='WorksLocationPrice'>
+                                        ₦{space.pricePerDay?.toLocaleString()} / day
+                                    </p>
+                                </div>
+                            ))}
+                        </main>
+                    ) : (
+                        <div className='WorksNoResults'>
+                            <p>No spaces found in {valueLocation}. Try another location.</p>
+                        </div>
+                    )}
+                </article>
+            )}
             <article className='Workscontainer2'>
                 <h3 className='Workscontainer2h3'>Our Top Ranked Spaces</h3>
                 <main className='Workscontainer2YYY'>

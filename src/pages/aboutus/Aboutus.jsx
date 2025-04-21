@@ -1,9 +1,5 @@
 import React from 'react'
 import './aboutus.css'
-// import { LuMapPinned } from "react-icons/lu";
-// import { SlCalender } from "react-icons/sl";
-// import { MdOutlineStars } from "react-icons/md";
-// import { HiOutlineLightBulb } from "react-icons/hi";
 import { useNavigate } from 'react-router-dom';
 
 
