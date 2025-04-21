@@ -36,13 +36,13 @@ const Booklist = () => {
                 </header>
                 <main className='Booklistmain'>
             {
-                booking?.map((i, index) => (
-                    <div className='Booklistmaindiv' key={index}>
+                booking?.map((i, id) => (
+                    <div className='Booklistmaindiv' key={id}>
                     <p className='Booklistmaindivcover'>{i.name}</p>
                     <p className='Booklistmaindivcover'>{i.capacity}</p>
                     <p className='Booklistmaindivcover'>{i.bookingCount}</p>
                     <div className='Booklistmaindivcover'>
-                        <button className='Booklistmaindivcoverbut' onClick={() => navigate(`/bookinglist/${i.index}`)}>veiw all</button>
+                        <button className='Booklistmaindivcoverbut' onClick={() => navigate(`/dashboardLayout/bookinglist/${i.id}`)}>veiw all</button>
                     </div>
                 </div>
                 ))

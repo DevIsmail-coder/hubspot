@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { HiUserCircle } from "react-icons/hi";
 import './bookspacedetail.css'
-// import { bookings } from '../../../components/hubdata'
 import { useSelector } from 'react-redux';
 import { bookingDetails } from '../../Hubspotapi';
 import { useParams } from 'react-router-dom';
@@ -19,11 +18,13 @@ const Bookspace = () => {
     if(mess.res?.data?.data){
       setBookingList(mess.res?.data?.data)
 
-      console.log("am booking now", mess?.res?.data?.data);
-      console.log("am title now", title);
+      console.log("am booking detail", mess?.res?.data?.data);
     }
    
   }
+
+  console.log(id);
+  
 
   useEffect(() => {
     bookingDetails(handleResponse, spaceToken, id)
