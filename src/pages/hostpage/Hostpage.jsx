@@ -26,7 +26,7 @@ const Hostpage = () => {
 
     const handleNavigate = () => {
         if(!spaceToken){
-            navigate("hostlogin")
+            navigate("/hostlogin")
         }else{
             navigate("/listspace")
         }
