@@ -73,13 +73,13 @@ const Login = () => {
                 email: "",
                 password: ""
             })
+            dispatch(token({ userToken: mess.res?.data?.token }))
             dispatch(isAdmin({admin: mess.res?.data?.data?.isAdmin}))
             dispatch(adminTok({adminToken: mess.res?.data?.token}))
             if(mess.res?.data?.data?.isAdmin){
                 setTimeout(() => {
                     navigate("/admindashboard")
                 }, 2000)
-                dispatch(token({ userToken: mess.res?.data?.token }))
             } else {
                 setTimeout(() => {
                     navigate("/")
