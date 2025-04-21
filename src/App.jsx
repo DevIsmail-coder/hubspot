@@ -31,13 +31,16 @@ import Usereview from './pages/user/userReview/Usereview'
 import Privateroutes from './routes/Privateroutes'
 import Spacings from './pages/user/savedspace/Spacings'
 import Booklist from './pages/allhostdashboard/booklist/Booklist'
+import ScrollToTop from './ScrollToTop'
 
 
 function App() {
 const rountee = createBrowserRouter([
   {
     path: "/",
-    element: <HomeLayout />,
+    element: <ScrollToTop >
+      <HomeLayout />
+    </ScrollToTop>,
     children: [
       {
         path: "/",
