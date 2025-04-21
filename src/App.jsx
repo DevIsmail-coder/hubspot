@@ -35,144 +35,151 @@ import ScrollToTop from './ScrollToTop'
 
 
 function App() {
-const rountee = createBrowserRouter([
-  {
-    path: "/",
-    element: <ScrollToTop >
-      <HomeLayout />
-    </ScrollToTop>,
-    children: [
-      {
-        path: "/",
-        element: <Landing />
-      },
-      {
-        path: "/aboutus",
-        element: <Aboutus />
-      },
-      {
-        path: "/becomeahost",
-        element: <Hostpage/>
-      },
-      {
-        path: "/detailpage/:id",
-        element: <Details />
-      },
-      {
-        path: "/allspace",
-        element: <Allspace />
-      },
-      {
-        path: "/abouthost",
-        element: <Listhost />
-      },
-      {
-        path: "/userAccountSetting",
-        element: <Usersett />
-      },
-      {
-        path: "managebookings",
-        element: <Usereview />
-      },
-      {
-        path: "savedspace",
-        element: <Spacings />
-      }
-    ]
-  },
+  const rountee = createBrowserRouter([
+    {
+      path: "/",
+      element: <ScrollToTop >
+        <HomeLayout />
+      </ScrollToTop>,
+      children: [
+        {
+          path: "/",
+          element: <ScrollToTop >
+            <Landing />
+          </ScrollToTop>
 
-  {
-    path: "/dashboardLayout",
-    element: (
-      <Privateroutes>
-        <DashboardLayout />
-      </Privateroutes>
-    ),
-    children: [
-      {
-        path: "hostdashboard",
-        element: <Hostdashboard />,
-      },
-      {
-        path: "password&security",
-        element: <Psswordsecurity />,
-      },
-      {
-        path: "bookinglist/:id",
-        element: <Bookspace />,
-      },
-      {
-        path: "managelist",
-        element: <Managelist />,
-      },
-      {
-        path: "booking",
-        element: <Booklist />,
-      },
-      {
-        path: "accountsetting",
-        element: <Accountsetting />,
-      },
-    ]
-  },
+        },
+        {
+          path: "/aboutus",
+          element: <Aboutus />
+        },
+        {
+          path: "/becomeahost",
+          element: <Hostpage />
+        },
+        {
+          path: "/detailpage/:id",
+          element: <Details />
+        },
+        {
+          path: "/allspace",
+          element: <Allspace />
+        },
+        {
+          path: "/abouthost",
+          element: <Listhost />
+        },
+        {
+          path: "/userAccountSetting",
+          element: <Usersett />
+        },
+        {
+          path: "managebookings",
+          element: <Usereview />
+        },
+        {
+          path: "savedspace",
+          element: <Spacings />
+        }
+      ]
+    },
+
+    {
+      path: "/dashboardLayout",
+      element: (
+        <ScrollToTop>
+        <Privateroutes>
+          <DashboardLayout />
+        </Privateroutes>
+        </ScrollToTop>
+      ),
+      children: [
+        {
+          path: "hostdashboard",
+          element: <Hostdashboard />,
+        },
+        {
+          path: "password&security",
+          element: <Psswordsecurity />,
+        },
+        {
+          path: "bookinglist/:id",
+          element: <Bookspace />,
+        },
+        {
+          path: "managelist",
+          element: <Managelist />,
+        },
+        {
+          path: "booking",
+          element: <Booklist />,
+        },
+        {
+          path: "accountsetting",
+          element: <Accountsetting />,
+        },
+      ]
+    },
 
 
-  {
-    path: "header",
-    element: <Header />
-  },
-  {
-    path: "/password",
-    element: <Password />
-  },
-  {
-    path: "/verifysuccess",
-    element: <Welcome />
-  },
-  {
-    path: "/forget",
-    element: <Forgotpassword />
-  },
-  {
-    path: "/email",
-    element: <Email />
-  },
-  {
-    path: "/login",
-    element: <Login />
-  },
-  {
-    path: "/usersignup",
-    element: <Usersignup />
-  },
-  {
-    path: "/reset",
-    element: <Resetpassword />
-  },
+    {
+      path: "header",
+      element: <Header />
+    },
+    {
+      path: "/password",
+      element: <Password />
+    },
+    {
+      path: "/verifysuccess",
+      element: <Welcome />
+    },
+    {
+      path: "/forget",
+      element: <Forgotpassword />
+    },
+    {
+      path: "/email",
+      element: <Email />
+    },
+    {
+      path: "/login",
+      element: <Login />
+    },
+    {
+      path: "/usersignup",
+      element: <Usersignup />
+    },
+    {
+      path: "/reset",
+      element: <Resetpassword />
+    },
 
-  {
-    path: "/admindashboard",
-    element: <Admindashboard />
-  },
-  {
-    path: "/hostsignup",
-    element: <Hostsignup />
-  },
-  {
-    path: "/hostlogin",
-    element: <Hostlogin />
-  },
-  {
-    path: "/listspace",
-    element: (
-      <Privateroutes>
-        <Listingspace />
-      </Privateroutes>
-    )
-  }
-])
+    {
+      path: "/admindashboard",
+      element: <Admindashboard />
+    },
+    {
+      path: "/hostsignup",
+      element: <Hostsignup />
+    },
+    {
+      path: "/hostlogin",
+      element: <Hostlogin />
+    },
+    {
+      path: "/listspace",
+      element: (
+        <ScrollToTop > 
+        <Privateroutes>
+          <Listingspace />
+        </Privateroutes>
+        </ScrollToTop>
+      )
+    }
+  ])
   return (
-    <RouterProvider router={rountee}/>
+    <RouterProvider router={rountee} />
   )
 }
 

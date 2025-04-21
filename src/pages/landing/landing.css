@@ -115,7 +115,7 @@
 
         .Landingcontainer2wrap{
             width: 27%;
-            height: 460px;
+            height: 480px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -160,8 +160,13 @@
                 .Landingcontainer2iconwrap{
                     width: 80%;
                     display: flex;
-                    gap: 10px;
-                    font-size: 20px;
+                    gap: 5px;
+               
+
+                    .Landingcontainer2iconwrapamen{
+                        font-size: 13px;
+                        color: #1E398A;
+                    }
                 }
                 .Landingcontainer2butwrap{
                     display: flex;
