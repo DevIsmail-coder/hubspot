@@ -1,61 +1,94 @@
-.userReviewBookingpage{
-    width: 100%;
-    height: max-content;
+.userReview Bookingpage{
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+ }
+
+
+
+ .userReviewFlowData{
+    width: 80%;
+    margin-top: 40px;
+    border-collapse: collapse;
+    font-family: sans-serif;
+  }
+  
+  .userReviewDataInfo{
+    padding: 12px 15px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: navy;
+    color: white;
+  }
+
+
+  .userReviewDataInfo2{
+    padding: 12px 15px;
+    text-align: center;
+    vertical-align: middle;
+
+  }
+  
+  
+  .userReviewChoiceImage{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+
+  .userReviewReviewbutton{
+    width: 90px;
+    height: 30px;
+    background-color: navy;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: sans-serif;
+  }
+  
+  .userReviewBookingstatus{
+    color: green;
+  }
+
+  .userReviewSpaceDeet{
     display: flex;
-    justify-content: center;
-    align-items: center;
-  
-   }
-  
-  
-  
-   .userReviewFlowData{
-      width: 80%;
-      margin-top: 40px;
-      border-collapse: collapse;
-      font-family: sans-serif;
-    }
-    
-    .userReviewDataInfo{
-      padding: 12px 15px;
-      text-align: center;
-      vertical-align: middle;
-      background-color: #1E398A;
-      color: white;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 800px) {
+    .userReviewFlowData {
+      width: 100vw;
+      font-size: 13px;
     }
   
-  
-    .userReviewDataInfo2{
-      padding: 12px 15px;
-      text-align: center;
-      vertical-align: middle;
-  
-    }
-    
-    
-    .userReviewChoiceImage{
-      width: 40px;
-      height: 40px;
-      object-fit: cover;
-      border-radius: 5px;
+    .userReviewDataInfo,
+    .userReviewDataInfo2 {
+      padding: 8px 5px;
+      font-size: 10px;
     }
   
-  
-    .userReviewReviewbutton{
-      padding: 15px;
-      background-color: #1E398A;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 12px;
-      font-family: sans-serif;
-    }
-    
-    .userReviewBookingstatus{
-      color: green;
+    .userReviewChoiceImage {
+      width: 30px;
+      height: 30px;
     }
   
-    .userReviewSpaceDeet{
-      display: flex;
-      flex-direction: column;
+    .userReviewReviewbutton {
+      width: 80px;
+      height: 28px;
+      font-size: 11px;
     }
+  
+    .userReviewSpaceDeet {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .userReviewBookingpage {
+      padding: 20px 10px;
+    }
+  }

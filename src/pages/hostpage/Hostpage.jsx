@@ -201,11 +201,13 @@ const Hostpage = () => {
                                     </div>
                                     <div className='FourthbodyLeftdivfeat'>
                                         {plan.features.map((feat, i) => (
-                                            <div className='FourthbodyLeftdivA' key={i}>
-                                                <p className='FourthbodyLeftdivAicon'>
-                                                    <RiCheckboxCircleLine color='orange' />
-                                                </p>
-                                                {feat}
+                                            <div className='FourthbodyLeftdivA' key={i}>                         
+                                             <span className='FourthbodyLeftdivAspan'>
+                                             <RiCheckboxCircleLine className='FourthbodyLeftdivAicon'/>
+                                              <p className='FourthbodyLeftdivfeat'>
+                                              {feat}
+                                              </p>
+                                             </span>
                                             </div>
                                         ))}
                                     </div>
