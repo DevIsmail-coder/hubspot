@@ -141,6 +141,16 @@ export const topSpace = async (handleResponse) => {
 }
 
 
+export const spaceLocation = async (handleResponse, location) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/space/location?location=${location}`)
+        handleResponse(res)
+        console.log(res);
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
 
 
 // host dashboard
