@@ -42,7 +42,7 @@ const Booklist = () => {
                     <p className='Booklistmaindivcover'>{i.capacity}</p>
                     <p className='Booklistmaindivcover'>{i.bookingCount}</p>
                     <div className='Booklistmaindivcover'>
-                        <button className='Booklistmaindivcoverbut' onClick={() => navigate(`/dashboardLayout/bookinglist/${i.id}`)}>veiw all</button>
+                        <button className='Booklistmaindivcoverbut' onClick={() => navigate(`/dashboardLayout/bookinglist/${i.id}`)}>view all</button>
                     </div>
                 </div>
                 ))

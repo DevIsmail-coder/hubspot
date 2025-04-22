@@ -192,7 +192,7 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
                     setIframeUrl(null)
                     setTimeout(() => {
                         onClose();
-                        navigate('/', { state: { paymentSuccess: true, needVerification: true } });
+                        navigate('/managebookings', { state: { paymentSuccess: true, needVerification: true } });
                     }, 500);
                     break;
                 }

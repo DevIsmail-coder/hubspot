@@ -49,6 +49,22 @@ export const userLogin = async (userInfo, handleloading, handleResponse) => {
     }
 }
 
+export const userBooking = async (handleResponse, bookToken) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/users/booking`, {
+            headers: {
+                'Authorization': `Bearer ${bookToken}`
+            }
+        })
+        handleResponse({res})
+        console.log(res);
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+
 
 
 
