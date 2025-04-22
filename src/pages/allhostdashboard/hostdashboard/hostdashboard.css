@@ -272,6 +272,25 @@
 }
 
 
+.payout-notification {
+    margin: 15px 0;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .payout-notification.success {
+    background-color: #E8FFF0;
+    border: 1px solid #00A651;
+    color: #00A651;
+  }
+  
+  .payout-notification.error {
+    background-color: #FFEBE9;
+    border: 1px solid #FF3B30;
+    color: #FF3B30;
+  }
+
 
 
 

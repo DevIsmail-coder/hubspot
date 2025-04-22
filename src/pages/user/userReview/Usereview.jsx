@@ -2,12 +2,23 @@ import React, { useEffect, useState } from 'react'
 import './usereview.css'
 import { useSelector } from 'react-redux';
 import { userBooking } from '../../Hubspotapi';
-
+import { useLocation } from 'react-router-dom';
+import BookingVerification from '../../landing/BookingVerification';
 const Usereview = () => {
     const hostShowToken = useSelector((state) => state.hubspot.userToken);
     const bookToken = hostShowToken.userToken
     const [booking, setBooking] = useState([])
+    const location = useLocation();
 
+
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    
+    useEffect(() => {
+        if (location.state?.paymentSuccess) {
+            window.history.replaceState({}, document.title);
+        }
+    }, [location.state]);
 
     const handleResponse = (mess) => {
         if(mess?.res?.data?.data){
@@ -38,7 +49,7 @@ const Usereview = () => {
                         <div key={id} className='userReviewFlowdatab2'>
                         {/* <td className='userReviewDataInfo2'>FS-4821</td> */}
                         <td className='userReviewDataInfo2'>{i.spaceName}</td>
-                        <td className='userReviewDataInfo2'>2 Apr - 5 Apr</td>
+                        <td className='userReviewDataInfo2'>{`${i.startDate?.slice(0,5)}${months[Number(i.startDate?.slice(5,7))-1]}${i.startDate?.slice(7,10)}`}</td>
                         <td className='userReviewDataInfo2'> 
                             <span 
                             className='userReviewDataInfo2span'
@@ -59,7 +70,11 @@ const Usereview = () => {
                  }
                 </tbody>
             </table>
-
+            {
+                location.state?.paymentSuccess && (
+                    <BookingVerification />
+                )
+            }
         </div>
 
     )

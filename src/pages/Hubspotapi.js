@@ -446,3 +446,32 @@ export const adminApproved = async (id, isAdminToken, handleApprovedRes) => {
         console.log(err)
     }
 }
+
+
+
+// payout 
+
+ export const requestPayout = async (
+  handleloading,
+  handleResponse,
+  hostToken
+) => {
+  try {
+    handleloading(true);
+    const res = await axios.post(
+      `${HUBSPOTAPI}/host/payout`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${hostToken}`,
+        },
+      }
+    );
+    handleloading(false);
+    handleResponse({ res });
+  } catch (err) {
+    handleloading(false);
+    handleResponse({ err });
+    console.log(err);
+  }
+};
