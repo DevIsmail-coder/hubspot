@@ -513,26 +513,22 @@ and add this to your hostpage.css
     }
 
     .becomeHead {
-        display: flex;
-        height: 60vh;
-        padding: 20px 0;
-        background-color: rgb(166, 153, 153);
-    }
+        height: auto;
+        background-size: cover;
+        padding: 40px 0;
+      }
 
-    .becomeHeadbox {
-        width: 100%;
-        background-color: white;
-        display: flex;
-        align-items: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        margin: 0;
-    }
-
-    .becomeHeadbox1 {
+      .becomeHeadbox {
         width: 90%;
+        margin: 0 auto;
         text-align: center;
-
-    }
+        flex-direction: column;
+        padding: 20px;
+      }
+    
+      .becomeHeadbox1 {
+        margin: 0;
+      }
 
     .headBoxFont {
         font-size: 28px;
@@ -560,6 +556,7 @@ and add this to your hostpage.css
         display: flex;
         flex-direction: column;
         text-align: center;
+        font-size: 15px;
         gap: 30px;
     }
 
@@ -615,11 +612,15 @@ and add this to your hostpage.css
     }
 
     .becomeThirdbodypara {
-        font-size: 14px;
+        font-size: 11px;
     }
 
     .becomeThirdbodyfontA {
         font-size: 18px;
+    }
+    
+    .becomeThirdbodyfont{
+        text-align: center;
     }
 
     .becomeFourthbody {
@@ -711,14 +712,15 @@ and add this to your hostpage.css
     }
 
     .becomeFourthbodylastleft {
-        width: 97%;
+        width: 100%;
         display: flex;
         flex-direction: column;
 
     }
 
     .becomeFourthbodylastleftA {
-        font-size: 16px;
+        width: 95%;
+        font-size: 18px;
         text-align: left;
         margin: 10px 0;
     }
@@ -733,9 +735,13 @@ and add this to your hostpage.css
         color: orange;
     }
 
+    .faqs{
+        text-align: center;
+    }
+
     .lastdivButton {
         font-size: 18px;
-        width: 150px;
+        width: 200px;
         padding: 12px 20px;
         background-color: #1E3C8A;
         color: white;
