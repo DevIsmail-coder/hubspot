@@ -3,10 +3,6 @@ import './details.css'
 import { Around, Review } from '../../components/hubdata'
 import { IoStarSharp } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
-import { IoIosWifi } from "react-icons/io";
-import { GiCoffeeCup } from "react-icons/gi";
-import { MdSolarPower } from "react-icons/md";
-import { PiSecurityCameraFill } from "react-icons/pi";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -128,6 +124,7 @@ const Details = () => {
               </span>
             </div>
             <div className='Detailscontainer1XXX2'>
+              <p className='Detailscontainer1XXX2p'>{allSpace?.spaceAddress}</p>
               <span className='Detailscontainer1XXX2span'><IoLocationOutline className='Detailscontainer1XXX2spanicon' />{allSpace?.location}</span>
               <p className='Detailscontainer1XXX2p'>{allSpace?.spaceType}</p>
             </div>
