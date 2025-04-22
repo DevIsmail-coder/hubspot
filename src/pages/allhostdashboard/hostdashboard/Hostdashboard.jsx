@@ -3,7 +3,8 @@ import './hostdashboard.css'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { HiUserCircle } from "react-icons/hi";
-import { bookCategories, currentBalance, getSpace, listing } from '../../Hubspotapi'
+import { bookCategories, currentBalance, getSpace, listing, requestPayout } from '../../Hubspotapi'
+import toast from 'react-hot-toast';
 
 const Hostdashboard = () => {
   const navigate = useNavigate()
@@ -11,6 +12,8 @@ const Hostdashboard = () => {
   const [balance, setbalance] = useState(0.00)
   const [allListed, setAllListed] = useState([])
   const [current, setCurrent] = useState(0)
+  const [payoutResponse, setPayoutResponse] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
   const hostShowToken = useSelector((state) => state.hubspot.hostToken);
   const spaceToken = hostShowToken.hostToken
 
@@ -21,6 +24,30 @@ const Hostdashboard = () => {
       setCurrent(mess.data?.data)
     }
 
+  }
+
+
+  const handlePayoutResponse = (response) => {
+    if (response.res) {
+      setPayoutResponse({
+        success: true,
+        message: response.res.data.message,
+        reference: response.res.data.reference,
+        amount: response.res.data.amount
+      });
+      toast.success(`Payout request initiated successfully. Reference: ${response.res.data.reference}`);
+    } else if (response.err) {
+      const errorMessage = response.err.response?.data?.message || 'Error processing payout request';
+      setPayoutResponse({
+        success: false,
+        message: errorMessage
+      });
+      toast.error(`Payout request failed: ${errorMessage}`);
+    }
+  }
+
+  const initiatePayoutRequest = () => {
+    requestPayout(setIsLoading, handlePayoutResponse, spaceToken);
   }
 
   const handleResponselist = (mess) => {
@@ -86,7 +113,13 @@ const Hostdashboard = () => {
               <div className='Hostdashboardbodycontainer2mainart2div'>
                 <h1 className='Hostdashboardbodycontainer2mainart2divh1'>NGN {balance.toLocaleString()}</h1>
                 <p className='Hostdashboardbodycontainer2mainart2divp'>Current Balance</p>
-                <button className='Hostdashboardbodycontainer2mainart2divbut'>Withdraw</button>
+                <button
+                  className='Hostdashboardbodycontainer2mainart2divbut'
+                  onClick={initiatePayoutRequest}
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Processing...' : 'Withdraw'}
+                </button>
               </div>
               <div className='Hostdashboardbodycontainer2mainart2div'>
                 <h3 className='Hostdashboardbodycontainer2mainart2divh3'>{current} Spaces</h3>
@@ -96,7 +129,12 @@ const Hostdashboard = () => {
             </article>
           </main>
         </div>
-
+        {payoutResponse && (
+          <div className={`payout-notification ${payoutResponse.success ? 'success' : 'error'}`}>
+            <p>{payoutResponse.message}</p>
+            {payoutResponse.reference && <p>Reference: {payoutResponse.reference}</p>}
+          </div>
+        )}
         <article className='Managelistmainart2'>
           <header className='Managelistmainart2head'>
             <span className='Managelistmainart2headspan'>Space</span>
@@ -156,22 +194,22 @@ const Hostdashboard = () => {
           <div className='Hostdashboardbodycontainer1XX'>
             <h3 className='Hostdashboardbodycontainer1h3'>Manage Bookings</h3>
             <div className='Hostdashboardbodycontainer1wrap'>
-            {
-              Object.entries(performance).map(([key, value]) => (
+              {
+                Object.entries(performance).map(([key, value]) => (
 
-                <article className='Hostdashboardbodycontainer1art' key={key} style={{
-                  borderTop: `4px solid ${key === "upcoming"
-                    ? "#AFFDA6"
-                    : key === "active"
-                      ? "#B2F2FF"
-                      : "#FFDCDC"}`
-                }}>
-                  <h1 className='Hostdashboardbodycontainer1arth1'>{value}</h1>
-                  <h3 className='Hostdashboardbodycontainer1arth3'>{key === "upcoming" ? "Upcoming bookings" : key === "active" ? "Active bookings" : "Completed stays"}</h3>
-                </article>
+                  <article className='Hostdashboardbodycontainer1art' key={key} style={{
+                    borderTop: `4px solid ${key === "upcoming"
+                      ? "#AFFDA6"
+                      : key === "active"
+                        ? "#B2F2FF"
+                        : "#FFDCDC"}`
+                  }}>
+                    <h1 className='Hostdashboardbodycontainer1arth1'>{value}</h1>
+                    <h3 className='Hostdashboardbodycontainer1arth3'>{key === "upcoming" ? "Upcoming bookings" : key === "active" ? "Active bookings" : "Completed stays"}</h3>
+                  </article>
 
-              ))
-            }
+                ))
+              }
             </div>
           </div>
 
