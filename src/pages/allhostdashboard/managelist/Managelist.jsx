@@ -111,13 +111,12 @@ const Managelist = () => {
   // Render based on window width
   return (
     <>
-      {/* Desktop View - Only visible above 800px */}
       <div className="Managelistbody" style={{ display: windowWidth > 800 ? 'block' : 'none' }}>
         <main className='Managelistmain'>
-          <article className='Managelistmainart1'>
-            <h3 className='Managelistmainart1h3'>{current} Spaces</h3>
-            <p className='Managelistmainart1p'>Total Spaces Currently Live</p>
-            <button className='Managelistmainart1but' onClick={() => navigate("/listspace")}>Add Space</button>
+          <article className='ManagelistmainartX'>
+            <h3 className='Managelistmainart1h3X'>{current} Spaces</h3>
+            <p className='Managelistmainart1pX'>Total Spaces Currently Live</p>
+            <button className='Managelistmainart1butX' onClick={() => navigate("/listspace")}>Add Space</button>
           </article>
           <article className='Managelistmainart2'>
             <header className='Managelistmainart2head'>
@@ -126,7 +125,7 @@ const Managelist = () => {
               <span className='Managelistmainart2headspan1'>Date Posted</span>
               <span className='Managelistmainart2headspan1'>Open Space</span>
               <span className='Managelistmainart2headspan2'>Status</span>
-              <span className='Managelistmainart2headspan'>Actions</span>
+              <span className='Managelistmainart2headspan2'>Actions</span>
             </header>
             <main className='Managelistmainart2main'>
               {allListed.map((i, index) => (

@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import './hostdashboard.css';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import './hostdashboard.css'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { HiUserCircle } from "react-icons/hi";
-import { bookCategories, currentBalance, getSpace, listing } from '../../Hubspotapi';
+import { bookCategories, currentBalance, getSpace, listing, requestPayout } from '../../Hubspotapi'
+import toast from 'react-hot-toast';
 
 const Hostdashboard = () => {
-  const navigate = useNavigate();
-  const [performance, setPerformance] = useState({});
-  const [balance, setbalance] = useState(0.00);
-  const [allListed, setAllListed] = useState([]);
-  const [current, setCurrent] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+  const navigate = useNavigate()
+  const [performance, setPerformance] = useState({})
+  const [balance, setbalance] = useState(0.00)
+  const [allListed, setAllListed] = useState([])
+  const [current, setCurrent] = useState(0)
+  const [payoutResponse, setPayoutResponse] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
   const hostShowToken = useSelector((state) => state.hubspot.hostToken);
-  const spaceToken = hostShowToken.hostToken;
+  const spaceToken = hostShowToken.hostToken
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+
+  
 
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -28,6 +33,30 @@ const Hostdashboard = () => {
       setAllListed(mess.data?.data);
     }
   };
+
+  const handlePayoutResponse = (response) => {
+    if (response.res) {
+      setPayoutResponse({
+        success: true,
+        message: response.res.data.message,
+        reference: response.res.data.reference,
+        amount: response.res.data.amount
+      });
+      toast.success(`Payout request initiated successfully. Reference: ${response.res.data.reference}`);
+    } else if (response.err) {
+      const errorMessage = response.err.response?.data?.message || 'Error processing payout request';
+      setPayoutResponse({
+        success: false,
+        message: errorMessage
+      });
+      toast.error(`Payout request failed: ${errorMessage}`);
+    }
+  }
+
+  const initiatePayoutRequest = () => {
+    requestPayout(setIsLoading, handlePayoutResponse, spaceToken);
+  }
+  
 
   const showbalance = (mess) => {
     if (mess.data?.data) {
@@ -92,7 +121,10 @@ const Hostdashboard = () => {
             <div className='Hostdashboardbodycontainer2mainart2div'>
               <h1 className='Hostdashboardbodycontainer2mainart2divh1'>NGN {balance.toLocaleString()}</h1>
               <p className='Hostdashboardbodycontainer2mainart2divp'>Current Balance</p>
-              <button className='Hostdashboardbodycontainer2mainart2divbut'>Withdraw</button>
+              <button className='Hostdashboardbodycontainer2mainart2divbut' 
+                onClick={initiatePayoutRequest}
+                disabled={isLoading}
+              >{isLoading ? 'Processing...' : 'Withdraw'}</button>
             </div>
             <div className='Hostdashboardbodycontainer2mainart2div'>
               <h3 className='Hostdashboardbodycontainer2mainart2divh3'>{current} Spaces</h3>
@@ -102,6 +134,13 @@ const Hostdashboard = () => {
           </article>
         </main>
       </div>
+
+      {payoutResponse && (
+          <div className={`payout-notification ${payoutResponse.success ? 'success' : 'error'}`}>
+            <p>{payoutResponse.message}</p>
+            {payoutResponse.reference && <p>Reference: {payoutResponse.reference}</p>}
+          </div>
+        )}
 
       <article className='Managelistmainart2'>
         <header className='Managelistmainart2head'>
