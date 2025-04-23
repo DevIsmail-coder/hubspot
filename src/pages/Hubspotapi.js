@@ -100,6 +100,25 @@ export const hostLogin = async (userInfo, handleloading, handleResponse) => {
 }
 
 
+export const hostSetting = async (hostBank, handleloading, handleResponse, spaceToken) => {
+    // console.log(spaceToken);
+    
+    try {
+        handleloading(true)
+        const res = await axios.put(`${HUBSPOTAPI}/host/update`,  hostBank,  {
+            headers: {
+                'Authorization': `Bearer ${spaceToken}`
+            }
+        })
+        handleResponse({res})
+        handleloading(false)
+    }
+    catch (err) {
+        handleloading(false)
+        handleResponse({err})
+    }
+}
+
 
 //  space
 export const getAllspace = async (handleResponse) => {
