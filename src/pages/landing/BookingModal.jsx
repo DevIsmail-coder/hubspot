@@ -4,10 +4,7 @@ import { initializeBooking, getDetails } from '../Hubspotapi'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import BookingTypeSelector from './BookingSelector';
-import { FaClock } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-import TimePicker from 'react-time-picker';
-import 'react-time-picker/dist/TimePicker.css';
 
 const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1, initialDurationType = 'hourly' }) => {
     const userToken = useSelector((state) => state.hubspot.userToken);
@@ -195,7 +192,7 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
                     setIframeUrl(null)
                     setTimeout(() => {
                         onClose();
-                        navigate('/', { state: { paymentSuccess: true, needVerification: true } });
+                        navigate('/managebookings', { state: { paymentSuccess: true, needVerification: true } });
                     }, 500);
                     break;
                 }
@@ -334,23 +331,16 @@ const BookingModal = ({ isOpen, onClose, spaceId, onSubmit, initialDuration = 1,
 
                         <div className="form-group">
                             <label htmlFor="checkinTime">Check-in Time</label>
-                     <div className='checkinTimebuild'>
-                     <FaClock className="clock-icon" />
-                            <TimePicker
+                            <input
                                 type="time"
                                 id="checkinTime"
                                 name="checkinTime"
                                 value={bookingData.checkinTime}
-                                className="custom-time-picker"
                                 onChange={handleChange}
-                                disableClock={true}
-                                 format="HH:mm"
                                 required
                             />
-                     </div>
                         </div>
 
-        
                         {spaceDetails && (
                             <div className="price-display">
                                 <div className="price-breakdown">

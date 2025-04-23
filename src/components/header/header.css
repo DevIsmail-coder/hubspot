@@ -1,4 +1,4 @@
-.Headerbody{
+.Headerbody {
     width: 100%;
     height: 11.5vh;
     display: flex;
@@ -10,7 +10,7 @@
     background-color: #FFFFFF;
 }
 
-.Headermain{
+.Headermain {
     width: 86%;
     height: 100%;
     display: flex;
@@ -18,22 +18,22 @@
     align-items: center;
 }
 
-.Headermain:hover{
+.Headermain:hover {
     cursor: pointer;
 }
 
-.Headerdiv1{
+.Headerdiv1 {
     width: 15%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 
-    .Headerdiv1img{
+    .Headerdiv1img {
         width: 150px;
     }
 }
 
-.Headerdiv2{
+.Headerdiv2 {
     width: 32%;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -43,46 +43,52 @@
     justify-content: center;
     border: 1px solid #A1A1A1;
 
-     .Headerdiv2input{
+    .Headerdiv2input {
         width: 80%;
         border: none;
         outline: none;
         background-color: transparent;
     }
-    .Headerdiv2icon{
+
+    .Headerdiv2icon {
         color: #828282;
         font-size: 25px;
     }
 }
-.Headerdiv3{
+
+.Headerdiv3 {
     /* width: 36%; */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
 
-    .Headerdiv3XX{
+    .Headerdiv3XX {
         font-size: 18px;
         color: #1E398A;
         font-weight: 450;
     }
-    .Headerdiv3X:hover{
+
+    .Headerdiv3X:hover {
         cursor: pointer;
         color: #243c84;
     }
-    .Headerdiv3X{
+
+    .Headerdiv3X {
         color: #000000;
         font-size: 18px;
         font-weight: 300;
     }
 }
-.Headerdiv3main{
+
+.Headerdiv3main {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
 }
-.Headerdiv3mainshow{
+
+.Headerdiv3mainshow {
     position: absolute;
     background-color: #FFFFFF;
     top: 63px;
@@ -93,12 +99,13 @@
     padding: 8px;
 }
 
-.Headerdiv3mainshowp:hover{
-  background-color: #1E398A;
-  color: #FFFFFF;
-  padding: 5px;
+.Headerdiv3mainshowp:hover {
+    background-color: #1E398A;
+    color: #FFFFFF;
+    padding: 5px;
 }
-.Headerdiv3span{
+
+.Headerdiv3span {
     width: 47px;
     display: flex;
     align-items: center;
@@ -106,18 +113,19 @@
     height: 44px;
     border-radius: 50%;
 
-    .Headerdiv3spanicon{
+    .Headerdiv3spanicon {
         width: 100%;
-       color: #1E398A;
+        color: #1E398A;
         height: 100%;
     }
 
 }
-.Headerdiv3spanX{
+
+.Headerdiv3spanX {
     display: flex;
 
 
-    .Headerdiv3spanXbut1{
+    .Headerdiv3spanXbut1 {
         width: 90px;
         border: none;
         font-size: 15px;
@@ -126,7 +134,7 @@
         background-color: transparent;
     }
 
-    .Headerdiv1XXdropdownspanbutdrop{
+    .Headerdiv1XXdropdownspanbutdrop {
         border-top: 1.5px solid #1E3C8A;
         border-radius: 4px 0 4px 0px;
         position: absolute;
@@ -142,23 +150,23 @@
         font-size: 14px;
     }
 
-    .Headerdiv1XXdropdownspanbutdroptag{
+    .Headerdiv1XXdropdownspanbutdroptag {
         /* background-color: yellow; */
-        
+
         padding: 2.5px;
         height: 43px;
         display: flex;
         align-items: center;
     }
 
-    .Headerdiv1XXdropdownspanbutdroptag:hover{
+    .Headerdiv1XXdropdownspanbutdroptag:hover {
         background-color: #1E3C8A;
         color: #DCE1EC;
         cursor: pointer;
         border-radius: 3px 0 3px 0;
     }
-    
-    .Headerdiv3spanXbut2{
+
+    .Headerdiv3spanXbut2 {
         width: 90px;
         padding: 9px;
         border: none;
@@ -168,7 +176,8 @@
         cursor: pointer;
         background-color: #1E3B8A;
     }
-    .Headerdiv1XXdropdownspanbutdrop1{
+
+    .Headerdiv1XXdropdownspanbutdrop1 {
         border-top: 1.5px solid #1E3C8A;
         border-radius: 4px 0 4px 0px;
         position: absolute;
@@ -185,17 +194,18 @@
 }
 
 
-.Headerdiv1XX{
+.Headerdiv1XX {
     display: none;
 }
 
-@media screen and (max-width: 800px){
-    .Headerbody{
+@media screen and (max-width: 800px) {
+    .Headerbody {
         width: 100%;
         height: auto;
         z-index: 10;
     }
-    .Headerdiv1XX{
+
+    .Headerdiv1XX {
         width: 100%;
         padding: 25px;
         align-items: center;
@@ -205,21 +215,21 @@
         display: flex;
         flex-direction: column;
 
-        .Headerdiv1XXmain{
+        .Headerdiv1XXmain {
             width: 100%;
             align-items: center;
             font-size: 30px;
             justify-content: space-between;
             display: flex;
-            
 
-            .Headerdiv1XXmainimg{
+
+            .Headerdiv1XXmainimg {
                 width: 100px;
             }
         }
 
-     
-        .Headerdiv1XXdropdown{
+
+        .Headerdiv1XXdropdown {
             display: flex;
             width: 100%;
             gap: 15px;
@@ -230,7 +240,7 @@
             flex-direction: column;
             z-index: 1000;
 
-            .Headerdiv1XXdropdownspan{
+            .Headerdiv1XXdropdownspan {
                 width: 100%;
                 /* padding-top: 25px; */
                 display: flex;
@@ -241,14 +251,14 @@
                 .Headerdiv1XXdropdownspanshow{
                     width: 100%;
                     display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                justify-content: center;
-                gap: 10px;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    justify-content: center;
+                    gap: 10px;
                     /* background-color: blue; */
                 }
 
-                .Headerdiv1XXdropdownspanbutdropis{
+                .Headerdiv1XXdropdownspanbutdropis {
                     display: flex;
                     flex-direction: column;
                     gap: 15px;
@@ -256,18 +266,18 @@
                     padding: 5px 0 5px 0px;
                 }
 
-                .Headerdiv1XXdropdownspanbutdroptag{
+                .Headerdiv1XXdropdownspanbutdroptag {
                     padding: 10px;
                 }
 
-                .Headerdiv1XXdropdownspanbutdroptag:hover{
+                .Headerdiv1XXdropdownspanbutdroptag:hover {
                     background-color: #1E3C8A;
                     color: #DCE1EC;
                     cursor: pointer;
                     border-radius: 3px 0 3px 0;
                 }
 
-                .Headerdiv1XXdropdownspanbut{
+                .Headerdiv1XXdropdownspanbut {
                     width: 30%;
                     background-color: #1E3C8A;
                     color: #E3E7F0;
@@ -279,16 +289,8 @@
         }
     }
 
-    /* .Headerdiv3main{
-        position: none;
-    }
 
-    .Headerdiv3mainshow{
-        background-color: yellow;
-        position: none;
-    } */
-
-    .Headermain{
+    .Headermain {
         display: none;
     }
 }

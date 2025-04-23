@@ -1,4 +1,5 @@
- import React, { useState } from 'react';
+
+import React, { useState } from 'react';
 import './hostpage.css';
 import { RiCheckboxCircleLine } from "react-icons/ri";
 import { GrAdd } from "react-icons/gr";
@@ -17,8 +18,19 @@ const Hostpage = () => {
     const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
     const [subscriptionType, setSubscriptionType] = useState('standard');
     const [isYearly, setIsYearly] = useState(false);
+      const hostShowToken = useSelector((state) => state.hubspot.hostToken);
+      const spaceToken = hostShowToken.hostToken
 
     const hostToken = useSelector((state) => state.hubspot.hostToken);
+
+
+    const handleNavigate = () => {
+        if(!spaceToken){
+            navigate("/hostlogin")
+        }else{
+            navigate("/listspace")
+        }
+    }
 
     const toggleFAQ = (index) => {
         if (openFAQIndexes.includes(index)) {
@@ -100,7 +112,7 @@ const Hostpage = () => {
                             environments. Showcase your space effortlessly, fill your schedule, and <br />
                             turn idle areas into thriving hubs of productivity and creativity.
                         </p>
-                        <button className='headFontbutton' onClick={() => navigate("/allspace")}>List Your Space</button>
+                        <button className='headFontbutton' onClick={handleNavigate}>List Your Space</button>
                     </div>
                 </div>
             </div>
@@ -295,7 +307,7 @@ const Hostpage = () => {
             </div>
             <div className='becomeLastdiv'>
                 <h1 className='lastdivFont'>Unlock the Actual Value of Your Space</h1>
-                <button className='lastdivButton' onClick={() => navigate("/allspace")}>List Your Space</button>
+                <button className='lastdivButton' onClick={handleNavigate}>List Your Space</button>
             </div>
         </div>
     );

@@ -135,6 +135,7 @@ const Allspace = () => {
                                         <div className='Allspacecontainer2wrapXXX2d1'>
                                         </div>
                                         <div className='Allspacecontainer2wrapXXX2d2'>
+                                            <p className='Allspacecontainer2wrapXXX2d2p'>{i.spaceAddress}</p>
                                         <div className='Allspacecontainerlocation'>
                                             <IoLocationOutline className='Allspacecontainerlocationxx' />
                                             {i.location}

@@ -49,6 +49,22 @@ export const userLogin = async (userInfo, handleloading, handleResponse) => {
     }
 }
 
+export const userBooking = async (handleResponse, bookToken) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/users/booking`, {
+            headers: {
+                'Authorization': `Bearer ${bookToken}`
+            }
+        })
+        handleResponse({res})
+        console.log(res);
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+
 
 
 
@@ -83,6 +99,25 @@ export const hostLogin = async (userInfo, handleloading, handleResponse) => {
     }
 }
 
+
+export const hostSetting = async (hostBank, handleloading, handleResponse, spaceToken) => {
+    // console.log(spaceToken);
+    
+    try {
+        handleloading(true)
+        const res = await axios.put(`${HUBSPOTAPI}/host/update`,  hostBank,  {
+            headers: {
+                'Authorization': `Bearer ${spaceToken}`
+            }
+        })
+        handleResponse({res})
+        handleloading(false)
+    }
+    catch (err) {
+        handleloading(false)
+        handleResponse({err})
+    }
+}
 
 
 //  space
@@ -141,6 +176,16 @@ export const topSpace = async (handleResponse) => {
 }
 
 
+export const spaceByLocation = async (handleResponse, location) => {
+    try {
+        const res = await axios.get(`${HUBSPOTAPI}/space/location?location=${location}`)
+        handleResponse(res)
+        console.log(res);
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
 
 
 // host dashboard
@@ -420,3 +465,32 @@ export const adminApproved = async (id, isAdminToken, handleApprovedRes) => {
         console.log(err)
     }
 }
+
+
+
+// payout 
+
+ export const requestPayout = async (
+  handleloading,
+  handleResponse,
+  hostToken
+) => {
+  try {
+    handleloading(true);
+    const res = await axios.post(
+      `${HUBSPOTAPI}/host/payout`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${hostToken}`,
+        },
+      }
+    );
+    handleloading(false);
+    handleResponse({ res });
+  } catch (err) {
+    handleloading(false);
+    handleResponse({ err });
+    console.log(err);
+  }
+};
