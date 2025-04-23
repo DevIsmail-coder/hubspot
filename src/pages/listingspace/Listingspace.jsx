@@ -54,7 +54,7 @@ const Listingspace = () => {
     },
     spaceType: "",
     location: "",
-    spaceAdress: "",
+    spaceAddress: "",
     images: [
       {
         "imageUrl1": "",
@@ -171,7 +171,7 @@ const Listingspace = () => {
         },
         spaceType: "",
         location: "",
-        spaceAdress: "",
+        spaceAddress: "",
         images: [
           {
             "imageUrl1": "",
@@ -376,8 +376,8 @@ const Listingspace = () => {
                 type="text"
                 className='Listingspaceinput'
                 placeholder='Space Address'
-                name="spaceAdress"
-                value={listData.spaceAdress}
+                name="spaceAddress"
+                value={listData.spaceAddress}
                 onChange={handleInputChange}
               />
             </div>
