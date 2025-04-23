@@ -79,6 +79,10 @@ const handleLogOut = () => {
                     <span className={`LeftboardmainXXartspan ${getActivediv("/dashboardLayout/password&security")}`}
                         onClick={() => {handleNavigate("/dashboardLayout/password&security")}}>
                         <MdSecurity className='LeftboardmainXXartspanicon' /> Password & Security </span>
+                        <span className={`LeftboardmainXXartspan ${getActivediv("/")}`}
+                        onClick={handleLogOut}>
+                        <MdSecurity className='LeftboardmainXXartspanicon' /> Log out
+                         </span>
                 </article>
             </main>
         </div>

@@ -49,17 +49,17 @@ const Hostsignup = () => {
         }
     }
 
-    const handleImage = (e) => {
-      const file = e.target.files[0];
-      const userImage = (URL.createObjectURL(file))
-      if (file) {
-        setUserData({ ...userData, ninImage: userImage }); 
+    // const handleImage = (e) => {
+    //   const file = e.target.files[0];
+    //   const userImage = (URL.createObjectURL(file))
+    //   if (file) {
+    //     setUserData({ ...userData, ninImage: userImage }); 
   
-        if (userError.ninImage) {
-          setUserError({ ...userError, ninImage: "" });
-        }
-      }
-    }
+    //     if (userError.ninImage) {
+    //       setUserError({ ...userError, ninImage: "" });
+    //     }
+    //   }
+    // }
 
     const validation = (email) => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -97,9 +97,6 @@ const Hostsignup = () => {
       if (userData.idCardNumber.trim() === "") {
         errors.idCardNumber = "please enter ID number"
     }
-    // if (!userData.ninImage) {
-    //   errors.ninImage = "Please upload ID image";
-    // }
 
 
       if (Object.keys(errors).length > 0) {
@@ -253,20 +250,7 @@ const Hostsignup = () => {
                         />
                     </span>
                     <p className='Hostsignupcontainer2spanerror'>{userError.idCardNumber}</p>
-                    {/* <span className='Hostsignupcontainer2span'>
-                      <img src={userData.ninImage} alt="" className='Hostsignupcontainer2span1img'/>
-                        <input type="file"
-                        id='ismail'
-                        onChange={handleImage}
-                        name='ninImage'
-                        hidden
-                            placeholder='Upload ID'
-                            className='Hostsignupcontainerinput'
-                            readOnly
-                        />
-                        <label className='Browser' htmlFor='ismail'>Browse</label>
-                    </span>  */}
-                    {/* <p className='Hostsignupcontainer2spanerror'>{userError.ninImage}</p> */}
+
                 </div>
                 <p className='Hostsignupcontainer3'>By signing up, you agree to the <span className='Hostsignupcontainer3wrap'>Terms of Use</span> and <span className='Signupcontainer3wrap'>Privacy Policy</span>.</p>
                 <button className='Hostsignupbutton1' type='submit'>{loading ? "Loading..." : "Create Account"}</button>
