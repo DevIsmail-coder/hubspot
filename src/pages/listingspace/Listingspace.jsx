@@ -215,7 +215,7 @@ const Listingspace = () => {
     formData.append('overview', listData.overview);
     formData.append('spaceType', listData.spaceType);
     formData.append('location', listData.location);
-    formData.append('spaceAdress', listData.spaceAdress);
+    formData.append('spaceAddress', listData.spaceAddress);
     formData.append('pricePerDay', listData.pricePerDay);
     formData.append('pricePerHour', listData.pricePerHour);
     formData.append('capacity', listData.capacity);
