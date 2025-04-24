@@ -105,7 +105,7 @@ const Accountsetting = () => {
         </div>
         <div className='Accountsettingcontainer2'>
           <input type="text" className='Accountsettingcontainer2input'
-            value={hostShowData.host.fullName}
+            value={hostShowData?.host?.fullName || ""}
           />
           <span className='Accountsettingcontainer2input'>
             <MdLocalPhone className='Accountsettingcontainer2inputicon' />
@@ -130,12 +130,12 @@ const Accountsetting = () => {
               <IoIosArrowDown className='Accountsettingcontainer3divicon'/></span>
           </div>
           <input type="text" className='Accountsettingcontainer3input'
-            value={hostShowData.host.idCardNumber}
+            value={hostShowData.host.idCardNumber || ""}
           />
           <span className='Accountsettingcontainer3input'>
             <RiSimCard2Fill className='Accountsettingcontainer3inputicon' />
             <input type="text" className='Accountsettingcontainer3inputin'
-              value={hostShowData.host.meansOfIdentification}
+              value={hostShowData.host.meansOfIdentification || ""}
             />
           </span>
           <div className='Accountsettingcontainer3but'>
@@ -153,7 +153,7 @@ const Accountsetting = () => {
           <span className='Accountsettingcontainer3input'>
             <TiLocation className='Accountsettingcontainer3inputicon' />
             <input type="text" className='Accountsettingcontainer3inputin'
-              value={hostShowData.host.companyAddress}
+              value={hostShowData.host.companyAddress || ""}
             />
           </span>
           <div className='Accountsettingcontainer3but'>
