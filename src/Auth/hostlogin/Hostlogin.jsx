@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './hostlogin.css'
-import { FcGoogle } from "react-icons/fc";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
