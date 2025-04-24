@@ -37,7 +37,7 @@ const Footer = () => {
       <p className='Footercontainer2p'>© 2025 HubSpot. All rights reserved</p>
         <main className='Footercontainer2main'>
         <a href='https://www.facebook.com/profile.php?id=61575549950800' className='Footercontainer2span'><BiLogoFacebook /></a>
-        <a href='https://www.instagram.com/hubspotlagos?igsh=MWdndXBnMGswbGlvZA%3D%3D' className='Footercontainer2span'><IoLogoInstagram /></a>
+        <a href='https://www.instagram.com/hubspotnigeria?igsh=MWdndXBnMGswbGlvZA==' className='Footercontainer2span'><IoLogoInstagram /></a>
         <a href='https://x.com/HubspotNigeria' className='Footercontainer2span'><TiSocialTwitter /></a>
         <a href='https://www.linkedin.com/company/hubspot-nigeria/about/?viewAsMember=true' className='Footercontainer2span'><IoLogoLinkedin /></a>
         </main>
