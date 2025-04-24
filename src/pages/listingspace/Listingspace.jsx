@@ -220,7 +220,7 @@ const Listingspace = () => {
     formData.append('pricePerHour', listData.pricePerHour);
     formData.append('capacity', listData.capacity);
     formData.append('availability', JSON.stringify(listData.availability));
-    formData.append('amenities', JSON.stringify(listData.amenities));
+    formData.append('amenities', (listData.amenities));
 
 
     Object.entries(imageFiles).forEach(([key, file]) => {

@@ -137,8 +137,13 @@ const Details = () => {
               <main className='Detailscontainer1XXX4main'>
                 <span className='Detailscontainer1XXX4mainspan'>
                   {
-                    allSpace.amenities && allSpace.amenities?.split(",").map((amenity, index) => (
-                      <span key={index} className='admin-amenity-icon '>{amenity}</span>
+                    (Array.isArray(allSpace.amenities)
+                      ? allSpace.amenities
+                      : typeof allSpace.amenities === 'string'
+                        ? allSpace.amenities.split(",")
+                        : []
+                    ).slice(0, 4).map((amenity, index) => (
+                      <span key={index} className='admin-amenity-icon'>{amenity}</span>
                     ))
                   }
                 </span>
@@ -153,10 +158,10 @@ const Details = () => {
         </main>
         <main className='Detailscontainer2'>
           <article className='Detailscontainer2XX'>
-            <div className='Detailscontainer2XXwrap1'>
+            {/* <div className='Detailscontainer2XXwrap1'>
               <span className='Detailscontainer2XXwrap1span'></span>
               <span className='Detailscontainer2XXwrap1span'></span>
-            </div>
+            </div> */}
             <div className='Detailscontainer2XXwrap2'>
 
               <article className='Detailscontainer2XXwrap2art2'>

@@ -117,9 +117,13 @@ const Landing = () => {
                                         <p className='Landingcontainer2wrapart2hp'>{i.overview.slice(0, 75)}....</p>
                                         <div className='Landingcontainer2iconwrap'>
                                             {
-                                                i.amenities &&
-                                                i.amenities.split(",").slice(0, 3).map((amenity, index) => (
-                                                    <span key={index} className='Landingcontainer2iconwrapamen'>{amenity}</span>
+                                                (Array.isArray(i.amenities)
+                                                    ? i.amenities
+                                                    : typeof i.amenities === 'string'
+                                                        ? i.amenities.split(",")
+                                                        : []
+                                                ).slice(0, 4).map((amenity, index) => (
+                                                    <span key={index} className='admin-amenity-icon'>{amenity}</span>
                                                 ))
                                             }
                                         </div>

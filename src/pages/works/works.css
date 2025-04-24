@@ -361,6 +361,7 @@
             .Workscontainer2wrap {
                 width: 100%;
                 flex-shrink: 0;
+                /* padding: 15px; */
                 overflow-x: auto;
             }
 

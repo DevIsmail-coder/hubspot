@@ -89,11 +89,18 @@ const Admindashboard = () => {
                     </p>
                   </div>
                   <div className='admin-space-amenities'>
-                    {
-                      i.amenities && i.amenities.split(",").slice(0, 4).map((amenity, index) => (
-                        <span key={index} className='admin-amenity-icon '>{amenity}</span>
-                      ))
-                    }
+                  {
+  (Array.isArray(i.amenities)
+    ? i.amenities
+    : typeof i.amenities === 'string'
+      ? i.amenities.split(",")
+      : []
+  ).slice(0, 4).map((amenity, index) => (
+    <span key={index} className='admin-amenity-icon'>{amenity}</span>
+  ))
+}
+
+             
                   </div>
                   <div className='admin-space-actions'>
                     <button className='admin-approve-btn' onClick={() => handleApprove(i.id)}>Approve Space</button>
