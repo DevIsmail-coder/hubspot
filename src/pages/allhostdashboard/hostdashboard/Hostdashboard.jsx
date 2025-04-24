@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { HiUserCircle } from "react-icons/hi";
 import { bookCategories, currentBalance, getSpace, listing, requestPayout } from '../../Hubspotapi'
 import toast from 'react-hot-toast';
+import dayjs from 'dayjs';
 
 const Hostdashboard = () => {
   const navigate = useNavigate()
@@ -170,7 +171,7 @@ const Hostdashboard = () => {
                 </div>
                 <div className='Managelistmainart2maindiv1'>{i.bookingCount} users</div>
                 <div className='Managelistmainart2maindiv2'>
-                  <p>{`${i.createdAt?.slice(0, 5)}${months[Number(i.createdAt?.slice(5, 7)) - 1]}${i.createdAt?.slice(7, 10)}`}</p>
+                  <p>{dayjs(i.createdAt).format('DD MMM YYYY')}</p>
                   <p className='Managelistmainart2maindiv2p'>{i.daysAgo}</p>
                 </div>
                 <div className='Managelistmainart2maindiv1'>{i.capacity} desks</div>

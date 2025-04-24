@@ -123,9 +123,14 @@ const Allspace = () => {
                                         </div>
                                         <p className='Allspacecontainer2wrapXXX1d2'>{i.overview.slice(0, 75)}...</p>
                                         <div className='Allspacecontainer2wrapXXX1d3'>
-                                            {
-                                                i.amenities && i.amenities.split(",").slice(0, 4).map((amenity, index) => (
-                                                    <span key={index} className='admin-amenity-icon '>{amenity}</span>
+                                        {
+                                                (Array.isArray(i.amenities)
+                                                    ? i.amenities
+                                                    : typeof i.amenities === 'string'
+                                                        ? i.amenities.split(",")
+                                                        : []
+                                                ).slice(0, 4).map((amenity, index) => (
+                                                    <span key={index} className='admin-amenity-icon'>{amenity}</span>
                                                 ))
                                             }
                                         </div>
