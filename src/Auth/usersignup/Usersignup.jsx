@@ -193,12 +193,12 @@ const Usersignup = () => {
                 </div>
                 <p className='Signupcontainer3'>By signing up, you agree to the <span className='Signupcontainer3wrap'>Terms of Use</span> and <span className='Signupcontainer3wrap'>Privacy Policy.</span></p>
                 <button className='Signupbutton1' type='submit'>{loading ? "Loading..." : "Create Account"}</button>
-                <div className='Signupcontainer4'>
+                {/* <div className='Signupcontainer4'>
                     <span className='Signupcontainer3span'></span>
                     <p>OR</p>
                     <span className='Signupcontainer3span'></span>
-                </div>
-                <button className='Signupbutton2' type='button'><FcGoogle className='Signupbutton2icon' /> Continue with Google</button>
+                </div> */}
+                {/* <button className='Signupbutton2' type='button'><FcGoogle className='Signupbutton2icon' /> Continue with Google</button> */}
                 <p className='Signupcontainer3'>Already have an account? <span className='Signupcontainer3wrap' onClick={() => navigate("/login")}>Log in</span></p>
             </form>
         </div>

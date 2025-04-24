@@ -150,12 +150,12 @@ const Login = () => {
                 </div>
                 <span className='Logincontainer3wrap' onClick={() => navigate("/forget")}>Forget Password?</span>
                 <button className='Signupbutton1' type='submit'>{loading ? "Logging in..." : "Login"}</button>
-                <div className='Logincontainer4'>
+                {/* <div className='Logincontainer4'>
                     <span className='Logincontainer3span'></span>
                     <p>OR</p>
                     <span className='Logincontainer3span'></span>
-                </div>
-                <button className='Loginbutton2' type='button'><FcGoogle className='Loginbutton2icon' /> Continue with Google</button>
+                </div> */}
+                {/* <button className='Loginbutton2' type='button'><FcGoogle className='Loginbutton2icon' /> Continue with Google</button> */}
                 <p className='Logincontainer3'>Don't have an account? <span className='Logincontainer4wrap' onClick={() => navigate("/usersignup")}>Create an account</span></p>
             </form>
         </div>
