@@ -105,7 +105,7 @@ export const hostSetting = async (hostBank, handleloading, handleResponse, space
     
     try {
         handleloading(true)
-        const res = await axios.put(`${HUBSPOTAPI}/host/update`,  hostBank,  {
+        const res = await axios.put(`${HUBSPOTAPI}/host/update`,  hostBank, {
             headers: {
                 'Authorization': `Bearer ${spaceToken}`
             }

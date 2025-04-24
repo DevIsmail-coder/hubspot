@@ -49,7 +49,7 @@ const Accountsetting = () => {
           bankName: "",
           accountNumber: "",
           accountName: "",
-          bankCode: "",
+          bankCode: 0,
         })
         // navigate("/email")  
     } else if (mess.err?.response?.data?.message) {
