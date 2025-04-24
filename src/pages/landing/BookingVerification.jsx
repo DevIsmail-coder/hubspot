@@ -43,7 +43,7 @@ const BookingVerification = () => {
         if (response.res) {
             setVerificationStatus('success');
 
-            toast.success('Booking verified successfully!', {
+            toast.success('Booking verified successfully! check mail for booking details', {
                 duration: 5000,
                 position: 'top-center',
                 style: {

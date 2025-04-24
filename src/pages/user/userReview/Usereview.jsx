@@ -45,7 +45,7 @@ const Usereview = () => {
                 </thead>
                 <tbody className='userReviewDatainfoB'>
                  {
-                    booking.map((i, id) => (
+                    booking?.map((i, id) => (
                         <div key={id} className='userReviewFlowdatab2'>
                         {/* <td className='userReviewDataInfo2'>FS-4821</td> */}
                         <td className='userReviewDataInfo2'>{i.spaceName}</td>
@@ -54,12 +54,12 @@ const Usereview = () => {
                             <span 
                             className='userReviewDataInfo2span'
                               style={{
-                                backgroundColor: i.status === 'upcoming' ? '#FEFAEE' : i.status === 'active' ? '#E9F7EF' : '#FFEAEB',
-                                color: i.status === 'upcoming' ? '#F5D77A' : i.status === 'active' ? '#27AE60' : '#EB5857'
+                                backgroundColor: i?.status === 'upcoming' ? '#FEFAEE' : i?.status === 'active' ? '#E9F7EF' :  i?.status === 'expired' ? '#FFEAEB'  : "",
+                                color: i?.status === 'upcoming' ? '#F5D77A' : i?.status === 'active' ? '#27AE60' : i?.status === 'expired' ? '#EB5857' : ""
                               }}
                             >
     
-                            {i.status}
+                            {i?.status}
                             </span>
                             
                             </td>
